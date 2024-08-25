@@ -134,7 +134,7 @@ function App() {
               </Link>
             </div>
             <div className='nav-contents border flex justify-between pt-3 gap-20'>
-              <div className= {`border nav-menu gap-4 px-4 ${searchBarHidden}`}>
+              <div className= {` nav-menu gap-4 px-4 mt-1 ${searchBarHidden}`}>
                 <Link to = "/" className='text-black font-medium hover:text-[#1a2eeb] hover:font-bold'>Home Page</Link>
                 <Link 
                   to = "/search?category=all&query=all&price=all&rating=all&order=newest&page=1" 
@@ -142,15 +142,15 @@ function App() {
                 <Link to = "/aboutus" className='text-black font-medium hover:text-[#1a2eeb] hover:font-bold'> About Us</Link>
                 <Link to = "/contactus" className='text-black font-medium hover:text-[#1a2eeb] hover:font-bold' id = "contact-nav">Contact</Link>
               </div>
-              <div className='border nav-functions flex gap-4 pt-1'>
-                <div className={`border ${searchbarVisibility}`}>
+              <div className=' nav-functions flex gap-4 pt-1'>
+                <div className={` w-[820px]  ${searchbarVisibility} gap-2`}>
                     <SearchBox />
-                    <div className='search-cancel'>
+                    <div className='search-cancel w-1/12 border-black border pt-2 text-center text-xs text-black'>
                       <button onClick={cancelSearchbarfunc} className='btn'>Cancel</button>
                     </div>
                   </div>
                 <div onClick={searchBarfunc} className={`${searchBarHidden} search-bar text-black cursor-pointer` }>
-                  <i className="fas fa-search"></i>
+                  <i className="fas fa-search mt-1"></i>
                   
                 </div>
                 <Link to="/cart" className= {`nav-link text-black ${searchBarHidden} mt-1`}>

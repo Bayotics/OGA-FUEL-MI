@@ -17,21 +17,21 @@ export default function SearchBox() {
   };
 
   return (
-    <Form  id = "search-bar" onSubmit={submitHandler}>
-      <div className='flex border-red-600'>
-        <InputGroup >
-          <FormControl
-            className='rounded-0'
+    <Form className='w-11/12 pl-2 border border-black' id = "search-bar" onSubmit={submitHandler}>
+      <div className='flex w-full h-8'>
+        <InputGroup className='w-full pr-2'>
+          <input
+            className='h-full w-[96%] rounded-none'
             type="text"
             name="q"
             id="q"
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="search Fish"
+            placeholder="search Product"
             aria-label="Search Products"
             aria-describedby="button-search"
-          ></FormControl>
+          ></input>
 
-          <button className = "" type="submit" id="button-search">
+          <button className = 'float-right mt-1' type="submit" id="button-search">
             <i className="fas fa-search"></i>
           </button>
         </InputGroup>
