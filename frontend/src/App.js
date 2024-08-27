@@ -125,15 +125,15 @@ function App() {
       <div className="">
         <ToastContainer position="bottom-center" limit={1} />
         <header>
-          <nav className='border py-4 flex justify-between pl-24 pr-12'>
-            <div className='nav-logo border'>
+          <nav className=' py-8 flex justify-between pl-20 pr-12'>
+            <div className='nav-logo '>
               <Link to={"/"}>
                 <div className='fuelme-logo text-black'>
                   <img className='fuelme-logo-main' src= {Logo} alt='fuelme-logo'/>
                 </div>
               </Link>
             </div>
-            <div className='nav-contents border flex justify-between pt-3 gap-20'>
+            <div className='nav-contents  flex justify-between pt-3 gap-20'>
               <div className= {` nav-menu gap-4 px-4 mt-1 ${searchBarHidden}`}>
                 <Link to = "/" className='text-black font-medium hover:text-[#1a2eeb] hover:font-bold'>Home Page</Link>
                 <Link 

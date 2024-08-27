@@ -11,29 +11,28 @@ export const generateToken = (user) => {
     },
     process.env.JWT_SECRET,
     {
-      expiresIn: '100d',
+      expiresIn: '30d',
     }
   );
 };
 
 export const isAuth = (req, res, next) => {
   const authorization = req.headers.authorization;
-  if (authorization && authorization.startsWith('Bearer ')) {
-    const token = authorization.split(' ')[1]; 
-    console.log({ token }); // Check if the token is extracted correctly
-    console.log('Authorization header:', authorization);
-    console.log('Extracted token:', token);
+  if (authorization) {
+    const token = authorization.slice(7, authorization.length); // Bearer XXXXXX
+    console.log(token)
     jwt.verify(token, process.env.JWT_SECRET, (err, decode) => {
       if (err) {
-        console.error('JWT verification error:', err); // Log the exact error
-        return res.status(401).send({ message: 'Invalid Token' });
+        res.status(401).send({ message: 'Invalid Token' });
+        console.log(token)
+        console.log(err)
       } else {
-        req.user = decode;
+        req.user = decode;  
         next();
       }
     });
   } else {
-    res.status(401).send({ message: 'No Token or Invalid Format' });
+    res.status(401).send({ message: 'No Token' });
   }
 };
 

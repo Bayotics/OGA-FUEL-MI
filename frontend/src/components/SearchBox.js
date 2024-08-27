@@ -21,7 +21,7 @@ export default function SearchBox() {
       <div className='flex w-full h-8'>
         <InputGroup className='w-full pr-2'>
           <input
-            className='h-full w-[96%] rounded-none'
+            className='h-full w-[96%] outline-none rounded-none'
             type="text"
             name="q"
             id="q"

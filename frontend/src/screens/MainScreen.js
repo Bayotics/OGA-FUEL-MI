@@ -14,6 +14,8 @@ import MessageBox from '../components/MessageBox';
 import CarouselSlider from '../components/CarouselSlider';
 import BlackFriday from '../components/BlackFriday';
 import WhyUs from '../components/WhyUs';
+import HomePageIntro from '../components/HomePageIntro';
+import HomePageAbout from '../components/HomePageAbout';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -56,7 +58,12 @@ function HomeScreen() {
   }, [page]);
   return (
     <div >
-      <h1 className='text-3xl'>Home page</h1>
+      <div className='homepage-intro mt-14'>
+        <HomePageIntro />
+      </div>
+      <div className='homepage-about mt-10'>
+        <HomePageAbout />
+      </div>
     </div>
   );
 }
