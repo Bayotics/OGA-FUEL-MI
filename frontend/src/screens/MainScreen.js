@@ -16,6 +16,11 @@ import BlackFriday from '../components/BlackFriday';
 import WhyUs from '../components/WhyUs';
 import HomePageIntro from '../components/HomePageIntro';
 import HomePageAbout from '../components/HomePageAbout';
+import HowitWorks from '../components/HowitWorks';
+import Industries from '../components/Industries';
+import GasStation from '../components/GasStation';
+import FuelmeApp from '../components/FuelmeApp';
+import FAQs from '../components/FAQ';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -63,6 +68,21 @@ function HomeScreen() {
       </div>
       <div className='homepage-about mt-10'>
         <HomePageAbout />
+      </div>
+      <div className='homepage-how-it-works mt-10'>
+        <HowitWorks />
+      </div>
+      <div className='homepage-how-it-works mt-10'>
+        <Industries />
+      </div>
+      <div className='homepage-gas-station mt-10'>
+        <GasStation />
+      </div>
+      <div className='homepage-fuel-me-app mt-10'>
+        <FuelmeApp />
+      </div>
+      <div className='homepage-faq mt-10'>
+        <FAQs />
       </div>
     </div>
   );

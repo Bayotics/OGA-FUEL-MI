@@ -5,8 +5,8 @@ import introPic from '../assets/Fuel-me/pngs/intro-pic.png'
 
 const HomePageIntro = () => {
     return(
-        <div className="border flex justify-between">
-            <div className="home-intro-texts border pl-24 py-12 w-1/2">
+        <div className=" flex justify-between">
+            <div className="home-intro-texts pl-24 py-12 w-1/2">
                 <h1 className="text-7xl font-extrabold leading-[120%]">
                     Fuel up <br /> at your own
                 </h1>
@@ -43,7 +43,7 @@ const HomePageIntro = () => {
                     </div>
                 </div>
             </div>
-            <div className="home-intro-pics border w-1/2 pr-12 pl-10 pt-48">
+            <div className="home-intro-pics w-1/2 pr-12 pl-10 pt-48">
                 <img src = {introPic} alt='intro' />
             </div>
         </div>

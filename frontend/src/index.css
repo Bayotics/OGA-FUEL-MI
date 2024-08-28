@@ -27,6 +27,47 @@ body {
 .nav-menu{
   font-size: 16px;
 }
+.residential-ind{
+  background-image: url(./assets/Fuel-me/residential.jpg);
+  background-size: cover;
+  height: 260px;
+}
+.manufacturing-ind{
+  background-image: url(./assets/Fuel-me/manufacturing.jpg);
+  background-size: cover;
+  height: 260px;
+}
+.fleet-ind{
+  background-image: url(./assets/Fuel-me/fleet.jpg);
+  background-size: cover;
+  height: 260px;
+}
+.diesel-ind{
+  background-image: url(./assets/Fuel-me/diesel.jpeg);
+  background-size: cover;
+  height: 260px;
+}
+.gasoline-ind{
+  background-image: url(./assets/Fuel-me/perol.jpg);
+  background-size: cover;
+  height: 260px;
+}
+.cng-ind{
+  background-image: url(./assets/Fuel-me/cng.jpg);
+  background-size: cover;
+  height: 260px;
+}
+.gas-img{
+  background-image: url(./assets/Fuel-me/gas-4.jpg);
+  background-size: 100% 100%;
+
+}
+.ind-card{
+  transition: .5s;
+}
+.ind-card:hover{
+  transform: scale(1.1);
+}
 
 
   /********** FOOTER **********/
