@@ -1,78 +1,76 @@
-import facebook from "../assets/fish/pngs/facebook-logo.png";
-import instagram from "../assets/fish/pngs/instagram-logo.png";
-import whatsapp from "../assets/fish/pngs/whatsapp-logo.png";
-import x from "../assets/fish/pngs/x-logo.png";
+import facebook from '../assets/Fuel-me/pngs/facebook.png'
+import instagram from '../assets/Fuel-me/pngs/instagram.png'
+import x from '../assets/Fuel-me/pngs/twitter.png'
+import whatsapp from '../assets/Fuel-me/pngs/whatsapp.png'
 import { Link } from 'react-router-dom';
+import logo from '../assets/Fuel-me/pngs/logo.png'
 
 
 
 const Footer = () => {
     return(
-        <div className="footer-main ">
-            <div className="footer-about">
-                <h1>SHOP IT </h1>
-                <p>With the modest but aspirational objective of connecting seafood lovers with the freshest catches, sourced responsibly, and delivered straight to their homes, Shopit was formed out of a love for the ocean and a dedication to reinventing the seafood shopping experience.</p>
-                <h6>Copyright © 2024. ShopIt limited. All Rights Reserved. Design by unclebayotics</h6>
-            </div>
-            <div className="footer-learn-more">
-                <h1>EXPLORE </h1>
-                <Link className = '' to={'/search?category=Fresh&query=all&price=all&rating=all&order=newest&page=1'}>
-                    <p>Shop Fresh</p>
-                </Link>
-                <Link className = '' to={'/search?category=Shell&query=all&price=all&rating=all&order=newest&page=1'}>
-                    <p>Shop ShellFish</p>
-                </Link>
-                <Link className = '' to={'/search?category=Smoked%20and%20dried&query=all&price=all&rating=all&order=newest&page=1'}>
-                    <p>shop Smoked/Dried</p>
-                </Link>
-                <Link className = '' to={'/'}>
-                    <p>Holiday Offers</p>
-                </Link>
-            </div>
-            <div className="footer-about-us">
-              <h1>LEARN ABOUT US</h1>
-                <Link className = '' to={'/aboutus'}>
-                    <p>About Us</p>
-                </Link>
-                <Link className = '' to={'/aboutus'}>
-                    <p>Delivery</p>
-                </Link>
-                <Link className = '' to={'/contactus'}>
-                    <p>Contact Us</p>
-                </Link>
-                <Link className = '' to={'/aboutus'}>
-                    <p>privacy Policy</p>
-                </Link>
-            </div>
-            <div className="footer-socials">
-                <h1>FOLLOW US</h1>
-                <div className="socials-main">
-                    <Link className = '' to={'/'}>
-                        <div className="facebook-social social-icon">
-                            <img src= {facebook} alt="facebook-logo" className="social-logo"/>
+        <div className="footer-main px-32 text-black bg-gradient-to-r from-transparent via-blue-100 to-transparent">
+            <div>
+                <div className="footer-contents  -t pt-16 pb-8 px-32 flex justify-between">
+                    <div className="footer-title  ">
+                        <div className="footer-title-icon">
+                            <img className="fuelme-logo-main" src = {logo} alt="fuel-me-logo" />
                         </div>
-                    </Link>
-                    <Link className = '' to={'/'}>
-                        <div className="instagram-social social-icon">
-                            <img src= {instagram} alt="instagram-logo" className="social-logo"/>
+                        <h1 className="mt-4 font-medium">...Fuel up at your own <br/> convenience</h1>
+                        <p className="mt-4 text-xs">&copy; 2024</p>
+                    </div>
+                    <div className="footer-menu   mt-1">
+                        <h1 className="text-xl font-medium text-[#1a2eeb]">Company</h1>
+                        <div className="mt-4">
+                            <Link to= '/about'>
+                                <p className="text-sm ">About us</p>
+                            </Link>
+                            <Link to= '/services'>
+                                <p className="text-sm mt-2">Our Services</p>
+                            </Link>
+                            <Link to= '/search?category=all&query=all&price=all&rating=all&order=newest&page=1'>
+                                <p className="text-sm mt-2">Order fuel</p>
+                            </Link>
                         </div>
-                    </Link>
-                    <Link className = '' to={'/'}>
-                        <div className="twitter-social social-icon">
-                            <img src= {x} alt="x-logo" className="social-logo"/>
+                        
+                    </div>
+                    <div className="footer-menu   mt-1">
+                        <h1 className="text-xl font-medium text-[#1a2eeb]">Quick Links</h1>
+                        <div className="mt-4">
+                        <Link to= '/contact'>
+                                <p className="text-sm">Contact us</p>
+                            </Link>
+                            <Link to= '/faqs'>
+                                <p className="text-sm mt-2">FAQs</p>
+                            </Link>
                         </div>
-                    </Link>
-                    <Link className = '' to={'/'}>
-                        <div className="whatsapp-social social-icon">
-                            <img src= {whatsapp} alt="whatsapp-logo" className="social-logo"/>
+                        
+                    </div>
+                    <div className="footer-title  ">
+                        <h1 className="text-xl font-medium text-[#1a2eeb]">Socials</h1>
+                        <div className="flex gap-3 mt-4">
+                            <img className='h-4 mt-[3px]' src = {facebook} alt="facebook" />
+                            <p>Facebook</p>
                         </div>
-                    </Link>
+                        <div className="flex gap-3 mt-2">
+                            <img className='h-4 mt-[3px]' src = {instagram} alt="facebook" />
+                            <p>Instagram</p>
+                        </div>
+                        <div className="flex gap-3 mt-2">
+                            <img className='h-4 mt-[3px]' src = {x} alt="facebook" />
+                            <p>Twitter</p>
+                        </div>
+                        <div className="flex gap-3 mt-2">
+                            <img className='h-4 mt-[3px]' src = {whatsapp} alt="facebook" />
+                            <p>Whatsapp</p>
+                        </div>
+                    </div>
                 </div>
-                <h1 className="mt-4">ADDRESS</h1>
-                <p>Chief Market, Epe Lagos, Nigeria</p>
-                <h1 className="mt-4">PHONE</h1>
-                <p>09031350523</p>
+                <p className='text-xs text-gray-600 text-right mt-10'>Copyright © 2024. Fuel me. All Rights Reserved. Design by  
+                <Link to= 'https://twitter.com/unclebayotics'> unclebayotics</Link> </p>
             </div>
+            
+            
         </div>
     )
 }

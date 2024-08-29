@@ -2,8 +2,7 @@ import express from "express";
 import bcrypt from "bcryptjs";
 import expressAsyncHandler from "express-async-handler";
 import User from "../models/userModel.js";
-import { isAuth, isAdmin} from "../utils.js";
-import CryptoJS from "crypto-js";
+import { isAuth, isAdmin, generateToken } from "../utils.js";
 
 const userRouter = express.Router();
 
@@ -104,6 +103,7 @@ userRouter.post(
           name: user.name,
           email: user.email,
           isAdmin: user.isAdmin,
+          token: generateToken(user),
         });
         return;
       }
@@ -126,39 +126,9 @@ userRouter.post(
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
+      token: generateToken(user),
     });
   })
 );
-
-// userRouter.post(
-//   "/verify-email",
-//   expressAsyncHandler(async(req, res) =>{
-//     try{
-//       const emailToken = req.body.emailToken;
-//       if(!emailToken) return res.status(404).json("EailTokem not found");
-//       const user = await User.findOne({emailToken});
-//       if (user){
-//         user.emailToken = null;
-//         user.isVerified = true;
-
-//         await user.save();
-//         const token = createToken(user._id);
-
-//         res.status(200).json({
-//           id: user._id,
-//           name: user.name,
-//           email: user.email,
-//           token,
-//           isVerified: user?.isVerified
-//         });
-//       }else res.status(404).json("Email verification failed! Invalid token!")
-//     }
-//     catch(error){
-//       console.log(error);
-//       res.status(500).json(error.message)
-//     }
-
-//   })
-// )
 
 export default userRouter;

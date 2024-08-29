@@ -1,134 +1,181 @@
-import express from "express";
-import bcrypt from "bcryptjs";
-import expressAsyncHandler from "express-async-handler";
-import User from "../models/userModel.js";
-import { isAuth, isAdmin, generateToken } from "../utils.js";
+import express from 'express';
+import expressAsyncHandler from 'express-async-handler';
+import Order from '../models/orderModel.js';
+import User from '../models/userModel.js';
+import Product from '../models/productModel.js';
+import { isAuth, isAdmin, mailgun, payOrderEmailTemplate } from '../utils.js';
 
-const userRouter = express.Router();
+const orderRouter = express.Router();
 
-userRouter.get(
-  "/",
+orderRouter.get(
+  '/',
   isAuth,
   isAdmin,
   expressAsyncHandler(async (req, res) => {
-    const users = await User.find({});
-    res.send(users);
+    const orders = await Order.find().populate('user', 'name');
+    res.send(orders);
   })
 );
 
-userRouter.get(
-  "/:id",
-  isAuth,
-  isAdmin,
-  expressAsyncHandler(async (req, res) => {
-    const user = await User.findById(req.params.id);
-    if (user) {
-      res.send(user);
-    } else {
-      res.status(404).send({ message: "User Not Found" });
-    }
-  })
-);
-
-userRouter.put(
-  "/profile",
+orderRouter.post(
+  '/',
   isAuth,
   expressAsyncHandler(async (req, res) => {
-    const user = await User.findById(req.user._id);
-    if (user) {
-      user.name = req.body.name || user.name;
-      user.email = req.body.email || user.email;
-      if (req.body.password) {
-        user.password = bcrypt.hashSync(req.body.password, 8);
-      }
-
-      const updatedUser = await user.save();
-      res.send({
-        _id: updatedUser._id,
-        name: updatedUser.name,
-        email: updatedUser.email,
-        isAdmin: updatedUser.isAdmin,
-        token: generateToken(updatedUser),
-      });
-    } else {
-      res.status(404).send({ message: "User not found" });
-    }
-  })
-);
-
-userRouter.put(
-  "/:id",
-  isAuth,
-  isAdmin,
-  expressAsyncHandler(async (req, res) => {
-    const user = await User.findById(req.params.id);
-    if (user) {
-      user.name = req.body.name || user.name;
-      user.email = req.body.email || user.email;
-      user.isAdmin = Boolean(req.body.isAdmin);
-      const updatedUser = await user.save();
-      res.send({ message: "User Updated", user: updatedUser });
-    } else {
-      res.status(404).send({ message: "User Not Found" });
-    }
-  })
-);
-
-userRouter.delete(
-  "/:id",
-  isAuth,
-  isAdmin,
-  expressAsyncHandler(async (req, res) => {
-    const user = await User.findById(req.params.id);
-    if (user) {
-      if (user.email === "admin@example.com") {
-        res.status(400).send({ message: "Can Not Delete Admin User" });
-        return;
-      }
-      await user.remove();
-      res.send({ message: "User Deleted" });
-    } else {
-      res.status(404).send({ message: "User Not Found" });
-    }
-  })
-);
-userRouter.post(
-  "/signin",
-  expressAsyncHandler(async (req, res) => {
-    const user = await User.findOne({ email: req.body.email });
-    if (user) {
-      if (bcrypt.compareSync(req.body.password, user.password)) {
-        res.send({
-          _id: user._id,
-          name: user.name,
-          email: user.email,
-          isAdmin: user.isAdmin,
-          token: generateToken(user),
-        });
-        return;
-      }
-    }
-    res.status(401).send({ message: "Invalid email or password" });
-  })
-);
-
-userRouter.post(
-  "/signup",
-  expressAsyncHandler(async (req, res) => {
-    const newUser = new User({
-      name: req.body.name,
-      email: req.body.email,
-      password: bcrypt.hashSync(req.body.password),
+    const newOrder = new Order({
+      orderItems: req.body.orderItems.map((x) => ({ ...x, product: x._id })),
+      shippingAddress: req.body.shippingAddress,
+      paymentMethod: req.body.paymentMethod,
+      itemsPrice: req.body.itemsPrice,
+      shippingPrice: req.body.shippingPrice,
+      taxPrice: req.body.taxPrice,
+      totalPrice: req.body.totalPrice,
+      user: req.user._id,
     });
-    const user = await newUser.save();
-    res.send({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      isAdmin: user.isAdmin,
-      token: generateToken(user),
-    });
+
+    const order = await newOrder.save();
+    res.status(201).send({ message: 'New Order Created', order });
   })
 );
 
-export default userRouter;
+orderRouter.get(
+  '/summary',
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const orders = await Order.aggregate([
+      {
+        $group: {
+          _id: null,
+          numOrders: { $sum: 1 },
+          totalSales: { $sum: '$totalPrice' },
+        },
+      },
+    ]);
+    const users = await User.aggregate([
+      {
+        $group: {
+          _id: null,
+          numUsers: { $sum: 1 },
+        },
+      },
+    ]);
+    const dailyOrders = await Order.aggregate([
+      {
+        $group: {
+          _id: { $dateToString: { format: '%Y-%m-%d', date: '$createdAt' } },
+          orders: { $sum: 1 },
+          sales: { $sum: '$totalPrice' },
+        },
+      },
+      { $sort: { _id: 1 } },
+    ]);
+    const productCategories = await Product.aggregate([
+      {
+        $group: {
+          _id: '$category',
+          count: { $sum: 1 },
+        },
+      },
+    ]);
+    res.send({ users, orders, dailyOrders, productCategories });
+  })
+);
+
+orderRouter.get(
+  '/mine',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const orders = await Order.find({ user: req.user._id });
+    res.send(orders);
+  })
+);
+
+orderRouter.get(
+  '/:id',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const order = await Order.findById(req.params.id);
+    if (order) {
+      res.send(order);
+    } else {
+      res.status(404).send({ message: 'Order Not Found' });
+    }
+  })
+);
+
+orderRouter.put(
+  '/:id/deliver',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const order = await Order.findById(req.params.id);
+    if (order) {
+      order.isDelivered = true;
+      order.deliveredAt = Date.now();
+      await order.save();
+      res.send({ message: 'Order Delivered' });
+    } else {
+      res.status(404).send({ message: 'Order Not Found' });
+    }
+  })
+);
+
+orderRouter.put(
+  '/:id/pay',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const order = await Order.findById(req.params.id).populate(
+      'user',
+      'email name'
+    );
+    if (order) {
+      order.isPaid = true;
+      order.paidAt = Date.now();
+      order.paymentResult = {
+        id: req.body.id,
+        status: req.body.status,
+        update_time: req.body.update_time,
+        email_address: req.body.email_address,
+      };
+
+      const updatedOrder = await order.save();
+      // mailgun()
+      //   .messages()
+      //   .send(
+      //     {
+      //       from: 'Amazona <amazona@mg.yourdomain.com>',
+      //       to: `${order.user.name} <${order.user.email}>`,
+      //       subject: `New order ${order._id}`,
+      //       html: payOrderEmailTemplate(order),
+      //     },
+      //     (error, body) => {
+      //       if (error) {
+      //         console.log(error);
+      //       } else {
+      //         console.log(body);
+      //       }
+      //     }
+      //   );
+
+      res.send({ message: 'Order Paid', order: updatedOrder });
+    } else {
+      res.status(404).send({ message: 'Order Not Found' });
+    }
+  })
+);
+
+orderRouter.delete(
+  '/:id',
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const order = await Order.findById(req.params.id);
+    if (order) {
+      await order.remove();
+      res.send({ message: 'Order Deleted' });
+    } else {
+      res.status(404).send({ message: 'Order Not Found' });
+    }
+  })
+);
+
+export default orderRouter;

@@ -7,7 +7,7 @@ const FuelmeApp = () => {
     return(
         <div className="fuel-me-app-main mt-44 px-14 ">
             <div className="fuel-me-app-card shadow-2xl flex bg-gradient-to-r from-transparent via-blue-100 to-blue-200 rounded-[32px]">
-                <div className="fma-card-p pt-48 w-[65%] pl-12">
+                <div className="fma-card-p pt-64 w-[65%] pl-12">
                     <h1 className="text-black font-bold text-4xl">
                         Get the Fuelme App now and <br/>say goodbye to Filling station runs
                     </h1>

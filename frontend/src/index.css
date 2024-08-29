@@ -68,6 +68,16 @@ body {
 .ind-card:hover{
   transform: scale(1.1);
 }
+.MuiAccordionSummary-content{
+  padding-left: 56px;
+}
+.MuiPaper-root, MuiPaper-elevation, MuiPaper-elevation0,  MuiAccordion-root, Mui-expanded{
+  border: none;
+}
+.ButtonBase{
+}
+#panel1d-header{
+}
 
 
   /********** FOOTER **********/

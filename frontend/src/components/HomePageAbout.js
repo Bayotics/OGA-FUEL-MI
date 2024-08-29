@@ -7,7 +7,7 @@ import convenient from '../assets/Fuel-me/pngs/convenient.png'
 const HomePageAbout = () => {
     return(
         <div className=" px-16 flex justify-between mt-10 pt-6">
-            <div className="home-about-texts w-1/2">
+            <div className="home-about-texts w-1/2 mt-32">
                 <p className="text-[#1a2eeb] text-lg font-bold">Why choose us?</p>
                 <h1 className="text-3xl font-semibold mt-4">We are the largest and most popular home fuel delivery company in Lagos</h1>
                 <p className="mt-4 text-base font-normal">With Fuel Me, enjoy convenience like never before. You won't have to worry about refuelling ever again
@@ -18,9 +18,6 @@ const HomePageAbout = () => {
                     <button className=" bg-[#000000] px-7 py-3 rounded-md text-white hover:bg-[#4c4d4e]">
                         Learn More →
                     </button>
-                </div>
-                <div className='home-about-img border'>
-                    {/* <img src= {aboutImg} alt='why us' /> */}
                 </div>
 
             </div>

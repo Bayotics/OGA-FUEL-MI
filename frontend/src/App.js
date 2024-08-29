@@ -44,6 +44,8 @@ import Footer from './components/Footer';
 import VerifyEmail from './screens/VerifyEmail';
 import Logo from '../src/assets/Fuel-me/pngs/logo.png'
 import DropdownItem from 'react-bootstrap/esm/DropdownItem';
+import FAQScreen from './screens/FAQScreen';
+import ServicesScreen from './screens/ServicesScreen';
 
 
 function App() {
@@ -140,6 +142,7 @@ function App() {
                   to = "/search?category=all&query=all&price=all&rating=all&order=newest&page=1" 
                   className='text-[#1a2eeb] font-bold'>Order Fuel</Link>
                 <Link to = "/aboutus" className='text-black font-medium hover:text-[#1a2eeb] hover:font-bold'> About Us</Link>
+                <Link to = "/services" className='text-black font-medium hover:text-[#1a2eeb] hover:font-bold'> Services</Link>
                 <Link to = "/contactus" className='text-black font-medium hover:text-[#1a2eeb] hover:font-bold' id = "contact-nav">Contact</Link>
               </div>
               <div className=' nav-functions flex gap-4 pt-1'>
@@ -366,12 +369,14 @@ function App() {
                 <Route path="/products" element={<HomeScreen />} />
                 <Route path = '/' element = {<MainScreen />} />
                 <Route path = '/verify-email' element = {<VerifyEmail />} />
+                <Route path = '/faqs' element = {<FAQScreen />} />
+                <Route path = '/services' element = {<ServicesScreen />} />
               </Routes>
             </div>
           </div>
         </main>
         <footer>
-            {/* <Footer /> */}
+            <Footer />
         </footer>
       </div>
     </BrowserRouter>

@@ -21,6 +21,8 @@ import Industries from '../components/Industries';
 import GasStation from '../components/GasStation';
 import FuelmeApp from '../components/FuelmeApp';
 import FAQs from '../components/FAQ';
+import BrandScroller from '../components/BrandsScroller';
+
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -69,7 +71,10 @@ function HomeScreen() {
       <div className='homepage-about mt-10'>
         <HomePageAbout />
       </div>
-      <div className='homepage-how-it-works mt-10'>
+      <div className='homepage-how-it-works mt-32'>
+        <BrandScroller />
+      </div>
+      <div className='homepage-how-it-works mt-32'>
         <HowitWorks />
       </div>
       <div className='homepage-how-it-works mt-10'>
