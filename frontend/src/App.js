@@ -125,7 +125,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="">
-        <ToastContainer position="bottom-center" limit={1} />
+        <ToastContainer position="bottom-center" limit={2} />
         <header>
           <nav className=' py-8 flex justify-between pl-20 pr-12'>
             <div className='nav-logo '>

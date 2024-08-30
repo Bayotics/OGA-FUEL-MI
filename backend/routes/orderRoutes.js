@@ -73,7 +73,6 @@ orderRouter.get(
       {
         $group: {
           _id: '$category',
-          count: { $sum: 1 },
         },
       },
     ]);

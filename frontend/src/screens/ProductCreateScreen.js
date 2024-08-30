@@ -69,13 +69,11 @@ export default function ProductCreateScreen() {
   const [image, setImage] = useState('');
   const [images, setImages] = useState([]);
   const [category, setCategory] = useState('');
-  const [countInStock, setCountInStock] = useState('');
-  const [brand, setBrand] = useState('');
   const [description, setDescription] = useState('');
   const [longDescription, setLongDescription] = useState('');
 
   const categoriesList = [
-    "", "Fresh", "Shell", "Smoked and dried",
+    "", "Petrol", "Diesel", "CNG", "LPG",
   ]
   categoriesList.sort();
 
@@ -92,8 +90,6 @@ export default function ProductCreateScreen() {
           image: image,
           images: images,
           category: category,
-          brand: brand,
-          countInStock: countInStock,
           description: description,
           longDescription: longDescription
         },
@@ -130,7 +126,7 @@ export default function ProductCreateScreen() {
       } else {
         setImage(data.secure_url);
       }
-      toast.success('Image uploaded successfully. click Update to apply it');
+      toast.success('Image uploaded successfully');
     } catch (err) {
       toast.error(getError(err));
       dispatch({ type: 'UPLOAD_FAIL', payload: getError(err) });
@@ -141,7 +137,7 @@ export default function ProductCreateScreen() {
     console.log(images);
     console.log(images.filter((x) => x !== fileName));
     setImages(images.filter((x) => x !== fileName));
-    toast.success('Image removed successfully. click Update to apply it');
+    toast.success('Image removed successfully.');
   };
   const cancelHandler = () => {
     navigate(`/admin/products`)
@@ -154,7 +150,7 @@ export default function ProductCreateScreen() {
       <h1>Create a new Product</h1>
         <Form onSubmit={submitHandler}>
           <Form.Group className="mb-3" controlId="title">
-            <Form.Label>Name</Form.Label>
+            <Form.Label>Product Name</Form.Label>
             <Form.Control
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -162,7 +158,7 @@ export default function ProductCreateScreen() {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="price">
-            <Form.Label>Price in ₦ per Kg</Form.Label>
+            <Form.Label>Price in ₦ per Litre/Kg</Form.Label>
             <Form.Control
               value={price}
               onChange={(e) => setPrice(e.target.value)}
@@ -183,7 +179,7 @@ export default function ProductCreateScreen() {
             {loadingUpload && <LoadingBox></LoadingBox>}
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="additionalImage">
+          {/* <Form.Group className="mb-3" controlId="additionalImage">
             <Form.Label>Additional Images</Form.Label>
             {images.length === 0 && <MessageBox>No image</MessageBox>}
             <ListGroup variant="flush">
@@ -196,15 +192,15 @@ export default function ProductCreateScreen() {
                 </ListGroup.Item>
               ))}
             </ListGroup>
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="additionalImageFile">
+          </Form.Group> */}
+          {/* <Form.Group className="mb-3" controlId="additionalImageFile">
             <Form.Label>Upload Aditional Image</Form.Label>
             <Form.Control
               type="file"
               onChange={(e) => uploadFileHandler(e, true)}
             />
             {loadingUpload && <LoadingBox></LoadingBox>}
-          </Form.Group>
+          </Form.Group> */}
 
           <Form.Group className="mb-3" controlId="category">
             <Form.Label>Category</Form.Label>
@@ -220,22 +216,6 @@ export default function ProductCreateScreen() {
                 )
               })}
             </Form.Control>
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="brand">
-            <Form.Label>Brand/Vendor</Form.Label>
-            <Form.Control
-              value={brand}
-              onChange={(e) => setBrand(e.target.value)}
-              required
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="countInStock">
-            <Form.Label>Count In Stock (in Kg)</Form.Label>
-            <Form.Control
-              value={countInStock}
-              onChange={(e) => setCountInStock(e.target.value)}
-              required
-            />
           </Form.Group>
           <Form.Group className="mb-3" controlId="description">
             <Form.Label>Description</Form.Label>

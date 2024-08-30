@@ -72,7 +72,6 @@ export default function ProductEditScreen() {
   const [images, setImages] = useState([]);
   const [category, setCategory] = useState('');
   const [countInStock, setCountInStock] = useState('');
-  const [brand, setBrand] = useState('');
   const [description, setDescription] = useState('');
   const [longDescription, setLongDescription] = useState('');
 
@@ -87,7 +86,6 @@ export default function ProductEditScreen() {
         setImages(data.images);
         setCategory(data.category);
         setCountInStock(data.countInStock);
-        setBrand(data.brand);
         setDescription(data.description);
         setLongDescription(data.longDescription);
         dispatch({ type: 'FETCH_SUCCESS' });
@@ -120,7 +118,6 @@ export default function ProductEditScreen() {
           image,
           images,
           category,
-          brand,
           countInStock,
           description,
           longDescription
@@ -246,14 +243,6 @@ export default function ProductEditScreen() {
             <Form.Control
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              required
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="brand">
-            <Form.Label>Brand</Form.Label>
-            <Form.Control
-              value={brand}
-              onChange={(e) => setBrand(e.target.value)}
               required
             />
           </Form.Group>

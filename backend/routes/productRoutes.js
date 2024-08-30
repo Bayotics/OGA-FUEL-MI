@@ -30,14 +30,12 @@ productRouter.post(
   isAuth,
   isAdmin,
   expressAsyncHandler(async (req, res) => {
-    const {title,image,price,category,brand,countInStock,rating,numReviews,description,longDescription } = req.body;
+    const {title,image,price,category,rating,numReviews,description,longDescription } = req.body;
     const newProduct = new Product({
       title,
       image,
       price,
       category,
-      brand,
-      countInStock,
       rating,
       numReviews,
       description,
@@ -61,8 +59,6 @@ productRouter.put(
       product.image = req.body.image;
       product.images = req.body.images;
       product.category = req.body.category;
-      product.brand = req.body.brand;
-      product.countInStock = req.body.countInStock;
       product.description = req.body.description;
       product.longDescrition = req.body.longDescription
       await product.save();

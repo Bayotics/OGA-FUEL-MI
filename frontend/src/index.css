@@ -74,9 +74,13 @@ body {
 .MuiPaper-root, MuiPaper-elevation, MuiPaper-elevation0,  MuiAccordion-root, Mui-expanded{
   border: none;
 }
-.ButtonBase{
+.prod-img{
+  height: 500px;
+  margin: auto
 }
-#panel1d-header{
+.product-content{
+  background-image: url(./assets/Fuel-me/pngs/products-bg.png);
+  background-repeat: no-repeat;
 }
 
 

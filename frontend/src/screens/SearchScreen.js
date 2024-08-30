@@ -16,6 +16,15 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Accordion from 'react-bootstrap/Accordion';
 
+
+import cng from '../assets/Fuel-me/pngs/cng.png'
+import lpg from '../assets/Fuel-me/pngs/lpg.png'
+import petrol from '../assets/Fuel-me/pngs/petrol.png'
+import diesel from '../assets/Fuel-me/pngs/diesel.png'
+import fb from '../assets/Fuel-me/pngs/fb-big.png'
+import twitter from '../assets/Fuel-me/pngs/twitter-big.png'
+import whatsapp from '../assets/Fuel-me/pngs/whatsapp-big.png'
+
 const reducer = (state, action) => {
   switch (action.type) {
     case 'FETCH_REQUEST':
@@ -147,203 +156,48 @@ export default function SearchScreen() {
       skipPathname ? '' : '/search?'
     }category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
   };
+  console.log(products)
+
     return (
-    <div>
+    <div className='shop-screen-main'>
       <Helmet>
-        <title>Search Fish</title>
+        <title>Search Fuel</title>
       </Helmet>
-       <Card
-        className="text-center"
-        id='main-banner'>
-          <Card.Body style={{marginTop: '60px'}}>
-              <span><h1 className='text-white fs-1'>Our Shop</h1></span>
-          </Card.Body>
-        </Card>
-      <Row id = "search-row" style={{marginTop: '300px'}}>
-        <div className='shop-menu'>
-          <div>
-            {/* <Card style = {{width: '18rem'}} >
-              <Card.Header>
-                <h3>Category</h3>
-              </Card.Header>
-              <ListGroup variant='flush'>
-                <ListGroup.Item>
-                  <Link
-                  className={'all' === category ? 'text-bold' : ''}
-                  to={getFilterUrl({ category: 'all' })}
-                >
-                  Any
-                </Link>
-                </ListGroup.Item>
-                {categories.map((e) => (
-                  <ListGroup.Item>
-                    <Link
-                    className={e === category ? 'text-bold' : ''}
-                    to={getFilterUrl({ category: e })}
-                  >
-                    {e}
-                  </Link>
-                  </ListGroup.Item>
-                ))}
-              </ListGroup>
-            </Card> */}
-            <Accordion defaultActiveKey={['0']} alwaysOpen>
-              <Accordion.Item eventKey="0">
-                <Accordion.Header>Categories</Accordion.Header>
-                <Accordion.Body>
-                <ListGroup variant='flush'>
-                        <ListGroup.Item>
-                          <Link
-                          className={'all' === category ? 'text-bold' : ''}
-                          to={getFilterUrl({ category: 'all' })}
-                        >
-                          Any
-                        </Link>
-                        </ListGroup.Item>
-                        {categories.map((e) => (
-                          <ListGroup.Item key={e}>
-                            <Link
-                            className={e === category ? 'text-bold' : ''}
-                            to={getFilterUrl({ category: e })}
-                          >
-                            {e}
-                          </Link>
-                          </ListGroup.Item>
-                        ))}
-                      </ListGroup>
-                </Accordion.Body>
-              </Accordion.Item>
-            </Accordion>
-          </div>
-          <div style={{ marginTop: '50px' }}>
-            <Card>
-                <Card.Header><h3>Filter by Price</h3></Card.Header>
-                <ListGroup variant='flush'>
-                  <ListGroup.Item>
-                    <Link
-                    className={'all' === price ? 'text-bold' : ''}
-                    to={getFilterUrl({ price: 'all' })}
-                    >
-                    Any
-                  </Link>
-                  </ListGroup.Item>
-                  {prices.map((e) => (
-                    <ListGroup.Item key = {e.value}>
-                      <Link
-                        to={getFilterUrl({ price: e.value })}
-                        className={e.value === price ? 'text-bold' : ''}
-                      >
-                        {e.name}
-                      </Link>
-                    </ListGroup.Item>
-                  ))}
-                </ListGroup>
-            </Card>
-          </div>
-          <div style={{ marginTop: '50px' }}>
-            <Card>
-              <Card.Header><h3>Filter by Rating</h3></Card.Header>
-              <ListGroup variant='flush'>
-                {ratings.map((e) => (
-                  <ListGroup.Item key = {e.rating}>
-                    <Link
-                      to={getFilterUrl({ rating: e.rating })}
-                      className={`${e.rating}` === `${rating}` ? 'text-bold' : ''}
-                    >
-                      <Rating caption={' and above '} rating={e.rating}></Rating>
-                    </Link>
-                  </ListGroup.Item>
-                ))}
-                <ListGroup.Item>
-                  <Link
-                    to={getFilterUrl({ rating: 'all' })}
-                    className={rating === 'all' ? 'text-bold' : ''}
-                  >
-                    <Rating caption={' and above '} rating={0}></Rating>
-                  </Link>
-                </ListGroup.Item>
-              </ListGroup>
-            </Card>
-          </div>
-        </div>
-        <div className='shop-contents'>
+      <div className='product-content'>
+      <div className='mt-24 shop-heading text-center px-48'>
+          <h1 className='text-5xl font-bold'>Choose your <span className='text-[#1a2eeb]'>Fuel</span></h1>
+          <p className='mt-10 font-medium text-lg leading-loose'>Whether you need fuel for your home, business, or fleet, We offer competitive 
+            pricing and exceptional service to keep you running smoothly. Place your order now and experience 
+            convenience at its best!
+          </p>
+       </div>
+        <div className='products-card-main mt-10 mb-36'>
+          <div className='products-card px-24 py-24'>
+            
+          <div className='shop-contents'>
           {loading ? (
             <LoadingBox></LoadingBox>
           ) : error ? (
             <MessageBox variant="danger">{error}</MessageBox>
           ) : (
             <>
-              <Row className="justify-content-between mb-3">
-                <Col md={6}>
-                  <div className='product-count'>
-                    {countProducts === 0 ? 'No' : countProducts} Results
-                    {query !== 'all' && ' : ' + query}
-                    {category !== 'all' && ' : ' + category}
-                    {price !== 'all' && ' : Price ' + price}
-                    {rating !== 'all' && ' : Rating ' + rating + ' & up'}
-                    {query !== 'all' ||
-                    category !== 'all' ||
-                    rating !== 'all' ||
-                    price !== 'all' ? (
-                      <Button
-                        variant="light"
-                        onClick={() => navigate('/search')}
-                      >
-                        <i className="fas fa-times-circle"></i>
-                      </Button>
-                    ) : null}
-                  </div>
-                </Col>
-                <Col className="text-end">
-                  Sort by{' '}
-                  <select
-                    value={order}
-                    onChange={(e) => {
-                      navigate(getFilterUrl({ order: e.target.value }));
-                    }}
-                  >
-                    <option value="newest">Latest Products</option>
-                    <option value="lowest">Price: Low to High</option>
-                    <option value="highest">Price: High to Low</option>
-                    <option value="toprated">Average Reviews</option>
-                  </select>
-                </Col>
-              </Row>
               {products.length === 0 && (
-                <MessageBox>No Product Found</MessageBox>
+                <h1 className='text-2xl text-center font-bold'>No Product Found</h1>
               )}
-
-              <Row>
+              <div>
                 {products.map((product) => (
                   <Col sm={6} lg={4} className="mb-3 product-card-outer" key={product._id}>
                     <Product product={product}></Product>
                   </Col>
                 ))}
-              </Row>
-
-              <div>
-                {[...Array(pages).keys()].map((x) => (
-                  <LinkContainer
-                    key={x + 1}
-                    className="mx-1"
-                    to={{
-                      pathname: "/search",
-                      search: getFilterUrl({ page: x + 1 }).substring(7),
-                    }}
-                  >
-                    <Button
-                      className={Number(page) === x + 1 ? "text-bold" : ""}
-                      variant="light"
-                    >
-                      {x + 1}
-                    </Button>
-                  </LinkContainer>
-                ))}
               </div>
             </>
           )}
         </div>
-      </Row>
+          </div>
+        </div>
+      </div>
+       
     </div>
   );
 }
