@@ -159,7 +159,7 @@ function App() {
                 <Link to="/cart" className= {`nav-link text-black ${searchBarHidden} mt-1`}>
                     <i className="fas fa-shopping-cart"></i>
                     {cart.cartItems.length > 0 && (
-                      <div className='bg-red-600 rounded-full h-4 w-4 mt-1 text-center text-white text-xs'>
+                      <div className='bg-red-600 rounded-full h-5 w-5 pt-1 mt-1 text-center text-white text-xs'>
                         {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
                       </div>
                     )}

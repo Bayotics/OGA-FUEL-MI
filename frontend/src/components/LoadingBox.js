@@ -1,9 +1,10 @@
-import Spinner from 'react-bootstrap/Spinner';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 export default function LoadingBox() {
   return (
-    <Spinner animation="border" role="status">
-      <span className="visually-hidden">Loading...</span>
-    </Spinner>
+    <Box sx={{ display: 'flex' }}>
+      <CircularProgress />
+    </Box>
   );
 }
