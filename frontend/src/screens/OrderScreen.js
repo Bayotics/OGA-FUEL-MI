@@ -14,6 +14,7 @@ import { Store } from '../Store';
 import { getError } from '../utils';
 import {usePaystackPayment} from "react-paystack";
 import Button from 'react-bootstrap/Button';
+import CurrencyFormat from 'react-currency-format';
 
 
 
@@ -142,7 +143,7 @@ export default function OrderScreen() {
       return (
         <div className='mt-4'>
             <button
-            className="checkout-button"
+            className="bg-[#1a2eeb] w-full text-center text-white rounded py-4 hover:bg-blue-600"
             onClick={() => {
                 initializePayment(onSuccess, onClose)
             }}>Pay with {order.paymentMethod}</button>
@@ -151,117 +152,122 @@ export default function OrderScreen() {
   };
 
   return loading ? (
-    <LoadingBox></LoadingBox>
+    <div></div>
   ) : error ? (
-    <MessageBox variant="danger">{error}</MessageBox>
+    <div className='text-red-600'>{error}</div>
   ) : (
-    <div className='place-order-main'>
+    <div className='place-order-main px-4 mb-36'>
       <Helmet>
         <title>Order {orderId}</title>
       </Helmet>
-      <h1 className="my-3 place-order-main-order-id">Order {orderId}</h1>
-      <Row className='place-order-row'>
-        <Col md={8}>
-          <Card className="mb-3">
-            <Card.Body>
-              <Card.Title>Shipping</Card.Title>
-              <Card.Text>
+      <h1 className="text-5xl font-semibold mt-10">Order {orderId}</h1>
+      <div className = "order-preview-row mt-10 flex gap-4 justify-between">
+        <div className='w-2/3'>
+          <div className="mb-3 border rounded-md py-4 pl-4">
+              <h1 className='text-lg font-medium'>Delivery Info</h1>
+              <div className='mt-4 mb-4'>
                 <strong>Name:</strong> {order.shippingAddress.fullName} <br />
                 <strong>Address: </strong> {order.shippingAddress.address},
                 {order.shippingAddress.city}, {order.shippingAddress.postalCode}
                 ,{order.shippingAddress.country}
-              </Card.Text>
-              {order.isDelivered ? (
-                <MessageBox variant="success">
+              </div>
+              {/* {order.isDelivered ? (
+                <div className='text-green-500'>
                   Delivered at {order.deliveredAt}
-                </MessageBox>
-              ) : (
-                <div><p className='text-danger text-bold'>Not Delivered</p></div>
-              )}
-            </Card.Body>
-          </Card>
-          <Card className="mb-3">
-            <Card.Body>
-              <Card.Title>Payment</Card.Title>
-              <Card.Text>
-                <strong>Method:</strong> {order.paymentMethod}
-              </Card.Text>
-              {order.isPaid  ? (
-                <div >
-                  <p className='text-success text-bold'>Paid. Please check order history for your order details</p>
                 </div>
               ) : (
-                <div><p className='text-danger text-bold'>Not Paid</p></div>
-              )}
-            </Card.Body>
-          </Card>
-
-          <Card className="mb-3">
-            <Card.Body>
-              <Card.Title>Items</Card.Title>
-              <ListGroup variant="flush">
+                <div><p className='text-red-600 text-bold'>Not Delivered</p></div>
+              )}           */}
+          </div>
+          <div className="mb-3 border rounded-md py-4 pl-4">
+              <h1 className='text-lg font-medium'>Payment</h1>
+              <div className='mt-4 mb-4'>
+                <strong>Method:</strong> {order.paymentMethod}
+              </div>
+              {order.isPaid  ? (
+                <div >
+                  <p className='text-green-500 text-bold'>Paid. Please check order history for your order details</p>
+                </div>
+              ) : (
+                <div><p className='text-red-600 text-bold'>Not Paid</p></div>
+              )}   
+          </div>
+          <div className="mb-3 border rounded-md py-4 pl-4 mt-3 pr-10">
+              <h1 className='text-lg font-medium'>Items</h1>
+              <div className='mt-6'>
                 {order.orderItems.map((item) => (
-                  <ListGroup.Item key={item._id}>
-                    <Row className="align-items-center">
-                      <Col md={6}>
+                  <div key={item._id} className='mb-4'>
+                    <div className="align-items-center flex justify-between">
                         <img
                           src={item.image}
                           alt={item.title}
-                          className="img-fluid rounded img-thumbnail"
+                          className="h-24"
                         ></img>{' '}
-                        <Link to={`/product/${item._id}`}>{item.title}</Link>
-                      </Col>
-                      <Col md={3}>
-                        <span>{item.quantity}</span>
-                      </Col>
-                      <Col md={3}>₦{item.price}</Col>
-                    </Row>
-                  </ListGroup.Item>
+                        <div className='mt-4 text-md font-medium'>
+                          <Link to={`/product/${item._id}` }>{item.title}</Link>
+                        </div>
+                        <div className='mt-4'>
+                          <h1 className='text-md font-medium'>
+                            quantity: {item.quantity} 
+                            {item.title === 'CNG' || item.title === 'LPG ' ?'Kg' : 'Litres'}
+                          </h1>
+                        </div>
+                        <div className='flex mt-4 gap-1 font-medium'>
+                        <h1 className='text-md font-medium'>Price: </h1>
+                        <CurrencyFormat value={item.price} displayType={'text'} thousandSeparator={true} prefix={'₦'} />
+                        </div>
+                    </div>
+                  </div>
                 ))}
-              </ListGroup>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={4}>
-          {}
-          <Card className="mb-3">
-            <Card.Body>
-              <Card.Title>Order Summary</Card.Title>
-              <ListGroup variant="flush">
-                <ListGroup.Item>
-                  <Row>
-                    <Col>Items</Col>
-                    <Col>₦{order.itemsPrice.toFixed(2)}</Col>
-                  </Row>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <Row>
-                    <Col>Shipping</Col>
-                    <Col>₦{order.shippingPrice.toFixed(2)}</Col>
-                  </Row>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <Row>
-                    <Col>Vat</Col>
-                    <Col>₦{order.taxPrice.toFixed(2)}</Col>
-                  </Row>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <Row>
-                    <Col>
-                      <strong> Order Total</strong>
-                    </Col>
-                    <Col>
-                      <strong>₦{order.totalPrice.toFixed(2)}</strong>
-                    </Col>
-                    {order.isPaid ? <div></div> : <PaystackHookExample />}
-                  </Row>
-                </ListGroup.Item>
-              </ListGroup>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+              </div>
+          </div>
+        </div>
+        <div className='w-1/3'>
+          <div className='mb-3 border rounded-md py-4 px-4'>
+            <h1 className='text-lg font-medium'>Order Summary</h1>
+            <div className='mt-8'>
+              <div className='mt-4 pb-2 border-b'>
+                <div className='flex justify-between'>
+                  <div className='w-1/2'>Items</div>
+                  <div className='w-1/2'>
+                  <CurrencyFormat value={order.itemsPrice.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'₦'} />
+                  </div>
+                </div>
+              </div>
+              <div className='mt-4 pb-2 border-b'>
+                <div className='flex justify-between'>
+                  <div className='w-1/2'>Delivery fee</div>
+                  <div className='w-1/2'>
+                    <CurrencyFormat value={order.shippingPrice.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'₦'} />
+                  </div>
+                </div>
+              </div>
+              <div className='mt-4 pb-2 border-b'>
+                <div className='flex justify-between'>
+                  <div className='w-1/2'>VAT</div>
+                  <div className='w-1/2'>
+                    <CurrencyFormat value={order.taxPrice.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'₦'} />
+                  </div>
+                </div>
+              </div>
+              <div className='mt-4 pb-2 border-b'>
+                <div className='flex justify-between'>
+                  <div className='w-1/2'>Order Total</div>
+                  <div className='w-1/2'>
+                    <CurrencyFormat value={order.totalPrice.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'₦'} />
+                  </div>
+                </div>
+              </div>
+              <div className='mt-8'>
+                <div className="w-[80%] m-auto">
+                {order.isPaid ? <div></div> : <PaystackHookExample />}
+                </div>
+                {loading && <LoadingBox></LoadingBox>}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

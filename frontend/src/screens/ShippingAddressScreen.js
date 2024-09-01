@@ -56,55 +56,46 @@ export default function ShippingAddressScreen() {
       </Helmet>
 
       <CheckoutSteps step1 step2></CheckoutSteps>
-      <div className="container small-container">
-        <h1 className="my-3">Shipping Address</h1>
-        <Form onSubmit={submitHandler}>
-          <Form.Group className="mb-3" controlId="fullName">
-            <Form.Label>Full Name</Form.Label>
-            <Form.Control
+      <div className="container small-container m-auto mb-36 mt-10 w-[50%]">
+        <h1 className="text-5xl font-semibold">Shipping Address</h1>
+        <form onSubmit={submitHandler} className='mt-14'>
+            <label>Full Name</label>
+            <input className='w-full border mt-2 rounded py-2 pl-3 mb-4'
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
               required
             />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="address">
-            <Form.Label>Delivery Address</Form.Label>
-            <Form.Control
+            <label className=''>Delivery Address</label>
+            <input className='w-full border mt-2 rounded py-2 pl-3 mb-4'
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               required
             />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="city">
-            <Form.Label>City</Form.Label>
-            <Form.Control
+            <label>City</label>
+            <input className='w-full border mt-2 rounded py-2 pl-3 mb-4'
               value={city}
               onChange={(e) => setCity(e.target.value)}
               required
             />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="postalCode">
-            <Form.Label>Postal Code</Form.Label>
-            <Form.Control
-              value={postalCode}
-              onChange={(e) => setPostalCode(e.target.value)}
-              required
+            <label>Postal Code</label>
+            <input className='w-full border mt-2 rounded py-2 pl-3 mb-4'
+               value={postalCode}
+               onChange={(e) => setPostalCode(e.target.value)}
+               required
             />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="country">
-            <Form.Label>Country</Form.Label>
-            <Form.Control
-              value={country}
-              onChange={(e) => setCountry(e.target.value)}
-              required
+            <label>Country</label>
+            <input className='w-full border mt-2 rounded py-2 pl-3 mb-4'
+               value={country}
+               onChange={(e) => setCountry(e.target.value)}
+               required
             />
-          </Form.Group>
-          <div className="mb-3">
-            <button className="checkout-button" type="submit">
+          <div className="mb-3 mt-6">
+            <button className="py-2 px-4 rounded bg-[#1a2eeb]
+             text-white hover:bg-black" type="submit">
               Next
             </button>
           </div>
-        </Form>
+        </form>
       </div>
     </div>
   );

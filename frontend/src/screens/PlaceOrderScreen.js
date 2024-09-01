@@ -12,6 +12,8 @@ import { getError } from '../utils';
 import { Store } from '../Store';
 import CheckoutSteps from '../components/CheckoutSteps';
 import LoadingBox from '../components/LoadingBox';
+import CurrencyFormat from 'react-currency-format';
+
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -40,7 +42,7 @@ export default function PlaceOrderScreen() {
   cart.itemsPrice = round2(
     cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
   );
-  cart.shippingPrice = cart.itemsPrice > 100 ? round2(0) : round2(10);
+  cart.shippingPrice = 5000;
   cart.taxPrice = round2(0.012 * cart.itemsPrice);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
  
@@ -82,117 +84,120 @@ export default function PlaceOrderScreen() {
   }, [cart, navigate]);
 
   return (
-    <div className='order-preview-main'>
+    <div className='order-preview-main px-4 mb-36'>
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
       <Helmet>
         <title>Preview Order</title>
       </Helmet>
-      <h1 className="my-3">Your Order</h1>
-      <Row className = "order-preview-row">
-        <Col md={8}>
-          <Card className="mb-3">
-            <Card.Body>
-              <Card.Title>Shipping Info</Card.Title>
-              <Card.Text>
+      <h1 className="text-5xl font-semibold mt-10">Your Order</h1>
+      <div className = "order-preview-row mt-10 flex gap-4 justify-between">
+        <div className='w-2/3'>
+          <div className="mb-3 border rounded-md py-4 pl-4">
+              <h1 className='text-lg font-medium'>Shipping Info</h1>
+              <div className='mt-4 mb-4'>
                 <strong>Name:</strong> {cart.shippingAddress.fullName} <br />
                 <strong>Address: </strong> {cart.shippingAddress.address},
                 {cart.shippingAddress.city}, {cart.shippingAddress.postalCode},
                 {cart.shippingAddress.country}
-              </Card.Text>
-              <Link to="/shipping">Edit shipping info?</Link>
-            </Card.Body>
-          </Card>
+              </div>
+              <Link className=' text-[#1a2eeb]' to="/shipping">Edit shipping info?</Link>
+          </div>
+          <div className="mb-3 border rounded-md py-4 pl-4 mt-3">
+              <h1 className='text-lg font-medium'>Payment Method</h1>
+              <div className='mt-4 mb-4'>
+              <strong>Method:</strong> {cart.paymentMethod} <br />
+                <strong>Address: </strong> {cart.shippingAddress.address},
+                {cart.shippingAddress.city}, {cart.shippingAddress.postalCode},
+                {cart.shippingAddress.country}
+              </div>
+              <Link className=' text-[#1a2eeb]' to="/payment">Edit payment method?</Link>
+          </div>
 
-          <Card className="mb-3">
-            <Card.Body>
-              <Card.Title>Payment Method</Card.Title>
-              <Card.Text>
-                <strong>Method:</strong> {cart.paymentMethod}
-              </Card.Text>
-              <Link to="/payment">Edit payment method?</Link>
-            </Card.Body>
-          </Card>
-
-          <Card className="mb-3">
-            <Card.Body>
-              <Card.Title>Items</Card.Title>
-              <ListGroup variant="flush">
+          <div className="mb-3 border rounded-md py-4 pl-4 mt-3 pr-10">
+              <h1 className='text-lg font-medium'>Items</h1>
+              <div className='mt-6'>
                 {cart.cartItems.map((item) => (
-                  <ListGroup.Item key={item._id}>
-                    <Row className="align-items-center">
-                      <Col md={6} className='product-price'>
+                  <div key={item._id} className='mb-4'>
+                    <div className="align-items-center flex justify-between">
                         <img
-                          style ={{height: '60px', width: '120px'}}
                           src={item.image}
                           alt={item.title}
-                          className="img-fluid rounded img-thumbnail"
+                          className="h-24"
                         ></img>{' '}
-                        <Link to={`/product/${item._id}` }>{item.title}</Link>
-                      </Col>
-                      <Col md={3}>
-                        <span>quantity: {item.quantity}</span>
-                      </Col>
-                      <Col md={3}>Price: ₦{item.price}</Col>
-                    </Row>
-                  </ListGroup.Item>
-                ))}
-              </ListGroup>
-              <Link to="/cart">Edit</Link>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={4}>
-          <Card>
-            <Card.Body>
-              <Card.Title>Order Summary</Card.Title>
-              <ListGroup variant="flush">
-                <ListGroup.Item>
-                  <Row>
-                    <Col>Items</Col>
-                    <Col>₦{cart.itemsPrice.toFixed(2)}</Col>
-                  </Row>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <Row>
-                    <Col>Shipping</Col>
-                    <Col>₦{cart.shippingPrice.toFixed(2)}</Col>
-                  </Row>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <Row>
-                    <Col>VAT</Col>
-                    <Col>₦{cart.taxPrice.toFixed(2)}</Col>
-                  </Row>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <Row>
-                    <Col>
-                      <strong> Order Total</strong>
-                    </Col>
-                    <Col>
-                      <strong>₦{cart.totalPrice.toFixed(2)}</strong>
-                    </Col>
-                  </Row>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <div className="d-grid">
-                    <button
-                      id = "order-button"
-                      type="button"
-                      onClick={placeOrderHandler}
-                      disabled={cart.cartItems.length === 0}
-                      className="checkout-button"
-                    >
-                      Place Order
-                    </button>
+                        <div className='mt-4 text-md font-medium'>
+                          <Link to={`/product/${item._id}` }>{item.title}</Link>
+                        </div>
+                        <div className='mt-4'>
+                          <h1 className='text-md font-medium'>
+                            quantity: {item.quantity} 
+                            {item.title === 'CNG' || item.title === 'LPG ' ?'Kg' : 'Litres'}
+                          </h1>
+                        </div>
+                        <div className='flex mt-4 gap-1 font-medium'>
+                        <h1 className='text-md font-medium'>Price: </h1>
+                        <CurrencyFormat value={item.price} displayType={'text'} thousandSeparator={true} prefix={'₦'} />
+                        </div>
+                    </div>
                   </div>
-                  {loading && <LoadingBox></LoadingBox>}
-                </ListGroup.Item>
-              </ListGroup>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+                ))}
+              </div>
+              <Link className=' text-[#1a2eeb]' to="/cart">Edit</Link>
+          </div>
+        </div>
+        <div className='w-1/3'>
+          <div className='mb-3 border rounded-md py-4 px-4'>
+            <h1 className='text-lg font-medium'>Order Summary</h1>
+            <div className='mt-8'>
+              <div className='mt-4 pb-2 border-b'>
+                <div className='flex justify-between'>
+                  <div className='w-1/2'>Items</div>
+                  <div className='w-1/2'>
+                  <CurrencyFormat value={cart.itemsPrice.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'₦'} />
+                  </div>
+                </div>
+              </div>
+              <div className='mt-4 pb-2 border-b'>
+                <div className='flex justify-between'>
+                  <div className='w-1/2'>Delivery fee</div>
+                  <div className='w-1/2'>
+                    <CurrencyFormat value={cart.shippingPrice.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'₦'} />
+                  </div>
+                </div>
+              </div>
+              <div className='mt-4 pb-2 border-b'>
+                <div className='flex justify-between'>
+                  <div className='w-1/2'>VAT</div>
+                  <div className='w-1/2'>
+                    <CurrencyFormat value={cart.taxPrice.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'₦'} />
+                  </div>
+                </div>
+              </div>
+              <div className='mt-4 pb-2 border-b'>
+                <div className='flex justify-between'>
+                  <div className='w-1/2'>Order Total</div>
+                  <div className='w-1/2'>
+                    <CurrencyFormat value={cart.totalPrice.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'₦'} />
+                  </div>
+                </div>
+              </div>
+              <div className='mt-8'>
+                <div className="w-[80%] m-auto">
+                  <button
+                    id = "order-button"
+                    type="button"
+                    onClick={placeOrderHandler}
+                    disabled={cart.cartItems.length === 0}
+                    className="bg-[#1a2eeb] w-full text-center text-white rounded py-4 hover:bg-blue-600"
+                  >
+                    Place Order
+                  </button>
+                </div>
+                {loading && <LoadingBox></LoadingBox>}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

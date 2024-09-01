@@ -31,14 +31,14 @@ export default function PaymentMethodScreen() {
   return (
     <div>
       <CheckoutSteps step1 step2 step3></CheckoutSteps>
-      <div className="container small-container">
+      <div className="container small-container mt-32 mb-36 m-auto w-[50%]">
         <Helmet>
           <title>Payment Method</title>
         </Helmet>
-        <h1 className="my-3 text-center">Please Select a payment method</h1>
-        <Form onSubmit={submitHandler}>
+        <h1 className="text-5xl font-semibold">Select a payment method</h1>
+        <form onSubmit={submitHandler} className='mt-10'>
           <div className="mb-3">
-            <Form.Check 
+          <input 
               type="radio"
               id="Paystack"
               label="Paystack"
@@ -46,21 +46,25 @@ export default function PaymentMethodScreen() {
               checked={paymentMethodName === 'Paystack'}
               onChange={(e) => setPaymentMethod(e.target.value)}
             />
+            <label htmlFor = "Paystack" className='text-lg font-semibold ml-2'>Paystack</label>
           </div>
           <div className="mb-3">
-            <Form.Check disabled
+            <input disabled
               type="radio"
-              id="Stripe"
-              label="Stripe (Coming Soon...)"
-              value="Stripe"
-              checked={paymentMethodName === 'Stripe'}
+              id="Flutterwave"
+              value="Flutterwave"
+              checked={paymentMethodName === 'Flutterwave'}
               onChange={(e) => setPaymentMethod(e.target.value)}
             />
+            <label htmlFor = "Flutterwave" className='ml-2'>Flutterwave (Coming Soon...)</label>
           </div>
-          <div className="mb-3">
-            <button className='checkout-button' type="submit">Next</button>
+          <div className="mb-3 mt-4">
+            <button className="py-2 px-4 rounded bg-[#1a2eeb]
+             text-white hover:bg-black" type="submit">
+              Next
+            </button>
           </div>
-        </Form>
+        </form>
       </div>
     </div>
   );
