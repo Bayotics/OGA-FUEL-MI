@@ -1,39 +1,86 @@
-import { useState } from "react";
+import PropTypes from 'prop-types';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
 import Rating from '../components/Rating';
-import MessageBox from '../components/MessageBox';
+import { useState } from 'react';
 
-const ProductDetails = ({product, rating}) => {
+
+function ProductDetails({ children,  value, index, ...other }) {
+    
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+    </div>
+  );
+}
+
+ProductDetails.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
+
+export default function BasicTabs({product, rating}) {
     const reviewLength = product.reviews.length;
-     const descriptionContent = <div className="tab-pane fade show active"    aria-labelledby="product-desc-link">
-                                    <div className="product-desc-content">
-                                        <h3>Product Information</h3>
-                                        <p>{product.description}</p>
-                                    </div>
-                                </div>;
-    const additionalInfoContent = <div className="tab-pane fade show active" id="product-info-tab"   aria-labelledby="product-info-link">
-                                <div className="product-desc-content">
-                                    <h3>Additional Information</h3>
-                                    <p>{product.longDescription}</p>
-                                </div>
-                            </div>;
-        const shippingContent =  <div className="tab-pane fade show active" id="product-shipping-tab"   aria-labelledby="product-shipping-link">
-                                <div className="product-desc-content">
-                                    <h3>Delivery</h3>
-                                    <p>We deliver to anywhere in Lagos, Ogun and Ibadan. Monday to Saturday. Payments validates order.
-                                    All order and payment must come in before 10 am for same day delivery or delivery is postponed till next day . Also, there is a free delivery within Lagos for orders of N30,000 and above.<br/></p>
-                                </div>
-                            </div>
-        const reviewsContent = 
-            <div className="tab-pane fade show active" id="product-review-tab"   aria-labelledby="product-review-link">
+  const [value, setValue] = useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <Box sx={{ width: '100%', paddingTop: '30px' }}>
+      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+          <Tab sx={{width: '100%', fontFamily: 'poppins', fontSize: '20px', }}
+           label="Description" {...a11yProps(0)} />
+          <Tab sx={{width: '100%', fontFamily: 'poppins', fontSize: '20px', }} label="Delivery" {...a11yProps(1)} />
+          <Tab sx={{width: '100%', fontFamily: 'poppins', fontSize: '20px', }} label="Reviews" {...a11yProps(2)} />
+        </Tabs>
+      </Box>
+      <div className='mt-10'>
+        <ProductDetails value={value} index={0}>
+            <div className='prod-desc'>
+                <h1 className='text-2xl font-semibold'>Product description</h1>
+                <p className='mt-2'>{product.description}</p>
+            </div>
+        </ProductDetails>
+        <ProductDetails value={value} index={1}>
+            <div className='delivery-desc'>
+                <h1 className='text-2xl font-semibold'>Delivery</h1>
+                <p className='mt-2'>
+                    We deliver to anywhere within Lagos and its environs. Monday to Sunday, 24/7. 
+                    Payments validates order. All payments and payment info are secured on the Paystack Platform. 
+                    Also, there is free delivery within Lagos for orders of N150,000 and above.
+                </p>
+            </div>
+        </ProductDetails>
+        <ProductDetails value={value} index={2}>
+        <div className="tab-pane fade show active" id="product-review-tab"   aria-labelledby="product-review-link">
                 <div className="reviews">
                     <h3>Reviews ({reviewLength})</h3>
                     <div className="review">
                         <div className="row no-gutters">
                             <div className="mb-3">
-          {product.reviews.length === 0 && (
-            <MessageBox>There is no review</MessageBox>
-          )}
-        </div>
+                              {product.reviews.length === 0 && (
+                                <p className='text-red-500 text-xl font-semibold'>There are no reviews for this product yet</p>
+                              )}
+                            </div>
                             {product.reviews.map((review) =>{
                                 return(
                                     <div key={review._id}>
@@ -58,39 +105,9 @@ const ProductDetails = ({product, rating}) => {
                     </div>
                 </div>
             </div>
-    const [content, setContent] = useState(descriptionContent);
-    const firstMenufunction = () => {
-        setContent(descriptionContent)
-    }
-    const secondMenuFunction = () => {
-        setContent(additionalInfoContent)
-    }
-    const thirdMenufunction = () => {
-        setContent(shippingContent)
-    }
-    const fourthMenuContent = () => {
-        setContent(reviewsContent)
-    }
-    return (
-        <div className="mt-4">
-            <ul className="nav nav-pills justify-content-center" role="tablist">
-                <li className="nav-item" onClick = {firstMenufunction}>
-                    <p className="nav-link" >Description</p>
-                </li>
-                <li className="nav-item" onClick={secondMenuFunction}>
-                    <p className="nav-link" >Additional information</p>
-                </li>
-                <li className="nav-item" onClick={thirdMenufunction}>
-                    <p className="nav-link" >Delivery</p>
-                </li>
-                <li className="nav-item" onClick={fourthMenuContent}>
-                    <p className="nav-link" >Reviews</p>
-                </li>
-            </ul>
-            <div className="tab-content">
-                {content}  
-            </div>
-        </div>
-    )
+        </ProductDetails>
+      </div>
+      
+    </Box>
+  );
 }
-export default ProductDetails

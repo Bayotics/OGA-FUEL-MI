@@ -58,7 +58,7 @@ function Product(props) {
                   <div className='add-to-cart-btn'>
                     <button onClick={() => addToCartHandler(product)}
                      className=" bg-[#1a2eeb] px-7 py-3 rounded-md text-white hover:bg-[#5b6fc9]">
-                      Add to Cart
+                      <i className="fas fa-shopping-cart"></i> Add to Cart
                     </button>
                   </div>
                 </div>

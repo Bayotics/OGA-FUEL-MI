@@ -92,6 +92,9 @@ body {
   border-bottom: 0.2rem solid #263bf5;
   color: #2d41f3;
 }
+.rating span{
+  color: #fcbf08;
+}
 
   /********** FOOTER **********/
   /* touched */
