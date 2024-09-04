@@ -179,11 +179,11 @@ function App() {
                           <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">{userInfo.email}</span>
                         </div>
                         <ul className="py-2">
-                          <li>
+                          {/* <li>
                             <LinkContainer className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100  " to="/profile">
                               <NavDropdown.Item>Edit Profile</NavDropdown.Item>
                             </LinkContainer>  
-                          </li>
+                          </li> */}
                           <li>
                             <LinkContainer className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100  " to="/profiledisplay">
                               <NavDropdown.Item>Display Profile</NavDropdown.Item>

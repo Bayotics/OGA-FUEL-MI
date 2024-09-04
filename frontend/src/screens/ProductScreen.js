@@ -206,7 +206,7 @@ function ProductScreen() {
             {userInfo ? (
               <form onSubmit={submitHandler}>
                 <h2 className='text-4xl font-semibold'>Write a customer review</h2>
-                <div className="mb-3" controlId="rating">
+                <div className="mb-3">
                   <h1 className='text-2xl font-normal mt-8'>Rating</h1>
                   <select className='w-full mt-2 border pl-2 py-2'
                     aria-label="Rating"

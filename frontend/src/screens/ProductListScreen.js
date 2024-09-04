@@ -9,6 +9,7 @@ import { Store } from '../Store';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { getError } from '../utils';
+import CurrencyFormat from 'react-currency-format';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -116,19 +117,18 @@ export default function ProductListScreen() {
   };
 
   return (
-    <div className='admin-product-main'>
-      <Row className='admin-product-row'>
-        <Col>
-          <h1>Products</h1>
-        </Col>
-        <Col className="col text-end mt-3">
-          <div>
-            <button className="checkout-button" type="button" onClick={createProduct}>
+    <div className='mb-48 px-24 mt-12'>
+      <div className='flex justify-between'>
+        <div>
+          <h1 className='text-center text-3xl font-semibold mt-1'>Products</h1>
+        </div>
+        <div className="">
+            <button className="px-4 text-center py-3 bg-[#1a2eeb] hover:bg-black text-white" 
+            type="button" onClick={createProduct}>
               Add new Product
             </button>
-          </div>
-        </Col>
-      </Row>
+        </div>
+      </div>
 
       {loadingCreate && <LoadingBox></LoadingBox>}
       {loadingDelete && <LoadingBox></LoadingBox>}
@@ -136,12 +136,12 @@ export default function ProductListScreen() {
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
-        <MessageBox variant="danger">{error}</MessageBox>
+        <h1 className='text-red-500'>{error}</h1>
       ) : (
         <>
-          <table className="table">
+          <table className="table mt-10 w-full" >
             <thead>
-              <tr>
+              <tr className='text-center'>
                 <th>ID</th>
                 <th>NAME</th>
                 <th>PRICE</th>
@@ -149,45 +149,39 @@ export default function ProductListScreen() {
                 <th>ACTIONS</th>
               </tr>
             </thead>
-            <tbody>
-              {products.map((product) => (
-                <tr key={product._id}>
+            <tbody className='border text-center '>
+            {products.map((product) => (
+                <tr className='border-b' key={product._id}>
                   <td>{product._id}</td>
                   <td>{product.title}</td>
-                  <td>{product.price}</td>
-                  <td>{product.category}</td>
                   <td>
-                    <Button
-                      type="button"
-                      variant="success"
-                      onClick={() => navigate(`/admin/product/${product._id}`)}
-                    >
-                      Edit
-                    </Button>
-                    &nbsp;
-                    <Button
-                      type="button"
-                      variant="danger"
-                      onClick={() => deleteHandler(product)}
-                    >
-                      Delete
-                    </Button>
+                    <CurrencyFormat value={product.price} displayType={'text'} thousandSeparator={true} prefix={'₦'} />
+                  </td>
+                  <td>{product.category}</td>
+                  <td className=''>
+                    <div className='flex gap-2 justify-center'>
+                      <button
+                        type="button"
+                        className='px-4 text-center py-3 bg-[#1a2eeb] hover:bg-black text-white'
+                        onClick={() => navigate(`/admin/product/${product._id}`)}
+                      >
+                        Edit
+                      </button>
+                      &nbsp;
+                      <button
+                        type="button"
+                        className='px-4 text-center py-3 bg-red-400 hover:bg-black text-white'
+                        onClick={() => deleteHandler(product)}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                    
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
-          <div>
-            {[...Array(pages).keys()].map((x) => (
-              <Link
-                className={x + 1 === Number(page) ? 'btn text-bold' : 'btn'}
-                key={x + 1}
-                to={`/admin/products?page=${x + 1}`}
-              >
-                {x + 1}
-              </Link>
-            ))}
-          </div>
         </>
       )}
     </div>

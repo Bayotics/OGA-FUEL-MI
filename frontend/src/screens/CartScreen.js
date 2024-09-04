@@ -122,7 +122,7 @@ export default function CartScreen() {
               </div>
             </div>
           </div>
-          <div className='checkout-btn mt-10 px-6'>
+          <div className='checkout-btn mt-10 px-6 pb-6'>
             <button className= {`rounded-md py-4 font-medium text-lg text-center w-full bg-[#1a2eeb]
              hover:bg-black text-white`} type='button' onClick={checkoutHandler}
              disabled = {cartItems.length === 0}>

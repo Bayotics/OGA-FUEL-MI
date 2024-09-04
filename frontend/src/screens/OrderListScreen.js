@@ -8,6 +8,7 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { Store } from '../Store';
 import { getError } from '../utils';
+import CurrencyFormat from 'react-currency-format';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -88,20 +89,20 @@ export default function OrderListScreen() {
   };
 
   return (
-    <div>
+    <div className='mb-48 px-24 mt-12'>
       <Helmet>
         <title>Orders</title>
       </Helmet>
-      <h1>Orders</h1>
+      <h1 className='text-center text-3xl font-semibold mt-1'>All Orders</h1>
       {loadingDelete && <LoadingBox></LoadingBox>}
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
-        <MessageBox variant="danger">{error}</MessageBox>
+        <div className='text-red-500' variant="danger">{error}</div>
       ) : (
-        <table className="table">
+        <table className="table mt-10 w-full" >
           <thead>
-            <tr>
+            <tr className='text-center'>
               <th>ID</th>
               <th>USER</th>
               <th>DATE</th>
@@ -111,13 +112,15 @@ export default function OrderListScreen() {
               <th>ACTIONS</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className='border text-center '>
             {orders.map((order) => (
-              <tr key={order._id}>
+              <tr className='border-b' key={order._id}>
                 <td>{order._id}</td>
                 <td>{order.user ? order.user.name : 'DELETED USER'}</td>
                 <td>{order.createdAt.substring(0, 10)}</td>
-                <td>{order.totalPrice.toFixed(2)}</td>
+                <td>
+                  <CurrencyFormat value={order.totalPrice.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'₦'} />
+                </td>
                 <td>{order.isPaid ? order.paidAt.substring(0, 10) : 'No'}</td>
 
                 <td>
@@ -126,23 +129,25 @@ export default function OrderListScreen() {
                     : 'No'}
                 </td>
                 <td>
-                  <Button
-                    type="button"
-                    variant="success"
-                    onClick={() => {
-                      navigate(`/order/${order._id}`);
-                    }}
-                  >
-                    Details
-                  </Button>
-                  &nbsp;
-                  <Button
-                    type="button"
-                    variant="danger"
-                    onClick={() => deleteHandler(order)}
-                  >
-                    Delete
-                  </Button>
+                  <div className='flex gap-2 justify-center'>
+                    <button
+                      type="button"
+                      className='px-4 text-center py-3 bg-[#1a2eeb] hover:bg-black text-white'
+                      onClick={() => {
+                        navigate(`/order/${order._id}`);
+                      }}
+                    >
+                      Details
+                    </button>
+                    &nbsp;
+                    <button
+                      type="button"
+                      className='px-4 text-center py-3 bg-red-400 hover:bg-black text-white'
+                      onClick={() => deleteHandler(order)}
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}

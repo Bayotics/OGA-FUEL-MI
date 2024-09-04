@@ -1,4 +1,5 @@
 import React, { useContext, useReducer, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -28,7 +29,9 @@ export default function ProfileScreen() {
   const [email, setEmail] = useState(userInfo.email);
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const navigate = useNavigate();
 
+  console.log(userInfo)
   const [{ loadingUpdate }, dispatch] = useReducer(reducer, {
     loadingUpdate: false,
   });
@@ -54,6 +57,7 @@ export default function ProfileScreen() {
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
       localStorage.setItem('userInfo', JSON.stringify(data));
       toast.success('User updated successfully');
+      navigate('/');
     } catch (err) {
       dispatch({
         type: 'FETCH_FAIL',
@@ -67,45 +71,52 @@ export default function ProfileScreen() {
   };
 
   return (
-    <div className="container small-container">
+    <div className="container px-40 pt-20 mb-48 border">
       <Helmet>
         <title>Edit Profile</title>
       </Helmet>
-      <h1 className="my-3">Edit Your Profile</h1>
-      <form onSubmit={submitHandler}>
-        <Form.Group className="mb-3" controlId="name">
-          <Form.Label>Name</Form.Label>
-          <Form.Control
+      <h1 className="text-center text-5xl font-semibold">Edit Your Profile</h1>
+      <form onSubmit={submitHandler} className='mt-10'>
+        <div className="mb-3">
+          <h1 className='font-semibold'>Name</h1>
+          <input
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
+            className='w-full border pl-2 py-2'
           />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="name">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            type="email"
+        </div>
+        <div className="mb-3">
+          <h1 className='font-semibold'>Email</h1>
+          <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            type='email'
+            className='w-full border pl-2 py-2'
           />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="password">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="password">
-          <Form.Label>Confirm Password</Form.Label>
-          <Form.Control
-            type="password"
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-        </Form.Group>
+        </div>
         <div className="mb-3">
-          <button className="checkout-button" type="submit">Update Profile</button>
+          <h1 className='font-semibold'>Password</h1>
+          <input
+            onChange={(e) => setPassword(e.target.value)}
+            className='w-full border pl-2 py-2'
+            type='password'
+          />
+        </div>
+        <div className="mb-3">
+          <h1 className='font-semibold'>Confirm Password</h1>
+          <input
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            className='w-full border pl-2 py-2'
+            type='password'
+          />
+        </div>
+        <div className="mb-3">
+          <button className="px-4 text-center py-3 bg-[#1a2eeb] hover:bg-black text-white mt-4"
+           type="submit">
+            Update Profile
+          </button>
         </div>
       </form>
     </div>

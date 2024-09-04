@@ -7,6 +7,8 @@ import MessageBox from '../components/MessageBox';
 import { Store } from '../Store';
 import { getError } from '../utils';
 import Button from 'react-bootstrap/esm/Button';
+import CurrencyFormat from 'react-currency-format';
+import moment from 'moment'
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -50,35 +52,38 @@ export default function OrderHistoryScreen() {
     };
     fetchData();
   }, [ userInfo]);
-  // console.log(payments)
   return (
-    <div>
+    <div className='mb-48 px-24 mt-12'>
       <Helmet>
         <title>Order History</title>
       </Helmet>
 
-      <h1>Order History</h1>
+      <h1 className='text-center text-3xl font-semibold'>Order History</h1>
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
-        <MessageBox variant="danger">{error}</MessageBox>
+        <h1 className='text-red-500' variant="danger">{error}</h1>
       ) : (
-        <table className="table">
-          <thead>
-            <tr>
-              <th>ID</th>
+        <table className="table mt-5 w-full" >
+          <thead className=''>
+            <tr className='text-center'>
+              <th className=''>ID</th>
               <th>DATE</th>
               <th>TOTAL</th>
-              <th>PAID</th>
+              <th>STATUS</th>
               <th>Details</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className='border text-center '>
             {payments.map((payment) => (
-              <tr key={payment._id}>
-                <td>{payment._id}</td>
-                <td>{payment.createdAt.substring(0, 19)}</td>
-                <td>{payment.totalPrice.toFixed(2)}</td>
+              <tr key={payment._id} className='border-b'>
+                <td className='py-3'>{payment._id}</td>
+                <td>
+                  <h1>{moment(payment.createdAt,).format('MMMM Do YYYY, h:mm a')}</h1>
+                </td>
+                <td>
+                  <CurrencyFormat value={payment.totalPrice.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'₦'} />
+                </td>
                 <td><p>Paid</p></td>
                 {/* <td>
                   {order.isDelivered
@@ -86,15 +91,15 @@ export default function OrderHistoryScreen() {
                     : 'No'}
                 </td> */}
                 <td>
-                  <Button
+                  <button
                     type="button"
-                    variant="success"
+                    className='text-yellow-600'
                     onClick={() => {
                       navigate(`/payment/${payment._id}`);
                     }}
                   >
                     Details
-                  </Button>
+                  </button>
                 </td>
               </tr>
             ))}

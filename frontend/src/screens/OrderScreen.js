@@ -119,8 +119,7 @@ export default function OrderScreen() {
       dispatch({
         type: 'UPDATE_SUCCESS',
       });
-      toast.success('Product updated successfully');
-      // navigate('/admin/products');
+      toast.success('Order placed Successfully');
     } catch (err) {
       toast.error(getError(err));
       dispatch({ type: 'UPDATE_FAIL' });
@@ -186,10 +185,10 @@ export default function OrderScreen() {
               </div>
               {order.isPaid  ? (
                 <div >
-                  <p className='text-green-500 text-bold'>Paid. Please check order history for your order details</p>
+                  <p className='text-green-500 font-bold'>Paid. Please check order history for your order details</p>
                 </div>
               ) : (
-                <div><p className='text-red-600 text-bold'>Not Paid</p></div>
+                <div><p className='text-red-600 font-bold'>Not Paid</p></div>
               )}   
           </div>
           <div className="mb-3 border rounded-md py-4 pl-4 mt-3 pr-10">

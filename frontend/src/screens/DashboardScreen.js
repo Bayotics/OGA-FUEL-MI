@@ -5,9 +5,9 @@ import { Store } from '../Store';
 import { getError } from '../utils';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
+import { PieChart } from '@mui/x-charts/PieChart';
+import CurrencyFormat from 'react-currency-format';
+
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -50,86 +50,74 @@ export default function DashboardScreen() {
     fetchData();
   }, [userInfo]);
 
+
   return (
-    <div className='dashboard-main'>
-      <h1>Dashboard</h1>
+    <div className= 'px-40 pt-12 mb-48'>
+      <h1 className="text-center text-3xl font-semibold">Dashboard</h1>
       {loading ? (
         <LoadingBox />
       ) : error ? (
-        <MessageBox variant="danger">{error}</MessageBox>
+        <h1 className='text-red-500' variant="danger">{error}</h1>
       ) : (
         <>
-          <Row className='dashboard-row'>
-            <Col md={4}>
-              <Card>
-                <Card.Body>
-                  <Card.Title>
-                    {summary.users && summary.users[0]
-                      ? summary.users[0].numUsers
-                      : 0}
-                  </Card.Title>
-                  <Card.Text>Total Users</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col md={4}>
-              <Card>
-                <Card.Body>
-                  <Card.Title>
-                    {summary.orders && summary.users[0]
-                      ? summary.orders[0].numOrders
-                      : 0}
-                  </Card.Title>
-                  <Card.Text>Total Orders</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col md={4}>
-              <Card>
-                <Card.Body>
-                  <Card.Title>
-                    ₦
-                    {summary.orders && summary.users[0]
-                      ? summary.orders[0].totalSales.toFixed(2)
-                      : 0}
-                  </Card.Title>
-                  <Card.Text> Orders</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
+          <div className='dashboard-row mt-8'>
+            <div className='flex justify-between gap-4'>
+              <div className='border rounded-md pl-2 py-3 w-1/3'>
+                {summary.users && summary.users[0]
+                ? summary.users[0].numUsers
+                : 0}
+                <h1>Total Users</h1>
+              </div>
+              <div className='border rounded-md pl-2 py-3 w-1/3'>
+                {summary.orders && summary.users[0]
+                ? summary.orders[0].numOrders
+                : 0}
+                <h1>Total Orders</h1>
+              </div>
+              <div className='border rounded-md pl-2 py-3 w-1/3'>
+                <CurrencyFormat
+                 value={summary.orders && summary.users[0]
+                  ? summary.orders[0].totalSales.toFixed(2)
+                  : 0} 
+                  displayType={'text'} 
+                  thousandSeparator={true} prefix={'₦'}
+                />
+                <h1>Total sales</h1>
+              </div>
+            </div>
+          </div>
+              
           <div className="my-3">
             <h2>Total Sales</h2>
             {summary.dailyOrders.length === 0 ? (
               <MessageBox>No Sale</MessageBox>
             ) : (
-              <Chart
-                width="100%"
-                height="400px"
-                chartType="AreaChart"
-                loader={<div>Loading Chart...</div>}
-                data={[
-                  ['Date', 'Sales'],
-                  ...summary.dailyOrders.map((x) => [x._id, x.sales]),
-                ]}
-              ></Chart>
-            )}
-          </div>
-          <div className="my-3">
-            <h2>Categories</h2>
-            {summary.productCategories.length === 0 ? (
-              <MessageBox>No Category</MessageBox>
-            ) : (
-              <Chart
-                width="100%"
-                height="400px"
-                chartType="PieChart"
-                loader={<div>Loading Chart...</div>}
-                data={[
-                  ['Category', 'Products'],
-                  ...summary.productCategories.map((x) => [x._id, x.count]),
-                ]}
-              ></Chart>
+              <div>
+                <Chart
+                  width="100%"
+                  height="400px"
+                  chartType="AreaChart"
+                  loader={<div>Loading Chart...</div>}
+                  data={[
+                    ['Date', 'Sales'],
+                    ...summary.dailyOrders.map((x) => [x._id, x.sales]),
+                  ]}
+                ></Chart>
+                <PieChart
+                  series={[
+                    {
+                      data: [
+                        ['Date', 'Sales'],
+                        ...summary.productCategories.map((x) => [x._id, x.count]),
+                      ],
+                    },
+                  ]}
+                  width={400}
+                  height={200}
+                />
+              </div>
+              
+              
             )}
           </div>
         </>

@@ -88,21 +88,20 @@ export default function UserListScreen() {
     }
   };
   return (
-    <div>
+    <div className='mb-48 px-24 mt-12'>
       <Helmet>
         <title>Users</title>
       </Helmet>
-      <h1>Users</h1>
-
+      <h1 className='text-center text-3xl font-semibold mt-1'>All Users</h1>
       {loadingDelete && <LoadingBox></LoadingBox>}
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <table className="table">
+        <table className="table mt-10 w-full" >
           <thead>
-            <tr>
+            <tr className='text-center'>
               <th>ID</th>
               <th>NAME</th>
               <th>EMAIL</th>
@@ -110,29 +109,31 @@ export default function UserListScreen() {
               <th>ACTIONS</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className='border text-center '>
             {users.map((user) => (
-              <tr key={user._id}>
+              <tr className='border-b' key={user._id}>
                 <td>{user._id}</td>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>{user.isAdmin ? 'YES' : 'NO'}</td>
                 <td>
-                  <Button
-                    type="button"
-                    variant="success"
-                    onClick={() => navigate(`/admin/user/${user._id}`)}
-                  >
-                    Edit
-                  </Button>
-                  &nbsp;
-                  <Button
-                    type="button"
-                    variant="danger"
-                    onClick={() => deleteHandler(user)}
-                  >
-                    Delete
-                  </Button>
+                  <div className='flex gap-2 justify-center'>
+                    <button
+                      type="button"
+                      className='px-4 text-center py-3 bg-[#1a2eeb] hover:bg-black text-white'
+                      onClick={() => navigate(`/admin/user/${user._id}`)}
+                    >
+                      Edit
+                    </button>
+                    &nbsp;
+                    <button
+                      type="button"
+                      className='px-4 text-center py-3 bg-red-400 hover:bg-black text-white'
+                      onClick={() => deleteHandler(user)}
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}
