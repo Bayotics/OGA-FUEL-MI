@@ -75,6 +75,11 @@ export default function ProductEditScreen() {
   const [description, setDescription] = useState('');
   const [longDescription, setLongDescription] = useState('');
 
+  const categoriesList = [
+    "", "Petrol", "Diesel", "CNG", "LPG",
+  ]
+  categoriesList.sort();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -166,126 +171,112 @@ export default function ProductEditScreen() {
     console.log(images);
     console.log(images.filter((x) => x !== fileName));
     setImages(images.filter((x) => x !== fileName));
-    toast.success('Image removed successfully. click Update to apply it');
+    toast.success('Image removed successfully');
   };
   const cancelHandler = async () => {
         navigate('/admin/products');
   };
-  console.log(productId)
   return (
-    <Container className="small-container">
+    <div className="px-40 pt-10 mb-48">
       <Helmet>
         <title>Edit Product ${productId}</title>
       </Helmet>
-      <h1>Edit Product {productId}</h1>
-
+      <h1 className="text-center text-3xl font-semibold">Edit Product</h1>
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <Form onSubmit={submitHandler}>
-          <Form.Group className="mb-3" controlId="name">
-            <Form.Label>Name</Form.Label>
-            <Form.Control
+        <form onSubmit={submitHandler} className='mt-10'>
+          <div className="mb-3">
+            <h1 className='font-semibold'>Name</h1>
+            <input
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               required
+              className='w-full border pl-2 py-2'
             />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="name">
-            <Form.Label>Price</Form.Label>
-            <Form.Control
+          </div>
+          <div className="mb-3">
+            <h1 className='font-semibold'>Price in ₦ per Litre/Kg</h1>
+            <input
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               required
+              className='w-full border pl-2 py-2'
+              type='number'
             />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="image">
-            <Form.Label>Image File</Form.Label>
-            <Form.Control
+          </div>
+          <div className="mb-3">
+            <h1 className='font-semibold'>Image</h1>
+            <input
               value={image}
               onChange={(e) => setImage(e.target.value)}
               required
+              className='w-full border pl-2 py-2'
             />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="imageFile">
-            <Form.Label>Upload Image</Form.Label>
-            <Form.Control type="file" onChange={uploadFileHandler} />
-            {loadingUpload && <LoadingBox></LoadingBox>}
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="additionalImage">
-            <Form.Label>Additional Images</Form.Label>
-            {images.length === 0 && <MessageBox>No image</MessageBox>}
-            <ListGroup variant="flush">
-              {images.map((x) => (
-                <ListGroup.Item key={x}>
-                  {x}
-                  <Button variant="light" onClick={() => deleteFileHandler(x)}>
-                    <i className="fa fa-times-circle"></i>
-                  </Button>
-                </ListGroup.Item>
-              ))}
-            </ListGroup>
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="additionalImageFile">
-            <Form.Label>Upload Aditional Image</Form.Label>
-            <Form.Control
-              type="file"
-              onChange={(e) => uploadFileHandler(e, true)}
+          </div>
+          <div className="mb-3">
+            <h1 className='font-semibold'>Upload Image</h1>
+            <input
+              type="file" onChange={uploadFileHandler}
+              required
+              className='w-full border pl-2 py-2'
             />
             {loadingUpload && <LoadingBox></LoadingBox>}
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="category">
-            <Form.Label>Category</Form.Label>
-            <Form.Control
+          </div>
+          <div className="mb-3">
+            <h1 className='font-semibold'>Category</h1>
+            <select 
               value={category}
               onChange={(e) => setCategory(e.target.value)}
               required
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="countInStock">
-            <Form.Label>Count In Stock</Form.Label>
-            <Form.Control
-              value={countInStock}
-              onChange={(e) => setCountInStock(e.target.value)}
-              required
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="description">
-            <Form.Label>Description</Form.Label>
-            <Form.Control
+              className='w-full border pl-2 py-2'
+            >
+              {categoriesList.map((e) => {
+                return(
+                  <option key = {e}>{e}</option>
+                )
+              })}
+            </select>
+          </div>
+          <div className="mb-3">
+            <h1 className='font-semibold'>Description</h1>
+            <input
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               required
+              className='w-full border pl-2 py-2'
             />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="longDescription">
-            <Form.Label>Long Description</Form.Label>
-            <Form.Control
+          </div>
+          <div className="mb-3">
+            <h1 className='font-semibold'>Long Description</h1>
+            <textarea
               value={longDescription}
               onChange={(e) => setLongDescription(e.target.value)}
               required
+              className='w-full border pl-2 py-2'
+              placeholder='More details about your product'
+              rows={10}
             />
-            </Form.Group>
-          <div className="mb-3">
-            <Button disabled={loadingUpdate} type="submit">
-              Update
-            </Button>
-            {loadingUpdate && <LoadingBox></LoadingBox>}
-
-            <Button
-            type="button"
-            variant="danger"
-            onClick={() => cancelHandler()}
-          >
-            Cancel
-          </Button>
           </div>
-        </Form>
+          <div className="mb-3 flex gap-4">
+            <button disabled={loadingUpdate}
+             className="px-4 text-center py-3 bg-[#1a2eeb] hover:bg-black text-white mt-4" type="submit">
+              Update
+            </button>
+            {loadingUpdate && <LoadingBox></LoadingBox>}
+            <button
+              className='px-4 text-center py-3 bg-red-500 hover:bg-black text-white mt-4'
+              type="button"
+              variant="danger"
+              onClick={cancelHandler}
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
       )}
-    </Container>
+    </div>
   );
 }

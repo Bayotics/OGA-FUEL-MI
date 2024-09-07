@@ -9,6 +9,7 @@ import MessageBox from '../components/MessageBox';
 import { Store } from '../Store';
 import { getError } from '../utils';
 import CurrencyFormat from 'react-currency-format';
+import moment from 'moment';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -121,7 +122,9 @@ export default function OrderListScreen() {
                 <td>
                   <CurrencyFormat value={order.totalPrice.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'₦'} />
                 </td>
-                <td>{order.isPaid ? order.paidAt.substring(0, 10) : 'No'}</td>
+                <td>
+                  <h1>{(order.isPaid ? moment(order.paidAt).format('MMMM Do YYYY, h:mm a') : 'No')}</h1>
+                </td>
 
                 <td>
                   {order.isDelivered

@@ -43,9 +43,18 @@ import ContactScreen from './screens/ContactScreen';
 import Footer from './components/Footer';
 import VerifyEmail from './screens/VerifyEmail';
 import Logo from '../src/assets/Fuel-me/pngs/logo.png'
+import AnimatedNav from './components/AnimatedNav';
 import DropdownItem from 'react-bootstrap/esm/DropdownItem';
 import FAQScreen from './screens/FAQScreen';
 import ServicesScreen from './screens/ServicesScreen';
+import FuelScreen from './screens/FuelScreen';
+import PolicyScreen from './screens/PolicyScreen';
+import CareerScreen from './screens/CareerScreen';
+import DownloadApp from './screens/DownloadApp';
+import ScrollAnimation from 'react-animate-on-scroll';
+import DieselScreen from './screens/DieselScreen';
+import CNGScreen from './screens/CNGScreen';
+import LPGScreen from './screens/LPGScreen';
 
 
 function App() {
@@ -124,6 +133,7 @@ function App() {
   }, []);
   return (
     <BrowserRouter>
+    <ScrollAnimation animateIn='fadeIn' duration={2}>
       <div className="">
         <ToastContainer position="bottom-center" limit={2} />
         <header>
@@ -136,14 +146,15 @@ function App() {
               </Link>
             </div>
             <div className='nav-contents  flex justify-between pt-3 gap-20'>
-              <div className= {` nav-menu gap-4 px-4 mt-1 ${searchBarHidden}`}>
+              <div className= {` nav-menu gap-6 px-4 mt-1 ${searchBarHidden}`}>
                 <Link to = "/" className='text-black font-medium hover:text-[#1a2eeb] hover:font-bold'>Home Page</Link>
                 <Link 
                   to = "/search?category=all&query=all&price=all&rating=all&order=newest&page=1" 
                   className='text-[#1a2eeb] font-bold'>Order Fuel</Link>
-                <Link to = "/aboutus" className='text-black font-medium hover:text-[#1a2eeb] hover:font-bold'> About Us</Link>
+                {/* <Link to = "/aboutus" className='text-black font-medium hover:text-[#1a2eeb] hover:font-bold'> About Us</Link>
                 <Link to = "/services" className='text-black font-medium hover:text-[#1a2eeb] hover:font-bold'> Services</Link>
-                <Link to = "/contactus" className='text-black font-medium hover:text-[#1a2eeb] hover:font-bold' id = "contact-nav">Contact</Link>
+                <Link to = "/contactus" className='text-black font-medium hover:text-[#1a2eeb] hover:font-bold' id = "contact-nav">Contact</Link> */}
+                <AnimatedNav />
               </div>
               <div className=' nav-functions flex gap-4 pt-1'>
                 <div className={` w-[820px]  ${searchbarVisibility} gap-2`}>
@@ -371,14 +382,23 @@ function App() {
                 <Route path = '/verify-email' element = {<VerifyEmail />} />
                 <Route path = '/faqs' element = {<FAQScreen />} />
                 <Route path = '/services' element = {<ServicesScreen />} />
+                <Route path = '/fuel' element = {<FuelScreen />} />
+                <Route path = '/diesel' element = {<DieselScreen />} />
+                <Route path = '/cng' element = {<CNGScreen />} />
+                <Route path = '/lpg' element = {<LPGScreen />} />
+                <Route path = '/policy' element = {<PolicyScreen />} />
+                <Route path = '/career' element = {<CareerScreen />} />
+                <Route path = '/download' element = {<DownloadApp />} />
               </Routes>
             </div>
           </div>
         </main>
-        <footer>
+        <footer className='mb-0'>
             <Footer />
         </footer>
       </div>
+    </ScrollAnimation>
+      
     </BrowserRouter>
   );
 }

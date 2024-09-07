@@ -5,6 +5,8 @@ import Table from 'react-bootstrap/Table';
 import LoadingBox from '../components/LoadingBox';
 import { Store } from '../Store';
 import { getError } from '../utils';
+import CurrencyFormat from 'react-currency-format';
+import moment from 'moment';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -59,54 +61,57 @@ const PaymentScreen = () =>
     }
   }, [payment, userInfo, paymentId, navigate]);
     return loading ? (<LoadingBox></LoadingBox>) : (
-      <div className = "container bg-gray-300 h-full w-screen mt-4">
-        <table>
+      <div className='mb-48 px-24 mt-12'>
+        <table className="table mt-10 w-full" >
           <thead>
-            <tr>
+            <tr className='text-center'>
               <th><h2>Payment ID</h2></th>
               <th><h2>Payment Status</h2></th>
               <th><h2>Payment Date</h2></th>
               <th><h2>Total Price</h2></th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td><h3>{paymentId}</h3></td>
-              <td><h3 className='text-success'>{payment.status}</h3></td>
-              <td><h3>{payment.createdAt.substring(0, 19)}</h3></td>
-              <td><h3>₦{payment.totalPrice}</h3></td>
+          <tbody className=' text-center '>
+            <tr className='border-t '>
+              <td className='py-10'><h3>{paymentId}</h3></td>
+              <td><h3 className='text-green-500 font-semibold'>{payment.status}</h3></td>
+              <td>
+                <h3>{moment(payment.createdAt).format('MMMM Do YYYY, h:mm a')}</h3>
+              </td>
+              <td>
+                <CurrencyFormat value={payment.totalPrice.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'₦'} />
+              </td>
             </tr>
           </tbody>
         </table>
-        <br/>
-        <br/>
         <div>
-          <Table striped bordered hover>
+          <table className='table mt-10 w-full'>
             <thead>
-              <tr>
+              <tr className='text-center'>
                 <th>Pic</th>
                 <th>Name</th>
                 <th>Quantity</th>
                 <th>Price</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className='text-center'>
               {payment.orderItems.map((e) => (
-                <tr key={e._id}>
-                  <td>
+                <tr key={e._id} className='border-t'>
+                  <td className='py-10'>
                     <img
-                            style ={{height: '60px', width: '120px'}}
-                            src={e.image}
-                            alt={e.name}
-                            className="img-fluid rounded img-thumbnail"
+                      src={e.image}
+                      alt={e.title}
+                      className="h-10 m-auto"
                     ></img>{' '}</td>
                   <td>{e.title}</td>
-                  <td>{e.quantity}</td>
-                  <td>₦{e.price} X {e.quantity}</td>
+                  <td>{e.quantity} {e.title === 'Petrol' || e.title === 'Diesel' ?  'Ltr' : 'Kg'}</td>
+                  <td>
+                    <CurrencyFormat value={e.price * e.quantity} displayType={'text'} thousandSeparator={true} prefix={'₦'} />
+                  </td>
               </tr>
               ))}
             </tbody>
-          </Table>
+          </table>
         </div>
     </div>
     )

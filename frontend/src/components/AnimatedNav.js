@@ -9,6 +9,11 @@ import {
 } from "react-icons/fi";
 import { AnimatePresence, motion } from "framer-motion";
 import test from '../assets/Fuel-me/pngs/facebook.png'
+import { LuFuel } from "react-icons/lu";
+import { BsFuelPumpDiesel } from "react-icons/bs";
+import { GiGasStove } from "react-icons/gi";
+import { MdOutlinePropaneTank } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 
 
@@ -16,9 +21,9 @@ import test from '../assets/Fuel-me/pngs/facebook.png'
 
 
 
-const AboutScreen = () => {
+const AnimatedNav = () => {
   return (
-    <div className="flex w-[50%] justify-start bg-neutral-950 py-2 text-neutral-200 md:justify-center">
+    <div className="flex w-[50%] justify-start text-neutral-200 pl-6 md:justify-center">
       <Tabs />
     </div>
   );
@@ -69,10 +74,10 @@ const Tab = ({ children, tab, handleSetSelected, selected }) => {
       id={`shift-tab-${tab}`}
       onMouseEnter={() => handleSetSelected(tab)}
       onClick={() => handleSetSelected(tab)}
-      className={`flex items-center gap-1 rounded-full px-3 py-1.5 text-sm transition-colors ${
+      className={`flex items-center gap-0 rounded-full px-3 transition-colors ${
         selected === tab
-          ? " bg-neutral-800 text-neutral-100"
-          : "text-neutral-400"
+          ? " text-black"
+          : "text-black font-medium hover:text-[#1a2eeb] hover:font-bold"
       }`}
     >
       <span>{children}</span>
@@ -167,131 +172,118 @@ const Nub = ({ selected }) => {
   );
 };
 
-const Products = () => {
+const Company = () => {
   return (
     <div>
       <div className="flex gap-4">
         <div>
-          <h3 className="mb-2 text-sm font-medium">Startup</h3>
-          <button className="mb-1 block text-sm text-neutral-400">
-            Bookkeeping
-          </button>
-          <button className="block text-sm text-neutral-400">
-            Invoicing
-          </button>
+          <Link to = '/aboutus'>
+            <h3 className="mb-2 text-sm font-medium">About Us</h3>
+            <button className="mb-1 block text-xs text-neutral-400">
+              About Fuel me
+            </button>
+            <button className="block text-xs text-neutral-400 mt-2">
+              Our team
+            </button>
+            <button className="mb-1 block text-xs text-neutral-400 mt-2">
+              Reviews
+            </button>
+          </Link>
         </div>
         <div>
-          <h3 className="mb-2 text-sm font-medium">Scaleup</h3>
-          <button className="mb-1 block text-sm text-neutral-400">
-            Live Coaching
-          </button>
-          <button className="mb-1 block text-sm text-neutral-400">
-            Reviews
-          </button>
-          <button className="block text-sm text-neutral-400">
-            Tax/VAT
-          </button>
+          <Link to= '/services'>
+            <h3 className="mb-2 text-sm font-medium">Services</h3>
+            <button className="mb-1 block text-xs text-neutral-400">
+              Why Us?
+            </button>
+            <button className="block text-xs text-neutral-400 mt-2">
+              How Fuel me works
+            </button>
+          </Link>
         </div>
         <div>
-          <h3 className="mb-2 text-sm font-medium">Enterprise</h3>
-          <button className="mb-1 block text-sm text-neutral-400">
-            White glove
-          </button>
-          <button className="mb-1 block text-sm text-neutral-400">
-            SOX Compliance
-          </button>
-          <button className="block text-sm text-neutral-400">
-            Staffing
-          </button>
-          <button className="block text-sm text-neutral-400">
-            More
-          </button>
+          <Link to='career'>
+            <h3 className="mb-2 text-sm font-medium">Careers</h3>
+            <button className="mb-1 block text-xs text-left text-neutral-400">
+              Explore our job <br/> openings
+            </button>
+          </Link>
         </div>
       </div>
-
-      <button className="ml-auto mt-4 flex items-center gap-1 text-sm text-indigo-300">
-        <span>View more</span>
-        <FiArrowRight />
-      </button>
     </div>
   );
 };
 
-const Pricing = () => {
+const Fuels = () => {
   return (
-    <div className="grid grid-cols-3 gap-4 divide-x divide-neutral-700">
-      <button
-        className="flex w-full flex-col items-center justify-center py-2 text-neutral-400 transition-colors hover:text-neutral-50"
-      >
-        <FiHome className="mb-2 text-xl text-indigo-300" />
-        <span className="text-xs">Startup</span>
-      </button>
-      <button
-        className="flex w-full flex-col items-center justify-center py-2 text-neutral-400 transition-colors hover:text-neutral-50"
-      >
-        <FiBarChart2 className="mb-2 text-xl text-indigo-300" />
-        <span className="text-xs">Scaleup</span>
-      </button>
-      <button
-        className="flex w-full flex-col items-center justify-center py-2 text-neutral-400 transition-colors hover:text-neutral-50"
-      >
-        <FiPieChart className="mb-2 text-xl text-indigo-300" />
-        <span className="text-xs">Enterprise</span>
-      </button>
-    </div>
+      <div className="grid grid-cols-4 gap-4 divide-x divide-neutral-700">
+        <Link to= '/fuel'>
+          <button
+            className="flex w-full flex-col items-center justify-center py-2 text-neutral-400 transition-colors hover:text-neutral-50"
+          >
+            <LuFuel className="mb-2 text-xl text-indigo-300" />
+            <span className="text-xs">Petrol</span>
+          </button>
+        </Link>
+        <Link to= '/diesel'>
+          <button
+            className="flex w-full flex-col items-center justify-center py-2 text-neutral-400 transition-colors hover:text-neutral-50"
+          >
+            <BsFuelPumpDiesel className="mb-2 text-xl text-indigo-300" />
+            <span className="text-xs">Diesel</span>
+          </button>
+        </Link>
+        <Link to= '/cng'>
+          <button
+            className="flex w-full flex-col items-center justify-center py-2 text-neutral-400 transition-colors hover:text-neutral-50"
+          >
+            <MdOutlinePropaneTank className="mb-2 text-xl text-indigo-300" />
+            <span className="text-xs">CNG</span>
+          </button>
+        </Link>
+        <Link to= '/lpg'>
+          <button
+            className="flex w-full flex-col items-center justify-center py-2 text-neutral-400 transition-colors hover:text-neutral-50"
+          >
+            <GiGasStove className="mb-2 text-xl text-indigo-300" />
+            <span className="text-xs">LPG</span>
+          </button>
+        </Link>
+      </div>
+    
   );
 };
-
-const Blog = () => {
+const Support = () => {
   return (
     <div>
-      <div className="grid grid-cols-2 gap-2">
-        <button>
-          <img
-            className="mb-2 h-14 w-full rounded object-cover"
-            src={test}
-            alt="Placeholder"
-          />
-          <h4 className="mb-0.5 text-sm font-medium">Lorem ipsum dolor</h4>
-          <p className="text-xs text-neutral-400">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet illo
-            quidem eos.
-          </p>
-        </button>
-        <button>
-          <img
-            className="mb-2 h-14 w-full rounded object-cover"
-            src={test}
-            alt="Placeholder"
-          />
-          <h4 className="mb-0.5 text-sm font-medium">Lorem ipsum dolor</h4>
-          <p className="text-xs text-neutral-400">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet illo
-            quidem eos.
-          </p>
-        </button>
+      <div className="px-1 py-1 flex justify-center gap-8">
+        <div>
+          <h4 className="mb-0.5 text-sm font-medium">Contact Us</h4>
+        </div>
+        <div>
+          <h4 className="mb-0.5 text-sm font-medium">Privacy Policy</h4>
+        </div>
+        <div>
+          <h4 className="mb-0.5 text-sm font-medium">FAQs</h4>
+        </div>
       </div>
-      <button className="ml-auto mt-4 flex items-center gap-1 text-sm text-indigo-300">
-        <span>View more</span>
-        <FiArrowRight />
-      </button>
     </div>
   );
 };
 
 const TABS = [
   {
-    title: "Products",
-    Component: Products,
+    title: "Fuels",
+    Component: Fuels,
   },
   {
-    title: "Pricing",
-    Component: Pricing,
+    title: "Company", //about us, services +1 more
+    Component: Company,
   },
   {
-    title: "Blog",
-    Component: Blog,
+    title: "Support", // FaQs, Contact us
+    Component: Support,
   },
 ].map((n, idx) => ({ ...n, id: idx + 1 }));
 
-export default AboutScreen
+export default AnimatedNav

@@ -90,53 +90,62 @@ export default function UserEditScreen() {
     }
   };
   return (
-    <Container className="small-container">
+    <div className='mb-48 px-24 mt-12'>
       <Helmet>
         <title>Edit User ${userId}</title>
       </Helmet>
-      <h1>Edit User {userId}</h1>
+      <h1 className='text-center text-2xl font-semibold mt-1'>Edit User {userId }</h1>
 
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <Form onSubmit={submitHandler}>
-          <Form.Group className="mb-3" controlId="name">
-            <Form.Label>Name</Form.Label>
-            <Form.Control
+        <form onSubmit={submitHandler} className='mt-10'>
+          <div className="mb-3">
+            <h1 className='font-semibold'>Name</h1>
+            <input
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
+              className='w-full border pl-2 py-2'
+              disabled
             />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="email">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
+          </div>
+          <div className="mb-3">
+            <h1 className='font-semibold'>Email</h1>
+            <input
               value={email}
               type="email"
               onChange={(e) => setEmail(e.target.value)}
               required
+              className='w-full border pl-2 py-2'
+              disabled
             />
-          </Form.Group>
-
-          <Form.Check
-            className="mb-3"
-            type="checkbox"
-            id="isAdmin"
-            label="isAdmin"
-            checked={isAdmin}
-            onChange={(e) => setIsAdmin(e.target.checked)}
-          />
-
+          </div>
+          <div className="mb-3 flex w-1/2 justify-start gap-2">
+            <h1 className='font-semibold mt-2'>Is Admin?</h1>
+            <input
+              className='border pl-2 py-2 mt-3'
+              type="checkbox"
+              id="isAdmin"
+              label="isAdmin"
+              checked={isAdmin}
+              onChange={(e) => setIsAdmin(e.target.checked)}
+            />
+          </div>
           <div className="mb-3">
-            <Button disabled={loadingUpdate} type="submit">
+            <button 
+              disabled={loadingUpdate} 
+              type="submit"
+              className="px-4 text-center py-3 bg-[#1a2eeb] hover:bg-black text-white mt-4"
+            >
               Update
-            </Button>
+            </button>
             {loadingUpdate && <LoadingBox></LoadingBox>}
           </div>
-        </Form>
+        </form>
       )}
-    </Container>
+    </div>
   );
 }
