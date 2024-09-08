@@ -1,14 +1,7 @@
 
 import React, { useEffect, useState } from "react";
-import {
-  FiArrowRight,
-  FiBarChart2,
-  FiChevronDown,
-  FiHome,
-  FiPieChart,
-} from "react-icons/fi";
+import {FiChevronDown,} from "react-icons/fi";
 import { AnimatePresence, motion } from "framer-motion";
-import test from '../assets/Fuel-me/pngs/facebook.png'
 import { LuFuel } from "react-icons/lu";
 import { BsFuelPumpDiesel } from "react-icons/bs";
 import { GiGasStove } from "react-icons/gi";

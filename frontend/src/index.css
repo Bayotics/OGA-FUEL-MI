@@ -124,6 +124,11 @@ body {
   background-size: 100% 100%;
   background-attachment: fixed;
 }
+.about-scr-cover{
+  background-image: url(./assets/Fuel-me/about-us-cover.jpg);
+  background-size: 100% 100%;
+  background-attachment: fixed;
+}
 
 
   /********** FOOTER **********/

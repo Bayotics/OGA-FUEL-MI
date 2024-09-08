@@ -1,297 +1,142 @@
+import { RiGasStationLine } from "react-icons/ri";
+import { HiMiniArrowRightCircle } from "react-icons/hi2";
+import { TbTargetArrow } from "react-icons/tb";
+import { FaRegEye } from "react-icons/fa";
+import { IoDiamondOutline } from "react-icons/io5";
+import suleiman from '../assets/Fuel-me/suleiman.jpg'
+import sadiq from '../assets/Fuel-me/sadiq.jpg'
+import adebayo from '../assets/Fuel-me/adebayo.jpg'
 
-import React, { useEffect, useState } from "react";
-import {
-  FiArrowRight,
-  FiBarChart2,
-  FiChevronDown,
-  FiHome,
-  FiPieChart,
-} from "react-icons/fi";
-import { AnimatePresence, motion } from "framer-motion";
-import test from '../assets/Fuel-me/pngs/facebook.png'
-
-
-
-
-
+import fuelMeTruck from '../assets/Fuel-me/pngs/about-left.png'
+import { Link } from "react-router-dom";
+import TestimonialSlider from "../components/TestimonialSlider";
 
 
 const AboutScreen = () => {
-  return (
-    <div className="flex w-[50%] justify-start bg-neutral-950 py-2 text-neutral-200 md:justify-center">
-      <Tabs />
-    </div>
-  );
-};
-
-const Tabs = () => {
-  const [selected, setSelected] = useState(null);
-  const [dir, setDir] = useState(null);
-
-  const handleSetSelected = (val) => {
-    if (typeof selected === "number" && typeof val === "number") {
-      setDir(selected > val ? "r" : "l");
-    } else if (val === null) {
-      setDir(null);
-    }
-
-    setSelected(val);
-  };
 
   return (
-    <div
-      onMouseLeave={() => handleSetSelected(null)}
-      className="relative flex h-fit gap-2"
-    >
-      {TABS.map((t) => {
-        return (
-          <Tab
-            key={t.id}
-            selected={selected}
-            handleSetSelected={handleSetSelected}
-            tab={t.id}
-          >
-            {t.title}
-          </Tab>
-        );
-      })}
-
-      <AnimatePresence>
-        {selected && <Content dir={dir} selected={selected} />}
-      </AnimatePresence>
-    </div>
-  );
-};
-
-const Tab = ({ children, tab, handleSetSelected, selected }) => {
-  return (
-    <button
-      id={`shift-tab-${tab}`}
-      onMouseEnter={() => handleSetSelected(tab)}
-      onClick={() => handleSetSelected(tab)}
-      className={`flex items-center gap-1 rounded-full px-3 py-1.5 text-sm transition-colors ${
-        selected === tab
-          ? " bg-neutral-800 text-neutral-100"
-          : "text-neutral-400"
-      }`}
-    >
-      <span>{children}</span>
-      <FiChevronDown
-        className={`transition-transform ${
-          selected === tab ? "rotate-180" : ""
-        }`}
-      />
-    </button>
-  );
-};
-
-const Content = ({ selected, dir }) => {
-  return (
-    <motion.div
-      id="overlay-content"
-      initial={{
-        opacity: 0,
-        y: 8,
-      }}
-      animate={{
-        opacity: 1,
-        y: 0,
-      }}
-      exit={{
-        opacity: 0,
-        y: 8,
-      }}
-      className="absolute left-0 top-[calc(100%_+_24px)] w-96 rounded-lg border border-neutral-600 bg-gradient-to-b from-neutral-900 via-neutral-900 to-neutral-800 p-4"
-    >
-      <Bridge />
-      <Nub selected={selected} />
-
-      {TABS.map((t) => {
-        return (
-          <div className="overflow-hidden" key={t.id}>
-            {selected === t.id && (
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  x: dir === "l" ? 100 : dir === "r" ? -100 : 0,
-                }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.25, ease: "easeInOut" }}
-              >
-                <t.Component />
-              </motion.div>
-            )}
+    <div className="about-scr-main pb-40 ">
+      <div className="about-scr-cover py-20 text-center">
+        <div className="about-scr-head w-[20%] m-auto ">
+          <RiGasStationLine className="mb-2 text-white text-5xl m-auto"/>
+          <h1 className="about-scr-heading-txt text-white font-semibold text-5xl">About Us</h1>
+        </div>
+      </div>
+      <div className="mt-20 px-12">
+        <div className="about-scr-intro-contents flex border">
+          <div className="about-scr-intro-img border w-1/2">
+            <img src = {fuelMeTruck} alt="fuel truck" className="h-[85%] rounded-2xl"/>
           </div>
-        );
-      })}
-    </motion.div>
-  );
-};
-
-const Bridge = () => (
-  <div className="absolute -top-[24px] left-0 right-0 h-[24px]" />
-);
-
-const Nub = ({ selected }) => {
-  const [left, setLeft] = useState(0);
-
-  useEffect(() => {
-    moveNub();
-  }, [selected]);
-
-  const moveNub = () => {
-    if (selected) {
-      const hoveredTab = document.getElementById(`shift-tab-${selected}`);
-      const overlayContent = document.getElementById("overlay-content");
-
-      if (!hoveredTab || !overlayContent) return;
-
-      const tabRect = hoveredTab.getBoundingClientRect();
-      const { left: contentLeft } = overlayContent.getBoundingClientRect();
-
-      const tabCenter = tabRect.left + tabRect.width / 2 - contentLeft;
-
-      setLeft(tabCenter);
-    }
-  };
-
-  return (
-    <motion.span
-      style={{
-        clipPath: "polygon(0 0, 100% 0, 50% 50%, 0% 100%)",
-      }}
-      animate={{ left }}
-      transition={{ duration: 0.25, ease: "easeInOut" }}
-      className="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-tl border border-neutral-600 bg-neutral-900"
-    />
-  );
-};
-
-const Products = () => {
-  return (
-    <div>
-      <div className="flex gap-4">
-        <div>
-          <h3 className="mb-2 text-sm font-medium">Startup</h3>
-          <button className="mb-1 block text-sm text-neutral-400">
-            Bookkeeping
-          </button>
-          <button className="block text-sm text-neutral-400">
-            Invoicing
-          </button>
-        </div>
-        <div>
-          <h3 className="mb-2 text-sm font-medium">Scaleup</h3>
-          <button className="mb-1 block text-sm text-neutral-400">
-            Live Coaching
-          </button>
-          <button className="mb-1 block text-sm text-neutral-400">
-            Reviews
-          </button>
-          <button className="block text-sm text-neutral-400">
-            Tax/VAT
-          </button>
-        </div>
-        <div>
-          <h3 className="mb-2 text-sm font-medium">Enterprise</h3>
-          <button className="mb-1 block text-sm text-neutral-400">
-            White glove
-          </button>
-          <button className="mb-1 block text-sm text-neutral-400">
-            SOX Compliance
-          </button>
-          <button className="block text-sm text-neutral-400">
-            Staffing
-          </button>
-          <button className="block text-sm text-neutral-400">
-            More
-          </button>
+          <div className="about-scr-intro-texts border w-1/2">
+            <div className="">
+              <h1 className="text-black text-4xl font-normal">
+                Welcome to FuelMe. We are the 
+                <span className="text-[#1a2eeb]"> largest and the most popular </span> 
+                home fuel delivery company in Lagos.
+                <br/><br/>
+              </h1>
+              <p className="text-lg leading-normal font-light">
+                At FuelMe, we believe in revolutionizing the way you power your life by making fuel delivery simple, 
+                reliable, and convenient. Founded with the goal of eliminating the hassle of traditional fueling 
+                methods, FuelMe offers a seamless experience by delivering high-quality fuel directly to your location.
+                <br/><br/> 
+                Whether it's petrol, diesel, or CNG, our service is designed to save you time, reduce stress, 
+                and keep your vehicles running smoothly without the need to visit a fuel station.
+                Our commitment to innovation and customer satisfaction drives everything we do. With a team of 
+                experienced professionals and a fleet of eficient delivery vehicles, we ensure fast, efficient, 
+                and safe fuel delivery at competitive prices. <br/><br/>
+                At FuelMe, we understand the importance of reliable 
+                service, which is why we prioritize promptness, fuel quality, and safety in every delivery. 
+                By utilizing the latest technology, we make it easy for customers to order fuel with just a few 
+                taps on their phone, ensuring that you’re always fueled up and ready to go.
+              </p>
+            </div>
+            <div className="mt-4 about-scr-intro-btn">
+              <Link to = "/contactus">
+                <button
+                  className=" bg-[#1a2eeb] px-7 py-3 rounded-md text-white hover:bg-[#5b6fc9] flex gap-3">
+                  Get in touch <HiMiniArrowRightCircle className="mt-1"/> 
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
-
-      <button className="ml-auto mt-4 flex items-center gap-1 text-sm text-indigo-300">
-        <span>View more</span>
-        <FiArrowRight />
-      </button>
-    </div>
-  );
-};
-
-const Pricing = () => {
-  return (
-    <div className="grid grid-cols-3 gap-4 divide-x divide-neutral-700">
-      <button
-        className="flex w-full flex-col items-center justify-center py-2 text-neutral-400 transition-colors hover:text-neutral-50"
-      >
-        <FiHome className="mb-2 text-xl text-indigo-300" />
-        <span className="text-xs">Startup</span>
-      </button>
-      <button
-        className="flex w-full flex-col items-center justify-center py-2 text-neutral-400 transition-colors hover:text-neutral-50"
-      >
-        <FiBarChart2 className="mb-2 text-xl text-indigo-300" />
-        <span className="text-xs">Scaleup</span>
-      </button>
-      <button
-        className="flex w-full flex-col items-center justify-center py-2 text-neutral-400 transition-colors hover:text-neutral-50"
-      >
-        <FiPieChart className="mb-2 text-xl text-indigo-300" />
-        <span className="text-xs">Enterprise</span>
-      </button>
-    </div>
-  );
-};
-
-const Blog = () => {
-  return (
-    <div>
-      <div className="grid grid-cols-2 gap-2">
-        <button>
-          <img
-            className="mb-2 h-14 w-full rounded object-cover"
-            src={test}
-            alt="Placeholder"
-          />
-          <h4 className="mb-0.5 text-sm font-medium">Lorem ipsum dolor</h4>
-          <p className="text-xs text-neutral-400">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet illo
-            quidem eos.
-          </p>
-        </button>
-        <button>
-          <img
-            className="mb-2 h-14 w-full rounded object-cover"
-            src={test}
-            alt="Placeholder"
-          />
-          <h4 className="mb-0.5 text-sm font-medium">Lorem ipsum dolor</h4>
-          <p className="text-xs text-neutral-400">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet illo
-            quidem eos.
-          </p>
-        </button>
+      <div className="fuelme-values mt-20 px-12">
+        <h1 className="text-center font-semibold text-4xl text-black">Our Values</h1>
+        <div className="fuelme-values-content flex mt-10 gap-10">
+          <div className="fuelme-values-card w-1/3 border px-4 pt-8 pb-12 rounded-xl border-gray-300 shadow-xl
+            bg-gradient-to-r from-sky-50 to-white">
+            <div className="fuelme-values-card-icon m-auto w-[15%] py-2 border rounded-full bg-blue-200">
+              <TbTargetArrow className="text-4xl m-auto"/>
+            </div>
+            <div className="px-8">
+              <h1 className="text-center text-black text-2xl mt-4">Mission</h1>
+              <p className="text-center font-light leading-normal mt-4">
+                to redefine fuel delivery by offering convenient, safe, and reliable access to high-quality
+                fuel anytime, anywhere. At FuelMe, we fuel your journey, wherever it takes you.
+              </p>
+            </div>
+          </div>
+          <div className="fuelme-values-card w-1/3 border px-4 pt-8 pb-12 rounded-xl border-gray-300 shadow-xl
+            bg-white">
+            <div className="fuelme-values-card-icon m-auto w-[15%] py-2 border rounded-full bg-blue-200">
+              <FaRegEye className="text-4xl m-auto"/>
+            </div>
+            <div className="px-8">
+              <h1 className="text-center text-black text-2xl mt-4">Vision</h1>
+              <p className="text-center font-light leading-normal mt-4">
+                To lead the transformation of the fueling industry by becoming the most trusted and innovative
+                fuel delivery service globally.
+              </p>
+            </div>
+          </div>
+          <div className="fuelme-values-card w-1/3 border px-4 pt-8 pb-12 rounded-xl border-gray-300 shadow-xl
+            bg-gradient-to-r from-white to-sky-50">
+            <div className="fuelme-values-card-icon m-auto w-[15%] py-2 border rounded-full bg-blue-200">
+              <IoDiamondOutline className="text-4xl m-auto"/>
+            </div>
+            <div className="px-8">
+              <h1 className="text-center text-black text-2xl mt-4">Values</h1>
+              <p className="text-center font-light leading-normal mt-4">
+                Our values are centered on innovation, reliability, and sustainability. We are dedicated 
+                to delivering more than just fuel—we deliver convenience, trust, and peace of mind.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-      <button className="ml-auto mt-4 flex items-center gap-1 text-sm text-indigo-300">
-        <span>View more</span>
-        <FiArrowRight />
-      </button>
+      <div className="fuelme-team mt-32 px-12">
+        <h1 className="text-center font-semibold text-4xl text-black">Our Team</h1>
+        <div className="team-content flex mt-20 px-24">
+          <div className="team-card w-1/3">
+            <h1 className="text-2xl text-black text-center">Adebayo Shobaloju</h1>
+            <p className="text-base font-medium text-center mt-2">CHIEF TECHNOLOGY OFFICER </p>
+            <div className="team-card-img mt-10">
+              <img src= {suleiman} alt="Ceo & Founder" className="h-[80%] w-[80%] m-auto rounded-2xl"/>
+            </div>
+          </div>
+          <div className="team-card w-1/3">
+            <div className="team-card-img">
+              <img src= {sadiq} alt="Ceo & Founder" className="h-[80%] w-[80%] m-auto rounded-2xl"/>
+            </div>
+            <h1 className="text-2xl text-black text-center mt-10">Balogun Suleiman</h1>
+            <p className="text-base font-medium text-center mt-2">FOUNDER & CEO</p>
+          </div>
+          <div className="team-card w-1/3">
+            <h1 className="text-2xl text-black text-center">Sadiq Adeyanju</h1>
+            <p className="text-base font-medium text-center mt-2">LOGISTICS MANAGER</p>
+            <div className="team-card-img mt-10">
+              <img src= {adebayo} alt="Ceo & Founder" className="h-[80%] w-[80%] m-auto rounded-2xl"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="testimonials">
+        <TestimonialSlider />
+      </div>
     </div>
-  );
-};
-
-const TABS = [
-  {
-    title: "Products",
-    Component: Products,
-  },
-  {
-    title: "Pricing",
-    Component: Pricing,
-  },
-  {
-    title: "Blog",
-    Component: Blog,
-  },
-].map((n, idx) => ({ ...n, id: idx + 1 }));
+  )
+}
 
 export default AboutScreen
