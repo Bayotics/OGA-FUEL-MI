@@ -129,6 +129,17 @@ body {
   background-size: 100% 100%;
   background-attachment: fixed;
 }
+.testimonial-cards{
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+.testimonial-cards::before{
+  filter: blur(40px);
+  backdrop-filter: blur(10px);
+}
 
 
   /********** FOOTER **********/
