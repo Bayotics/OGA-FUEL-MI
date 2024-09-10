@@ -134,7 +134,7 @@ export default function FAQs() {
                 <Typography>
                     <p className=' ml-16'>
                     Fuel Me offers a variety of fuel types, including gasoline, diesel, and CNG. 
-                    Please check our website for the full list of available fuel options.
+                    Please check our store for the full list of available fuel options.
                     </p>
                 
                 </Typography>
@@ -152,7 +152,7 @@ export default function FAQs() {
                 <Typography>
                     <p className=' ml-16'>
                         Delivery times vary depending on your location and the time of your order. 
-                        We strive to deliver within a few hours for most locations, but you can schedule a specific 
+                        We strive to deliver within an hour for most locations, but you can schedule a specific 
                         delivery time during the ordering process.
                     </p>
                 </Typography>

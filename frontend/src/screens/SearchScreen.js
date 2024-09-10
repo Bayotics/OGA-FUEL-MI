@@ -4,27 +4,12 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { getError } from '../utils';
 import { Helmet } from 'react-helmet-async';
-import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Rating from '../components/Rating';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import Button from 'react-bootstrap/Button';
 import Product from '../components/Product';
-import LinkContainer from 'react-router-bootstrap/LinkContainer';
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Accordion from 'react-bootstrap/Accordion';
 
 
-
-import cng from '../assets/Fuel-me/pngs/cng.png'
-import lpg from '../assets/Fuel-me/pngs/lpg.png'
-import petrol from '../assets/Fuel-me/pngs/petrol.png'
-import diesel from '../assets/Fuel-me/pngs/diesel.png'
-import fb from '../assets/Fuel-me/pngs/fb-big.png'
-import twitter from '../assets/Fuel-me/pngs/twitter-big.png'
-import whatsapp from '../assets/Fuel-me/pngs/whatsapp-big.png'
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -46,37 +31,6 @@ const reducer = (state, action) => {
       return state;
   }
 };
-
-const prices = [
-  {
-    name: '₦1 to ₦1,000',
-    value: '1-1000',
-  },
-  {
-    name: '₦1k to ₦10k',
-    value: '1000-10000',
-  },
-  {
-    name: '₦10k to ₦100k',
-    value: '10000-100000',
-  },
-  {
-    name: '₦100k to ₦500k',
-    value: '100000-500000'
-  },
-  {
-    name: '₦500k to ₦1M',
-    value: '500000-1000000'
-  },
-  {
-    name: '₦1M to ₦5M',
-    value: '1000000-5000000'
-  },
-  {
-    name: '₦5M to ₦20M',
-    value: '5000000-20000000'
-  }
-];
 
 export const ratings = [
   {

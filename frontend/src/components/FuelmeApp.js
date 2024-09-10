@@ -1,7 +1,7 @@
 import apple from '../assets/Fuel-me/pngs/apple-logo.png'
 import playstore from '../assets/Fuel-me/pngs/playstore.png'
 import app from '../assets/Fuel-me/pngs/fuel-me-app.png'
-import ScrollAnimation from 'react-animate-on-scroll'
+import { Zoom } from 'react-awesome-reveal'
 
 
 const FuelmeApp = () => {
@@ -34,9 +34,9 @@ const FuelmeApp = () => {
                     </div>
                 </div>
                 <div className="fma-card-img w-[35%] ">
-                    <ScrollAnimation animateIn='wobble' animateOnce={true}>
+                    <Zoom triggerOnce>
                         <img src={app} alt='fuelme app' />
-                    </ScrollAnimation>
+                    </Zoom>
                 </div>
             </div>
         </div>
