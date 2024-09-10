@@ -41,7 +41,7 @@ const ServicesScreen = () => {
                         </Slide>
                     </div>
                     <div className="services-intro-img w-1/2">
-                        <Slide direction="left" triggerOnce>
+                        <Slide direction="right" triggerOnce>
                             <img className="h-[400px] w-full rounded-3xl" src = {services} alt = "our services" />
                         </Slide>
                     </div>
