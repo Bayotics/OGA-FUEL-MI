@@ -1,19 +1,7 @@
 import { useEffect, useReducer, useState } from 'react';
-import {Link, useLocation} from 'react-router-dom';
+import { useLocation} from 'react-router-dom';
 import axios from 'axios';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Product from '../components/Product';
-import Categories from '../components/Categories';
-import LandingPageCategory from '../components/LandingPageCategory';
-import LandingPageSubscribe from '../components/LandingPageSubscribe';
-import About from '../components/About';
 import { Helmet } from 'react-helmet-async';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
-import CarouselSlider from '../components/CarouselSlider';
-import BlackFriday from '../components/BlackFriday';
-import WhyUs from '../components/WhyUs';
 import HomePageIntro from '../components/HomePageIntro';
 import HomePageAbout from '../components/HomePageAbout';
 import HowitWorks from '../components/HowitWorks';
@@ -22,7 +10,6 @@ import GasStation from '../components/GasStation';
 import FuelmeApp from '../components/FuelmeApp';
 import FAQs from '../components/FAQ';
 import BrandScroller from '../components/BrandsScroller';
-import ScrollAnimation from 'react-animate-on-scroll';
 
 
 const reducer = (state, action) => {
@@ -66,6 +53,9 @@ function HomeScreen() {
   }, [page]);
   return (
       <div >
+        <Helmet>
+          <title>Fuel me</title>
+        </Helmet>
         <div className='homepage-intro mt-14'>
           <HomePageIntro />
         </div>

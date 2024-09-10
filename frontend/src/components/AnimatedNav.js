@@ -251,13 +251,19 @@ const Support = () => {
     <div>
       <div className="px-1 py-1 flex justify-center gap-8">
         <div>
-          <h4 className="mb-0.5 text-sm font-medium">Contact Us</h4>
+          <Link to = "/contactus">
+            <h4 className="mb-0.5 text-sm font-medium cursor-pointer">Contact Us</h4>
+          </Link>
         </div>
         <div>
-          <h4 className="mb-0.5 text-sm font-medium">Privacy Policy</h4>
+          <Link to = "/policy">
+            <h4 className="mb-0.5 text-sm font-medium cursor-pointer">Privacy Policy</h4>
+          </Link>
         </div>
         <div>
-          <h4 className="mb-0.5 text-sm font-medium">FAQs</h4>
+          <Link to = '/faqs'>
+            <h4 className="mb-0.5 text-sm font-medium cursor-pointer">FAQs</h4>
+          </Link>
         </div>
       </div>
     </div>

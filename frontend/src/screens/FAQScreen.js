@@ -1,9 +1,13 @@
+import FullFaq from "../components/FullFaq"
 
 
 const FAQScreen = () => {
-    <div className="">
-        <h1 className="font-black text-9xl">FAQS</h1>
-    </div>
+    return(
+        <div className="faq-screen-contents">
+            <FullFaq />
+        </div>
+    )
+    
 }
 
 export default FAQScreen
