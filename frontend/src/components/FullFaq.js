@@ -266,8 +266,8 @@ export default function FullFaq() {
                     </Accordion>
                 </div>
                 <div className='border-b border-gray-300  '>
-                    <Accordion expanded={expanded === 'panel10'} onChange={handleChange('panel10')}>
-                        <AccordionSummary aria-controls="panel10d-content" id="panel10d-header">
+                    <Accordion expanded={expanded === 'panel11'} onChange={handleChange('panel11')}>
+                        <AccordionSummary aria-controls="panel11d-content" id="panel11d-header">
                         <Typography>
                             <h1 className='text-3xl font-medium'>What happens if I’m not home during the scheduled delivery? </h1>
                         </Typography>

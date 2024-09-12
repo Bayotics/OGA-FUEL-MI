@@ -140,6 +140,10 @@ body {
   filter: blur(40px);
   backdrop-filter: blur(10px);
 }
+.videoTag{
+  object-fit: contain;
+  z-index: -1;
+}
 
 
   /********** FOOTER **********/

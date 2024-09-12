@@ -43,8 +43,8 @@ const HomePageIntro = () => {
                     </div>
                 </div>
             </div>
-            <div className="home-intro-pics w-1/2 pr-12 pl-10 pt-48">
-                <img src = {introPic} alt='intro' />
+            <div className="home-intro-pics w-1/2 pr-12 pl-10 pt-16">
+                <img src = {introPic} alt='intro' className='h-[80%]' />
             </div>
         </div>
     )
