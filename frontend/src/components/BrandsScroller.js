@@ -67,20 +67,27 @@ export default function BrandScroller() {
         
       <ParallaxText baseVelocity={-1}>
         <div className='flex gap-8'>
-        <img className="h-12 w-36" src = {conoil} alt="fuel-me-logo" />
-        <img className="h-12 w-36" src = {enyo} alt="fuel-me-logo" />
-        <img className="fuelme-logo-main" src = {exxon} alt="fuel-me-logo" />
-        <img className="fuelme-logo-main" src = {mobil} alt="fuel-me-logo" />
+          <img className="h-8 w-16" src = {conoil} alt="fuel-me-logo" />
+          <img className="h-8 w-16" src = {enyo} alt="fuel-me-logo" />
+          <img className="h-8 w-16" src = {exxon} alt="fuel-me-logo" />
+          <img className="h-8 w-16" src = {mobil} alt="fuel-me-logo" />
+          <img className="h-8 w-16" src = {mrs} alt="fuel-me-logo" />
+          <img className="h-8 w-16" src = {nnpc} alt="fuel-me-logo" />
+          <img className="h-8 w-16" src = {oando} alt="fuel-me-logo" />
+          <img className="h-8 w-16" src = {total} alt="fuel-me-logo" />
         </div>
       </ParallaxText>
       <div className='mt-4'>
       <ParallaxText baseVelocity={1}>
-      <div className='flex gap-8'>
-        <img className="h-24 w-36" src = {mrs} alt="fuel-me-logo" />
-        <img className="fuelme-logo-main" src = {nnpc} alt="fuel-me-logo" />
-        <img className="fuelme-logo-main" src = {oando} alt="fuel-me-logo" />
-        <img className="fuelme-logo-main" src = {total} alt="fuel-me-logo" />
-
+        <div className='flex gap-8'>
+          <img className="h-8 w-16" src = {conoil} alt="fuel-me-logo" />
+          <img className="h-8 w-16" src = {enyo} alt="fuel-me-logo" />
+          <img className="h-8 w-16" src = {exxon} alt="fuel-me-logo" />
+          <img className="h-8 w-16" src = {mobil} alt="fuel-me-logo" />
+          <img className="h-8 w-16" src = {mrs} alt="fuel-me-logo" />
+          <img className="h-8 w-16" src = {nnpc} alt="fuel-me-logo" />
+          <img className="h-8 w-16" src = {oando} alt="fuel-me-logo" />
+          <img className="h-8 w-16" src = {total} alt="fuel-me-logo" />
         </div>
       </ParallaxText>
       </div>

@@ -1,6 +1,7 @@
 import { Slide } from "react-awesome-reveal"
 import { Helmet } from "react-helmet-async"
 import { MdGroups2 } from "react-icons/md";
+import LoadingBox from '../components/LoadingBox';
 
 
 
@@ -28,6 +29,9 @@ const CareerScreen = () => {
                     talented individuals who share our passion for excellent service. 
                     Please feel free to check back in the future. Whenever there are open positions, we list them here.
                 </p>
+            </div>
+            <div className="mt-20">
+                <LoadingBox></LoadingBox>
             </div>
         </div>
     )

@@ -9,7 +9,7 @@ const HomePageAbout = () => {
     return(
             <div className=" px-16 flex justify-between mt-10 pt-6">
                 <div className="home-about-texts w-1/2 mt-32">
-                    <Slide direction="left">
+                    <Slide direction="left" triggerOnce>
                         <p className="text-[#1a2eeb] text-lg font-bold">Why choose us?</p>
                         <h1 className="text-3xl font-semibold mt-4">We are the largest and most popular home fuel delivery company in Lagos</h1>
                         <p className="mt-4 text-base font-normal">With Fuel Me, enjoy convenience like never before. You won't have to worry about refuelling ever again
@@ -24,7 +24,7 @@ const HomePageAbout = () => {
                     </Slide>
                 </div>
                 <div className="home-about-design w-1/2 pl-6">
-                    <Slide direction='right'>   
+                    <Slide direction='right' triggerOnce>   
                         <div className='home-about-item flex gap-8'>
                             <div className=''>
                                 <div className='rounded-full  p-3 bg-black'>

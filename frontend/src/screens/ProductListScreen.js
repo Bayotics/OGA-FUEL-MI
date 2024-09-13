@@ -134,7 +134,9 @@ export default function ProductListScreen() {
       {loadingDelete && <LoadingBox></LoadingBox>}
 
       {loading ? (
-        <LoadingBox></LoadingBox>
+        <div className='justify-center mt-20'>
+          <LoadingBox></LoadingBox>
+        </div>
       ) : error ? (
         <h1 className='text-red-500'>{error}</h1>
       ) : (
