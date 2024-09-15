@@ -62,13 +62,13 @@ function HomeScreen() {
         <div className='homepage-about mt-10'>
           <HomePageAbout />
         </div>
-        <div className='homepage-how-it-works mt-32'>
+        <div className='homepage-brand-scroller mt-32'>
           <BrandScroller />
         </div>
         <div className='homepage-how-it-works mt-32'>
           <HowitWorks />
         </div>
-        <div className='homepage-how-it-works mt-10'>
+        <div className='homepage-industries mt-10'>
           <Industries />
         </div>
         <div className='homepage-gas-station mt-10'>

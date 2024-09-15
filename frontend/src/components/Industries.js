@@ -19,7 +19,7 @@ const Industries = () => {
                             </div>
                             <div className="w-1/2 pl-10">
                                 <Slide direction='right'>
-                                    <h1 className="font-semibold text-lg">At Fuel Me, we cater to a diverse range of industries that rely on efficient and reliable
+                                    <h1 className="font-semibold text-lg industry-p">At Fuel Me, we cater to a diverse range of industries that rely on efficient and reliable
                                         fuel delivery services. You can count on our seamless ordering experience, allowing you to focus on what matters most—keeping your business running 
                                         smoothly.
                                     </h1>
@@ -37,8 +37,7 @@ const Industries = () => {
                                 </div>
                                 
                             </div>
-                            
-                            <div className="w-1/3">
+                            <div className="w-1/3 industry-card-base">
                                 <div className=" manufacturing-ind rounded-3xl ind-card">
                                 </div>
                                 <h1 className='text-center text-3xl font-normal mt-6'>Manufacturing</h1>
@@ -46,7 +45,7 @@ const Industries = () => {
                                     <button className='ind-btn mt-4 '>Learn More →</button>
                                 </div>
                             </div>
-                            <div className="w-1/3">
+                            <div className="w-1/3 industry-card-base">
                                 <div className=" fleet-ind rounded-3xl ind-card">
                                 </div>
                                 <h1 className='text-center text-3xl font-normal mt-6'>Commercial Fleets</h1>
@@ -65,7 +64,7 @@ const Industries = () => {
                             </div>
                             <div className="w-1/2 pl-10">
                                 <Slide direction='right'>
-                                    <h1 className="font-semibold text-lg">We provide a wide range of high-quality 
+                                    <h1 className="font-semibold text-lg industry-p">We provide a wide range of high-quality 
                                         fuel solutions tailored to meet your needs. Whether you're looking for premium 
                                         gasoline, diesel, or CNG, our products are sourced from trusted suppliers to 
                                         ensure optimal performance and efficiency
@@ -83,7 +82,7 @@ const Industries = () => {
                                 </div>
                                 
                             </div>
-                            <div className="w-1/3">
+                            <div className="w-1/3 industry-card-base">
                                 <div className=" gasoline-ind rounded-3xl ind-card">
                                 </div>
                                 <h1 className='text-center text-3xl font-normal mt-6'>Gasoline</h1>
@@ -91,7 +90,7 @@ const Industries = () => {
                                     <button className='ind-btn mt-4 '>Learn More →</button>
                                 </div>
                             </div>
-                            <div className="w-1/3">
+                            <div className="w-1/3 industry-card-base">
                                 <div className=" cng-ind rounded-3xl ind-card">
                                 </div>
                                 <h1 className='text-center text-3xl font-normal mt-6'>CNG & LPG</h1>

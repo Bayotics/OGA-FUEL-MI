@@ -160,6 +160,9 @@ body {
    /* ********************MOBILE *************************/
 /* Galaxy fold */
 @media screen and (min-width: 279.5px) and (max-width: 340px) {
+    #root{
+      width: 640px;
+    }
     .nav-menu{
       display: none;
     }
@@ -190,7 +193,6 @@ body {
       left: 150px;
     }
     header {
-      border: 0.5px solid rgb(89, 89, 95);
       width: 640px;
       height: 620px;
     }
@@ -218,16 +220,294 @@ body {
     .sign-in-text{
       font-size: 25px;
     }
-    .hamburgerNotActive{
-      height: 0px;
+    .navbar-for-mobile{
+      display: block;
       overflow: hidden;
+      height: 0px;
+      transition: height 0.5s ease;
+      position: absolute;
+      left: 0;
+      top: 130px;
+      width: 600px;
+      z-index: 1;
     }
     .hamburgerActive{
       height: 100%;
+      overflow: auto;
     }
+    .fuel-dropdown-contents{
+      overflow: hidden;
+      height: 0px;
+      transition: height 0.1s ease;
+    }
+    .mobileFuelActive{
+      height: 100%;
+      overflow: auto;
+    }
+    .company-dropdown-contents{
+      overflow: hidden;
+      height: 0px;
+      transition: height 0.1s ease;
+    }
+    .companyActive{
+      height: 100%;
+      overflow: auto;
+    }
+    .support-dropdown-contents{
+      overflow: hidden;
+      height: 0px;
+      transition: height 0.1s ease;
+    }
+    .supportActive{
+      height: 100%;
+      overflow: auto;
+    }
+    .user-dropdown{
+      overflow: hidden;
+      height: 0px;
+      transition: height 0.1s ease;
+    }
+    .profileActive{
+      height: 100%;
+      overflow: auto;
+    }
+    .home-intro-main{
+      display: block;
+      border: 1px solid black;
+      width: 620px;
+      position: absolute;
+      width: 620px;
+      top: 100px;
+    }
+    .home-intro-pics{
+      position: absolute;
+      top: 0;
+      width: 100%;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    .home-intro-texts{
+      width: 100%;
+      position: absolute;
+      top: 900px;
+      padding: 0;
+    }
+    .intro-h{
+      text-align: center;
+    }
+    .intro-page-p{
+      text-align: center;
+      padding-left: 80px;
+      padding-right: 80px;
+      font-size: 30px;
+      line-height: 1.5;
+      margin-top: 80px;
+    }
+    .home-svg{
+      margin: auto;
+      margin-top: 80px;
+      width: 20%;
+      margin-top: 100px;      
+    }
+    .home-intro-grid-text{
+      padding-left: 90px;
+      padding-right: 90px;
+    }
+    .higt-a{
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    .home-intro-grid-text h1{
+      font-size: 40px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .hiop-mini{
+      font-size: 24px;
+      text-align: center;
+      margin-top: 60px;
+    }
+    .hiob{
+      margin-top: 89px;
+      text-align: center;
+      font-size: 22px;
+    }
+    .hiob-right{
+      text-align: center;
+      font-size: 22px;
+    }
+    .homepage-about{
+      width: 600px;
+      border: 1px solid;
+    }
+    .homeabout-main{
+      margin-top: 1800px;
+      display: block;
+    }
+    .home-about-texts{
+      width: 100%;
+    }
+    .why-choose-us{
+      font-size: 24px;
+    }
+    .home-about-paragraph{
+      font-size: 20px;
+    }
+    .home-about-btn{
+      font-size: 26px;
+    }
+    .home-about-design{
+      margin-top: 100px;
+      width: 100%;
+    }
+    .home-about-item h1{
+      font-size: 30px;
+    }
+    .home-about-item p{
+      font-size: 22px;
+    }
+    .hp-about-icons{
+      margin-top: 10px;
+    }
+    .fuel-me-bike{
+      width: 100%;
+      height: 500px;
+      margin-left: 0;
+      margin-top: 100px;
+    }
+    .parallax-slider-m{
+      display: none;
+    }
+    .hiw-texts p{
+      font-size: 26px;
+    }
+    .hiw-design{
+      display: block;
+    }
+    .hiw-icons-left{
+      width: 100%;
+    }
+    .hiw-app{
+      width: 100%;
+    }
+    .homepage-how-it-works{
+      width: 638px;
+      margin: auto;
+    }
+    .hiw-three{
+      position: relative;
+      top: 850px;
+    }
+    .hiw-two{
+      position: absolute;
+      bottom: 950px;
+    }
+    .hiw-four{
+      position: relative;
+      margin-top: 300px;
+    }
+    .homepage-industries{
+      width: 620px;
+    }
+    .industry-heading{
+      display: block;
+    }
+    .industry-heading div{
+      width: 100%;
+      text-align: center;
+    }
+    .industry-p{
+      color: black;
+      font-size: 20px;
+      margin-top: 30px;
+    }
+    .industry-cards{
+      display: block;
+    }
+    .industry-cards div{
+      width: 100%;
+    }
+    .industry-card-base{
+      margin-top: 100px;
+    }
+    .ind-btn{
+      color: black;
+      font-weight: 700;
+    }
+    .homepage-gas-station{
+      width: 640px;
+      margin-top: 150px;
+    }
+    .gas-main{
+      display: block;
+    }
+    .gas-img-a{
+      width: 100%;
+    }
+    .gas-txt{
+      width: 100%;
+      padding-right: 96px;
+      text-align: center;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+    .gas-txt div{
+      justify-content: center;
+    }
+    .homepage-fuel-me-app{
+      width: 640px;
+    }
+    .fuel-me-app-card{
+      display: block;
+    }
+    .fma-card-img{
+      position: relative;
+      bottom: 450px;
+      width: 100%;
+    }
+    .fma-card-img img{
+      margin: auto;
+    }
+    .fma-card-p{
+      position: relative;
+      top: 500px;
+      width: 100%;
+      padding-left: 60px;
+      padding-right: 60px;
+    }
+    .fma-card-p h1{
+      text-align: center;
+    }
+    .homepage-faq{
+      width: 640px;
+    }
+    .homepage-faq p{
+      font-size: 18px;
+    }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
   }
   
   
+
+
+
+
+  
+
    /* samsung s8 plus */
    @media screen and (min-width: 340.9px) and (max-width: 380px) {
     .navbar-toggler-icon{

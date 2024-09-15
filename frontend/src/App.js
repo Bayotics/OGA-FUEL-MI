@@ -78,6 +78,10 @@ function App() {
   const [searchBarHidden, setSearchBarHidden] = useState('flex')
   const [searchbarVisibility, setSearchbarVisibility] = useState('hidden')
   const [showHamburger, setShowHamburger] = useState(false);
+  const [showFuels, setShowFuels] = useState(false)
+  const [showCompany, setShowCompany] = useState(false);
+  const [showSupport, setShowSupport] = useState(false);
+  const [showProfile, setShowProfile] = useState (false);
 
   const mobileMenuRef = useRef();
 
@@ -117,6 +121,35 @@ function App() {
   const mobileHamburger = () => {
     setShowHamburger(!showHamburger);
   }
+  const mobileFuels = () => {
+    setShowFuels(!showFuels);
+    setShowCompany(false)
+    setShowSupport(false);
+    setShowProfile(false)
+  }
+  const MobileCompany = () => {
+    setShowCompany(!showCompany);
+    setShowFuels(false);
+    setShowSupport(false);
+    setShowProfile(false)
+
+  }
+  const mobileSupport = () => {
+    setShowSupport(!showSupport);
+    setShowFuels(false);
+    setShowCompany(false);
+    setShowProfile(false)
+  }
+  const mobileProfile = () => {
+    setShowProfile(!showProfile);
+    setShowFuels(false);
+    setShowCompany(false);
+    setShowSupport(false);
+  }
+
+
+
+
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -162,68 +195,64 @@ function App() {
 
                 {/* ************************* Mobile NAV ************************ */}
                   <div className= 
-                  {`navbar-for-mobile border block w-[500px] pl-6 py-6 bg-white ${showHamburger === false ? 'hamburgerNotActive' : 'hamburgerActive'}`}>
-                  <div className='mt-4'>
-                    <Link to = "/" className='text-black font-medium hover:text-[#1a2eeb] hover:font-bold w-full'> Home Page</Link>
+                  {`navbar-for-mobile  block w-[500px] pl-6 py-6 bg-white ${showHamburger ? 'hamburgerActive' : ''}`}>
+                  <div className='mt-6'>
+                    <Link to = "/" className='text-black text-2xl font-semibold hover:text-[#1a2eeb] hover:font-bold w-full'> Home Page</Link>
                   </div>
-                  <div className='mt-4'>
-                    <Link to = "/search?category=all&query=all&price=all&rating=all&order=newest&page=1" className='text-black font-medium hover:text-[#1a2eeb] hover:font-bold'> Order Fuel</Link>
+                  <div className='mt-8'>
+                    <Link to = "/search?category=all&query=all&price=all&rating=all&order=newest&page=1" className='text-[#1a2eeb] text-2xl font-semibold hover:text-black hover:font-bold'> Order Fuel</Link>
                   </div>
-                  <div className='mt-4'>
+                  <div className='mt-8'>
                     <div className='petrol-contents-mobile'>
                       <div className=''>
-                        <div className='text-black font-medium hover:text-[#1a2eeb] hover:font-bold flex'>
+                        <div className='text-black text-2xl font-semibold hover:text-[#1a2eeb] hover:font-bold flex justify-between'>
                           <h1>Fuels</h1>
-                          <div className='fuel-dropdown-mobile'>^</div>
+                          <div className='fuel-dropdown-mobile' onClick={mobileFuels}>+</div>
                         </div>
-                        <div className='mt-4 fuel-dropdown-contents ml-4'>
+                        <div className= {`mt-4 fuel-dropdown-contents ml-4 ${showFuels ? 'mobileFuelActive' : ''}`}>
                           <div className='flex gap-2 mt-2'>
-                            <Link to = '/fuel'>Petrol</Link>
-                            <div className='petrol-icon-mobile'>*</div>
+                            <Link to = '/fuel'className='font-semibold'>Petrol</Link>
                           </div>
                           <div className='flex gap-2 mt-2'>
-                            <Link to = '/fuel'>Diesel</Link>
-                            <div className='petrol-icon-mobile'>*</div>
+                            <Link to = '/diesel' className='font-semibold'>Diesel</Link>
                           </div>
                           <div className='flex gap-2 mt-2'>
-                            <Link to = '/fuel'>CNG</Link>
-                            <div className='petrol-icon-mobile'>*</div>
+                            <Link to = '/cng' className='font-semibold'>CNG</Link>
                           </div>
                           <div className='flex gap-2 mt-2'>
-                            <Link to = '/fuel'>LPG</Link>
-                            <div className='petrol-icon-mobile'>*</div>
+                            <Link to = '/lpg' className='font-semibold'>LPG</Link>
                           </div>
                         </div>
                       </div> 
                     </div>
                     <div className='company-contents-mobile'>
                       <div className=''>
-                        <div className='text-black font-medium hover:text-[#1a2eeb] hover:font-bold flex mt-4'>
+                        <div className='text-black text-2xl font-semibold hover:text-[#1a2eeb] hover:font-bold flex justify-between mt-4'>
                           <h1>Company</h1>
-                          <div className='company-dropdown-mobile'>^</div>
+                          <div className='company-dropdown-mobile' onClick={MobileCompany}>+</div>
                         </div>
-                        <div className='mt-4 company-dropdown-contents ml-4'>
-                          <div><Link to = '/aboutus'>About Us</Link></div>
-                          <div className='mt-2'><Link to = '/services'>Services</Link></div>
-                          <div className='mt-2'><Link to = '/career'>Careers</Link></div>
+                        <div className= {`mt-4 company-dropdown-contents ml-4 ${showCompany ? 'companyActive' : ''}`} >
+                          <div><Link to = '/aboutus' className='font-semibold'>About Us</Link></div>
+                          <div className='mt-2 font-semibold'><Link to = '/services'>Services</Link></div>
+                          <div className='mt-2 font-semibold'><Link to = '/career'>Careers</Link></div>
                         </div>
                       </div> 
                     </div>
                     <div className='support-contents-mobile mt-4'>
                       <div className=''>
-                        <div className='text-black font-medium hover:text-[#1a2eeb] hover:font-bold flex'>
+                        <div className='text-black text-2xl font-semibold hover:text-[#1a2eeb] hover:font-bold flex justify-between'>
                           <h1>Support</h1>
-                          <div className='support-dropdown-mobile'>^</div>
+                          <div className='support-dropdown-mobile' onClick={mobileSupport}>+</div>
                         </div>
-                        <div className='mt-4 support-dropdown-contents ml-4'>
+                        <div className= {`mt-4 support-dropdown-contents ml-4 ${showSupport ? 'supportActive' : ''}`}>
                           <div className=''>
-                            <Link to = '/contactus'>Contact Us</Link>
+                            <Link to = '/contactus' className='font-semibold'>Contact Us</Link>
                           </div>
                           <div className='mt-2 w-full'>
-                            <Link to = '/policy' className='w-full'>Privacy Policy</Link>
+                            <Link to = '/policy' className='w-full font-semibold'>Privacy Policy</Link>
                           </div>
                           <div className='mt-2 hover:bg-gray-100'>
-                            <Link to = '/faqs'>FAQs</Link>
+                            <Link to = '/faqs' className='font-semibold'>FAQs</Link>
                           </div>
                         </div>
                       </div> 
@@ -232,11 +261,11 @@ function App() {
                       {userInfo ?
                     (
                       <div className='mt-4'>
-                        <div className='user-profile-mobile flex'>
-                          <h1 className='text-black font-medium hover:text-[#1a2eeb] hover:font-bold flex'>{userInfo.name}</h1>
-                          <span className="sr-only">v</span>
+                        <div className='user-profile-mobile flex justify-between text-black text-2xl font-semibold'>
+                          <h1 className=' hover:text-[#1a2eeb] hover:font-bold'>{userInfo.name}</h1>
+                          <div className="" onClick={mobileProfile}>+</div>
                         </div>
-                        <div className="z-50 my-4 text-base list-none bg-white divide-y divide-gray-100 dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+                        <div className= {`z-50 my-4 text-base list-none user-dropdown bg-white divide-y divide-gray-100 dark:bg-gray-700 dark:divide-gray-600 ${showProfile ? 'profileActive' : ''}` } id="user-dropdown">
                           <div className="px-4 py-3">
                             <span className="block text-sm text-gray-900 dark:text-white">{userInfo.name}</span>
                             <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">{userInfo.email}</span>

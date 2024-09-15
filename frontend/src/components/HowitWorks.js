@@ -35,11 +35,11 @@ const HowitWorks = () => {
                             </div>
                             </ScrollAnimation>
                             <ScrollAnimation animateIn='bounceInLeft' animateOnce = {true}>
-                            <div className='mt-16'>
+                            <div className='mt-16 hiw-three'>
                                 <div className='hiw-ico w-1/2 m-auto  '>
                                     <img src={deliveryTruck} alt = "check out" className='m-auto' />
                                 </div>
-                                <div className='px-6 text-center mt-6'>
+                                <div className='px-6 text-center mt-6 '>
                                     <h1 className='text-[#1a2eeb] font-bold text-3xl'>03. Order Dispatched for delivery</h1>
                                     <p className='font-medium mt-2'>Once order has been accepted by the supplier, 
                                         we notify you when the order is out for delivery</p>
@@ -52,7 +52,7 @@ const HowitWorks = () => {
                     </div>
                         <div className='hiw-icons-left   w-1/3 mt-10'>
                             <ScrollAnimation animateIn='bounceInRight' animateOnce = {true}>
-                            <div>
+                            <div className='hiw-two'>
                                 <div className='hiw-ico w-1/2 m-auto  '>
                                     <img src={send} alt = "check out"className='m-auto' />
                                 </div>
@@ -64,7 +64,7 @@ const HowitWorks = () => {
                             </div>
                             </ScrollAnimation>
                             <ScrollAnimation animateIn='bounceInRight' animateOnce = {true}>
-                            <div className='mt-6'>
+                            <div className='mt-6 hiw-four'>
                                 <div className='hiw-ico w-1/2 m-auto  '>
                                     <img src={tracking} alt = "check out" className='m-auto' />
                                 </div>

@@ -2,17 +2,20 @@ import phone from '../assets/Fuel-me/pngs/smartphone.png'
 import delivery from '../assets/Fuel-me/pngs/delivery.png'
 import location from '../assets/Fuel-me/pngs/location.png'
 import convenient from '../assets/Fuel-me/pngs/convenient.png'
+import aboutPoster from '../assets/Fuel-me/pngs/intro-pic.jpeg'
+
 import { Slide } from 'react-awesome-reveal'
+
 
 
 const HomePageAbout = () => {
     return(
-            <div className=" px-16 flex justify-between mt-10 pt-6">
-                <div className="home-about-texts w-1/2 mt-32">
+            <div className=" px-16 flex justify-between mt-10 pt-6 homeabout-main">
+                <div className="home-about-texts w-1/2">
                     <Slide direction="left" triggerOnce>
-                        <p className="text-[#1a2eeb] text-lg font-bold">Why choose us?</p>
+                        <p className="text-[#1a2eeb] text-lg font-bold why-choose-us">Why choose us?</p>
                         <h1 className="text-3xl font-semibold mt-4">We are the largest and most popular home fuel delivery company in Lagos</h1>
-                        <p className="mt-4 text-base font-normal">With Fuel Me, enjoy convenience like never before. You won't have to worry about refuelling ever again
+                        <p className="mt-4 text-base font-normal home-about-paragraph">With Fuel Me, enjoy convenience like never before. You won't have to worry about refuelling ever again
                             thanks to our trustworthy fuel delivery service. Get fuel online and free up your time for the 
                             things that really count. Find out how our solution regularly saves businesses 
                             and people money and time.</p>
@@ -21,13 +24,16 @@ const HomePageAbout = () => {
                                 Learn More →
                             </button>
                         </div>
+                        <div className='mt-8'>
+                            <img src = {aboutPoster} alt = 'about-poster' className='shadow-2xl h-96 rounded-2xl m-auto fuel-me-bike' />
+                        </div>
                     </Slide>
                 </div>
                 <div className="home-about-design w-1/2 pl-6">
                     <Slide direction='right' triggerOnce>   
                         <div className='home-about-item flex gap-8'>
                             <div className=''>
-                                <div className='rounded-full  p-3 bg-black'>
+                                <div className='rounded-full hp-about-icons  p-3 bg-black'>
                                     <img src={phone} alt='smartphone' className='w-48'/>
                                 </div>
                                 <div className='m-auto mt-4 border-l w-[1px] border-black h-16'>
@@ -44,7 +50,7 @@ const HomePageAbout = () => {
                         </div>
                         <div className='home-about-item  flex gap-8 mt-8'>
                             <div className=''>
-                                <div className='rounded-full  p-3 bg-black'>
+                                <div className='rounded-full hp-about-icons  p-3 bg-black'>
                                     <img src={delivery} alt='smartphone' className='w-32'/>
                                 </div>
                                 <div className='m-auto mt-4 border-l w-[1px] border-black h-16'>
@@ -59,7 +65,7 @@ const HomePageAbout = () => {
                         </div>
                         <div className='home-about-item  flex gap-8 mt-8'>
                             <div className=''>
-                                <div className='rounded-full  p-3 bg-black'>
+                                <div className='rounded-full hp-about-icons  p-3 bg-black'>
                                     <img src={location} alt='smartphone' className='w-32'/>
                                 </div>
                                 <div className='m-auto mt-4 border-l w-[1px] border-black h-16'>
@@ -74,7 +80,7 @@ const HomePageAbout = () => {
                         </div>
                         <div className='home-about-item  flex gap-8 mt-8'>
                             <div className=''>
-                                <div className='rounded-full  p-3 bg-black'>
+                                <div className='rounded-full hp-about-icons  p-3 bg-black'>
                                     <img src={convenient} alt='smartphone' className='w-32'/>
                                 </div>
                                 

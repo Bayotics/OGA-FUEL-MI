@@ -63,7 +63,7 @@ function ParallaxText({ children, baseVelocity = 100 }) {
 
 export default function BrandScroller() {
   return (
-    <section>
+    <section className='parallax-slider-m'>
         
       <ParallaxText baseVelocity={-1}>
         <div className='flex gap-8'>
