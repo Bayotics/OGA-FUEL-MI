@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Bayotics/mern-E-commerce.git"
+    "url": "git+https://github.com/Bayotics/oga-fuel-mi.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Bayotics/mern-E-commerce/issues"
+    "url": "https://github.com/Bayotics/oga-fuel-mi/issues"
   },
-  "homepage": "https://github.com/Bayotics/mern-E-commerce#readme"
+  "homepage": "https://github.com/Bayotics/oga-fuel-mi#readme"
 }
