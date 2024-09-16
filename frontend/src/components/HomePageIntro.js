@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import HomePagegeSvg from "./HomePageSvg"
 import introPic from '../assets/Fuel-me/pngs/intro-pic.png'
+import { Zoom } from 'react-awesome-reveal'
 
 
 const HomePageIntro = () => {
@@ -44,7 +45,9 @@ const HomePageIntro = () => {
                 </div>
             </div>
             <div className="home-intro-pics w-1/2 pr-12 pl-10 pt-16">
-                <img src = {introPic} alt='intro' className='h-[80%]' />
+                <Zoom triggerOnce>
+                    <img src = {introPic} alt='intro' className='h-[80%]' />
+                </Zoom>
             </div>
         </div>
     )
