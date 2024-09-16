@@ -30,9 +30,6 @@ const CareerScreen = () => {
                     Please feel free to check back in the future. Whenever there are open positions, we list them here.
                 </p>
             </div>
-            <div className="mt-20">
-                <LoadingBox></LoadingBox>
-            </div>
         </div>
     )
 }

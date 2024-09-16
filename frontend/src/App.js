@@ -57,6 +57,7 @@ import CNGScreen from './screens/CNGScreen';
 import LPGScreen from './screens/LPGScreen';
 import { Fade } from 'react-awesome-reveal';
 import { GiHamburgerMenu } from "react-icons/gi";
+import QuickOrder from './screens/QuickOrder';
 
 
 function App() {
@@ -167,7 +168,7 @@ function App() {
     <BrowserRouter>
       <Fade triggerOnce duration={2000}>
         <div className="">
-          <ToastContainer position="bottom-center" limit={2} />
+          <ToastContainer position="top-right" limit={2} />
           <header>
             <nav className=' py-8 flex justify-between pl-20 pr-12'>
               <div className='nav-logo'>
@@ -195,7 +196,7 @@ function App() {
 
                 {/* ************************* Mobile NAV ************************ */}
                   <div className= 
-                  {`navbar-for-mobile  block w-[500px] pl-6 py-6 bg-white ${showHamburger ? 'hamburgerActive' : ''}`}>
+                  {`navbar-for-mobile hidden w-[500px] pl-6 py-6 bg-white ${showHamburger ? 'hamburgerActive' : ''}`}>
                   <div className='mt-6'>
                     <Link to = "/" className='text-black text-2xl font-semibold hover:text-[#1a2eeb] hover:font-bold w-full'> Home Page</Link>
                   </div>
@@ -543,6 +544,7 @@ function App() {
                   <Route path = '/policy' element = {<PolicyScreen />} />
                   <Route path = '/career' element = {<CareerScreen />} />
                   <Route path = '/download' element = {<DownloadApp />} />
+                  <Route path = '/quickorder' element = {<QuickOrder />} />
                 </Routes>
               </div>
             </div>

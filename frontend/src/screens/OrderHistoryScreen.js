@@ -53,7 +53,7 @@ export default function OrderHistoryScreen() {
     fetchData();
   }, [ userInfo]);
   return (
-    <div className='mb-48 px-24 mt-12'>
+    <div className='mb-48 px-24 mt-12 order-history-scr-main'>
       <Helmet>
         <title>Order History</title>
       </Helmet>

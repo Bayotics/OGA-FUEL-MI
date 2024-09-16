@@ -30,7 +30,7 @@ const LPGScreen = () => {
                                 FuelMe: Your Reliable Liquefied Petroleum Gas Partner, 
                                 <br/> Delivered Right to Your Doorstep!
                             </h1>
-                            <p className="mt-8 text-white text-xl font-light">
+                            <p className="mt-8 text-white text-xl font-light cng-paragraph-p">
                                 FuelMe Delivers LPG On-Time, Every Time – 
                                 <br/> Because Your Comfort Matters!
                             </p>

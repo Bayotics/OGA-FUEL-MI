@@ -50,8 +50,8 @@ function Product(props) {
               <div className='product-title w-[30%]'>
                 <h1 className='text-black font-bold text-5xl'>{product.title}</h1>
                 <p className='text-xl font-semibold mt-4'>{product.description}</p>
-                <div className='cart flex mt-56 gap-4'>
-                  <div className='text-black font-semibold mt-4 flex'>
+                <div className='cart-function flex mt-56 gap-4'>
+                  <div className='text-black font-semibold mt-4 flex cart-price'>
                     <CurrencyFormat value={product.price} displayType={'text'} thousandSeparator={true} prefix={'₦'} />
                     <p>/{product.title === 'LPG ' || product.title === 'CNG'  ? 'Kg' : 'Litre'}</p>
                   </div>
@@ -67,11 +67,11 @@ function Product(props) {
                   <img src={product.image} alt={product.title} className='prod-img'/>
               </div>
               <div className='product-description pt-6 w-[20%]'>
-                <h1 className='font-semibold text-2xl text-black'>Description</h1>
-                <p className='mt-4 text-sm'>{product.longDescription}</p>
-                <div className='mt-4 cursor-pointer'>
+                <h1 className='font-semibold text-2xl text-black prod-desc-header'>Description</h1>
+                <p className='mt-4 text-sm prod-desc-longdesc'>{product.longDescription}</p>
+                <div className='mt-4 cursor-pointer learn-more-prod'>
                   <Link to={`/product/${product._id}`}>
-                    <p className='text-lg hover:text-[#1a2eeb] text-black'>Learn More →</p>
+                    <p className='text-lg hover:text-[#1a2eeb] text-black prob-btn-learn'>Learn More →</p>
                   </Link>
                 </div>
                 

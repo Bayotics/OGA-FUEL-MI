@@ -1,6 +1,4 @@
-import residential from '../assets/Fuel-me/residential.jpg';
-import fleet from '../assets/Fuel-me/fleet.jpg';
-import manufacturing from '../assets/Fuel-me/manufacturing.jpg';
+
 import ScrollAnimation from 'react-animate-on-scroll';
 import { Slide } from 'react-awesome-reveal';
 
@@ -17,7 +15,7 @@ const Industries = () => {
                                     <h1 className="text-6xl font-bold">Sectors we <br/> <span className="text-[#1a2eeb]">work</span> with.</h1>
                                 </Slide>
                             </div>
-                            <div className="w-1/2 pl-10">
+                            <div className="w-1/2 pl-10 industry-header-title">
                                 <Slide direction='right'>
                                     <h1 className="font-semibold text-lg industry-p">At Fuel Me, we cater to a diverse range of industries that rely on efficient and reliable
                                         fuel delivery services. You can count on our seamless ordering experience, allowing you to focus on what matters most—keeping your business running 
@@ -62,7 +60,7 @@ const Industries = () => {
                                     <h1 className="text-6xl font-bold">Our <br/> <span className="text-[#1a2eeb]">Products.</span></h1>
                                 </Slide>
                             </div>
-                            <div className="w-1/2 pl-10">
+                            <div className="w-1/2 pl-10 industry-header-title">
                                 <Slide direction='right'>
                                     <h1 className="font-semibold text-lg industry-p">We provide a wide range of high-quality 
                                         fuel solutions tailored to meet your needs. Whether you're looking for premium 

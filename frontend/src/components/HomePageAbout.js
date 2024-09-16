@@ -2,7 +2,7 @@ import phone from '../assets/Fuel-me/pngs/smartphone.png'
 import delivery from '../assets/Fuel-me/pngs/delivery.png'
 import location from '../assets/Fuel-me/pngs/location.png'
 import convenient from '../assets/Fuel-me/pngs/convenient.png'
-import aboutPoster from '../assets/Fuel-me/pngs/intro-pic.jpeg'
+import aboutPoster from '../assets/Fuel-me/pngs/intro-pic-cover.png'
 
 import { Slide } from 'react-awesome-reveal'
 
@@ -25,7 +25,7 @@ const HomePageAbout = () => {
                             </button>
                         </div>
                         <div className='mt-8'>
-                            <img src = {aboutPoster} alt = 'about-poster' className='shadow-2xl h-96 rounded-2xl m-auto fuel-me-bike' />
+                            <img src = {aboutPoster} alt = 'about-poster' className='m-auto rounded-2xl fuel-me-bike' />
                         </div>
                     </Slide>
                 </div>

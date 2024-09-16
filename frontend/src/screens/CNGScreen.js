@@ -31,7 +31,7 @@ const CNGScreen = () => {
                                 Looking for a cleaner alternative to Gasoline and diesel?
                                 – <br/>fuelMe brings clean Compressed Natural Gas right to you.
                             </h1>
-                            <p className="mt-8 text-white text-xl font-light">
+                            <p className="mt-8 text-white text-xl font-light cng-paragraph-p">
                                 Fuel your drive, anywhere, anytime with fuelMe –
                                 <br/> Your trusted CNG delivery partner!
                             </p>

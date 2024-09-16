@@ -62,7 +62,7 @@ export default function ServicesTab() {
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab icon={<CiLocationOn/>} iconPosition='start' 
+          <Tab icon={<CiLocationOn/>} iconPosition='start' className='serv-tab'
             sx={{ fontFamily: 'poppins', fontSize: '12px', fontWeight: 600 }}
             label="On-Site Delivery" {...a11yProps(0)} />
           <Tab icon={<GiFuelTank/>} iconPosition='start' 

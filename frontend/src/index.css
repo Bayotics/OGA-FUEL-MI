@@ -162,8 +162,12 @@ body {
 @media screen and (min-width: 279.5px) and (max-width: 340px) {
     #root{
       width: 640px;
+      color: black;
     }
     .nav-menu{
+      display: none;
+    }
+    .profile{
       display: none;
     }
     .nav-logo{
@@ -190,11 +194,11 @@ body {
       width: 150px;
       position: relative;
       bottom: 20px;
-      left: 150px;
+      left: 180px;
     }
     header {
       width: 640px;
-      height: 620px;
+      height: 200px;
     }
     .search-bar{
       display: none;
@@ -215,7 +219,7 @@ body {
     .cart-ico-container{
       position: relative;
       bottom: 10px;
-      right: 30px;
+      right: 0px;
     }
     .sign-in-text{
       font-size: 25px;
@@ -228,7 +232,7 @@ body {
       position: absolute;
       left: 0;
       top: 130px;
-      width: 600px;
+      width: 630px;
       z-index: 1;
     }
     .hamburgerActive{
@@ -273,7 +277,6 @@ body {
     }
     .home-intro-main{
       display: block;
-      border: 1px solid black;
       width: 620px;
       position: absolute;
       width: 620px;
@@ -338,7 +341,6 @@ body {
     }
     .homepage-about{
       width: 600px;
-      border: 1px solid;
     }
     .homeabout-main{
       margin-top: 1800px;
@@ -346,6 +348,7 @@ body {
     }
     .home-about-texts{
       width: 100%;
+      margin-top: 400px;
     }
     .why-choose-us{
       font-size: 24px;
@@ -411,6 +414,9 @@ body {
     }
     .industry-heading{
       display: block;
+    }
+    .industry-header-title{
+      padding-left: 0;
     }
     .industry-heading div{
       width: 100%;
@@ -484,21 +490,257 @@ body {
     .homepage-faq p{
       font-size: 18px;
     }
+    .footer-main{
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .footer-contents{
+      display: block;
+      text-align: center;
+    }
+    .footer-title{
+      text-align: center;
+    }
+    .fuel-me-logo-footer{
+      left: 110px;
+    }
+    .footer-title-social div{
+      justify-content: center;
+    }
+    .footer-phrase{
+      font-size: 20px;
+    }
+    .footer-heading{
+      font-size: 24px;
+    }
+    .footer-promo{
+      text-align: center;
+    }
+
+    /* Shop screen */
+    .shop-heading{
+      margin-top: 150px;
+    }
+    .product-intro-paragraph{
+      font-size: 24px;
+    }
+    .products-card{
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .product-card{
+      display: block;
+    }
+    .product-title{
+      width: 100%;
+      text-align: center;
+    }
+    .cart-function{
+      margin-top: 40px;
+      text-align: center;
+      justify-content: center;
+    }
+    .cart-price{
+      font-size: 24px;
+    }
+    .product-image{
+      width: 100%;
+      margin-top: 50px;
+    }
+    .product-description{
+      width: 100%;
+      padding-left: 50px;
+      padding-right: 50px;
+      margin-top: 80px;
+    }
+    .prod-desc-header{
+      text-align: center;
+      font-size: 26px;
+    }
+    .prod-desc-longdesc{
+      font-size: 22px;
+      text-align: center;
+    }
+    .learn-more-prod{
+      text-align: center;
+    }
+    .prob-btn-learn{
+      font-size: 20px;
+      margin-top: 50px;
+    }
+    .share-btns{
+      width: 30%;
+      margin: auto;
+      text-align: center;
+      margin-top: 50px;
+    }
+    /* Shop screen Ends */
     
+    /* Fuels screen */
+    .perol-screen-contents{
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    .petrol-scr-grid-contents{
+      display: block;
+    }
+    .petrol-scr-left{
+      width: 100%;
+    }
+    .petrol-scr-left p{
+      font-size: 20px;
+    }
+    .petrol-scr-right{
+      width: 100%;
+      margin-top: 80px;
+    }
+    .petrol-scr-right p{
+      font-size: 20px;
+    }
+    .petrol-promo{
+      display: block;
+    }
+    .petrol-promo-img{
+      width: 100%;
+    }
+    .petrol-promo-txt{
+      width: 100%;
+      font-size: 22px;
+      margin-top: 80px;
+      text-align: center;
+    }
+    .cng-paragraph-p{
+      display: none;
+    }
+    /* about screen */
+    .about-scr-intro-contents{
+      display: block;
+    }
+    .about-scr-intro-img{
+      width: 100%;
+    }
+    .about-scr-intro-texts{
+      width: 100%;
+      text-align: center;
+    }
+    .about-scr-intro-texts p{
+      font-size: 24px;
+    }
+    .about-scr-intro-btn{
+      font-size: 24px;
+      width: 48%;
+      margin: auto;
+      margin-top: 80px;
+    }
+    .fuelme-values{
+      margin-top: 200px;
+    }
+    .fuelme-values-content{
+      display: block;
+    }
+    .fuelme-values-card{
+      width: 100%;
+      margin-bottom: 100px;
+      padding-left: 100px;
+      padding-right: 100px;
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+    .team-content{
+      display: block;
+    }
+    .team-card{
+      width: 100%;
+      margin-bottom: 100px;
+    }
+    /* about screen done */
+
+    /* Services Screen */
+    .services-intro-head{
+      display: block;
+    }
+    .services-intro-img{
+      width: 100%;
+      position: relative;
+      bottom: 400px;
+    }
+    .services-intro-texts{
+      width: 100%;
+      position: relative;
+      top: 500px;
+    }
+    .services-intro-texts p{
+      font-size: 24px;
+    }
+    .services-section{
+      margin-top: 200px;
+    }
+    .serv-tab{
+      font-size: 24px;
+    }
+    .services-tab-picker{
+      display: block;
+    }
+    .services-texts{
+      width: 100%;
+      position: relative;
+      top: 500px;
+      text-align: center;
+    }
+    .services-texts p{
+      font-size: 20px;
+    }
+    .services-img{
+      width: 100%;
+      position: relative;
+      bottom: 450px;
+    }
+    .services-bullet{
+      text-align: left;
+    }
+    /* Services screen end */
+
+    /* Career screen */
+    .job-opening p{
+      font-size: 24px;
+    }
+    /* career screen ends */
 
 
+    /* Contact screen */
+    .contact-screen-contents{
+      display: block;
+    }
+    .contact-screen-texts{
+      width: 100%;
+      text-align: center;
+    }
+    .contact-screen-texts p{
+      font-size: 24px;
+      margin-bottom: 100px;
+    }
+    .contact-input{
+      width: 100%;
+      margin-top: 150px;
+    }
+    .contact-telephone{
+      font-size: 24px;
+      justify-content: center;
+    }
+    /* Contact screen ends */
 
-
-
-
-
-
-
-
-
-
-
-    
+    .order-history-scr-main{
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .cart-display{
+      display: block;
+    }
+    .cart-table{
+      width: 100%;
+      margin-bottom: 100px;
+    }
   }
   
   
@@ -510,352 +752,7 @@ body {
 
    /* samsung s8 plus */
    @media screen and (min-width: 340.9px) and (max-width: 380px) {
-    .navbar-toggler-icon{
-      height: 20px;
-      width: 20px;
-      }
-      #search-bar{
-        width: 250px;
-        margin-top: 20px;
-      }
-      .carousel-caption p{
-        font-size: 12px;
-      }
-      .carousel-caption h1{
-        font-size: 24px;
-        margin-top: 10px;
-      }
-      .about-landing-row{
-        display: flex;
-      }
-      .about-heading{
-        margin: auto;
-        height: 50px;
-      }
-      .about-paragraph{
-        margin-top: 20px;
-      }
-      .about-paragraph p{
-        font-size: 12px;
-        text-align: center;
-      }
-      .about-btn-main{
-        margin-top: 20px;
-        padding-bottom: 30px;
-        text-align: center;
-      }
-      .about-right-main{
-        display: none;
-      }
-      #landing-page-about{
-        margin-top: 70px;
-      }
-      #categories-main{
-        margin-top: 60px;
-      }
-      .category-tiles{
-        margin-top: 20px;
-        padding-left: 30px;
-        padding-right: 20px;
-        row-gap: 20px;
-      }
-      .cat{
-        height: 300px;
-      }
-      .category-tiles-inner{
-        height: 170px;
-        width: 200px;
-        margin-top: 70px;
-      }
-      .category-tiles-inner h1{
-        font-size: 20px;
-      }
-      .category-tiles-btn{
-        width: 120px;
-      }
-      .subscribe-comp-main{
-        margin-top: 40px;
-        padding-bottom: 20px;
-      }
-      .subscribe-heading h1 {
-        font-size: 18px;
-      }
-      .subscribe-comp-inner-main {
-        display: block;
-        
-      }
-      .subscribe-comp-inner-btn {
-        margin-bottom: 50px;
-      }
-      .sbscrb{
-        margin-top: 40px;
-      }
-      .subscribe-comp-inner-p {
-        margin-top: 5px;
-      }
-      .black-friday{
-        margin-top: 70px;
-        height: 550px;
-      }
-      .bf-main{
-        display: block;
-      }
-      .bf-inner-left{
-        width: 100%;
-        padding-left: 0;
-      }
-      .bf-inner-right{
-        width: 100%;
-        margin-top: 250px;
-      }
-      .bf-fish-main{
-        margin: auto
-      }
-      .bf-img{
-        height: 280px;
-        width: 290px;
-        padding-bottom: 0;
-      }
-      .bf-inner-left-caption{
-        margin-top: 100px;
-      }
-      .bf-inner-left h1 {
-        font-size: 34px;
-        font-weight: 600;
-        text-align: center;
-      }
-      .bf-left-mid {
-        border-radius: 0;
-        margin: auto;
-
-      }
-      .bf-left-mid h2{
-        font-size: 20px;
-        line-height: 2.5;
-      }
-      .bf-btn{
-        width: 65%;
-        margin: auto;
-        margin-top: 30px;
-      }
-      .bf-btn-down{
-        width: 70%;
-        margin-top: 80px;
-        margin: auto;
-      }
-      .carousel-inner{
-        height: 650px;
-      }
-      .carousel-indicators{
-        display: none;
-      }
-      .slid-two-contents{
-        display: block;
-      }
-      .slid-two-texts {
-        margin: auto;
-        width: 100%;
-        padding-top: 150px;
-      }
-      .slid-two-texts h1{
-        font-size: 40px;
-        text-align: center;
-        font-weight: 600;
-      }
-      .sixty-percent-off{
-        margin: auto;
-        margin-top: 30px;
-      }
-      .why-us{
-        display: block;
-        padding-left: 15px;
-        padding-right: 15px;
-      }
-      .why-us-captions {
-        width: 100%;
-      }
-      .why-us-captions h1 {
-        font-size: 40px;
-        text-align: center;
-      }
-      .why-us-captions h3 {
-        font-size: 18px;
-        font-weight: 600;
-        text-align: center;
-      }
-      .why-us-captions p {
-        font-size: 14px;
-        text-align: center;
-      }
-      .why-us-btn {
-        margin: auto;
-        width: 60%;
-      }
-      .testimonials{
-        width: 100%;
-      }
-      .testimonial-card {
-        padding-bottom: 10px;
-      }
-      .testimonial-card p {
-        font-size: 14px;
-      }
-      .testimonial-card h2{
-        text-align: center;
-      }
-      footer{
-        padding-right: 10px;
-        padding-left: 10px;
-        padding-bottom: 100px;
-      }
-      .footer-main{
-        display: block;
-        font-size: 14px;
-      }
-      .footer-about {
-        width: 100%;
-      }
-      .footer-about h6 {
-        position: absolute;
-        margin-top: 730px;
-      }
-      .footer-learn-more{
-        margin-top: 50px;
-      }
-      .footer-about-us{
-        margin-top: 50px;
-      }
-      .footer-socials{
-        width: 100%;
-      }
-      .socials-main{
-        padding-right: 90px;
-      }
-      #search-row{
-        display: block;
-      }
-      .shop-menu{
-        width: 100%;
-      }
-      .shop-contents{
-        width: 100%;
-        margin-top: 50px;
-      }
-      .product-count{
-        text-align: center;
-        margin-bottom: 20px;
-      }
-      .about-intro-top{
-        display: block;
-      }
-      .intro-wp{
-        width: 100%;
-      }
-      .intro-caption{
-        width: 100%;
-        margin-top: 30px;
-      }
-      .about-intro{
-        margin-top: 300px;
-        padding-left: 15px;
-        padding-right: 15px;
-      }
-      .about-intro-btn-main{
-        width: 80%;
-      }
-      .about-screen-why-us{
-        display: block;
-        padding-left: 15px;
-        padding-right: 15px;
-        margin-top: 30px;
-        margin-bottom: 20px;
-      }
-      .why-us-icons{
-        width: 100%;
-      }
-      .why-shopit{
-        text-align: center;
-      }
-      .why-us-icons-top{
-        display: block;
-      }
-      .why-us-top-left{
-        width: 100%;
-      }
-      .why-us-top-icon img {
-        height: 30px;
-        width: 30px;
-        margin-top: 10px;
-      }
-      .why-us-top-icon-img {
-        height: 50px;
-        width: 50px;
-      }
-      .why-us-top-right{
-        width: 100%;
-      }
-      .icons-bottom{
-        margin-top: 20px;
-      }
-      .why-us-bg{
-        display: none;
-      }
-      .team-main{
-        display: block;
-      }
-      .team-circle{
-        height: 200px;
-        width: 200px;
-        margin: auto;
-      }
-      .team-circle img{
-        height: 120px;
-        width: 120px;
-        margin-top: 20px;
-      }
-      .about-contact-section {
-        padding-left: 15px;
-        padding-right: 15px;
-      }
-      .about-contact-section-content{
-        display: block;
-      }
-      .about-contact-section-caption {
-        width: 100%;
-      }
-      .about-contact-section-icons {
-        display: block;
-        width: 100%;
-      }
-      .phone-captions{
-        display: flex;
-      }
-      .product-price{
-        display: flex;
-        column-gap: 15px;
-        font-weight: 600;
-      }
-      .place-order-main-order-id{
-        font-size: 18px;
-      }      
-      .contact-form{
-        display: block;
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-      .contact-info{
-        width: 100%;
-      }
-      .contact-info-card{
-        display: block;
-      }
-      .contact-info-card p{
-        line-break: anywhere;
-      }
-      .contact-input{
-        width: 100%;
-        margin-top: 50px;
-      }
+    
     }
   
     /* iphone 12 pro and >*/

@@ -119,13 +119,13 @@ export default function SearchScreen() {
         <title>Search Fuel</title>
       </Helmet>
       <div className='product-content'>
-      <div className='mt-24 shop-heading text-center px-48'>
-          <h1 className='text-5xl font-bold'>Choose your <span className='text-[#1a2eeb]'>Fuel</span></h1>
-          <p className='mt-10 font-medium text-lg leading-loose'>Whether you need fuel for your home, business, or fleet, We offer competitive 
+        <div className='mt-24 shop-heading text-center px-48'>
+          <h1 className='text-5xl font-bold product-intro-main'>Choose your <span className='text-[#1a2eeb]'>Fuel</span></h1>
+          <p className='mt-10 font-medium text-lg leading-loose product-intro-paragraph'>Whether you need fuel for your home, business, or fleet, We offer competitive 
             pricing and exceptional service to keep you running smoothly. Place your order now and experience 
             convenience at its best!
           </p>
-       </div>
+        </div>
         <div className='products-card-main mt-10 mb-36'>
           <div className='products-card px-24 py-24'>
             

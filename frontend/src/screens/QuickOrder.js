@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { Slide } from 'react-awesome-reveal';
 const FORM_ENDPOINT = "https://public.herotofu.com/v1/f1ee8b90-b2d3-11ee-ae0b-a7e011fe96d3";
 
-const ContactScreen = () => {
+const QuickOrder = () => {
   const [submitted, setSubmitted] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,18 +41,18 @@ const ContactScreen = () => {
       });
   };
 
-  if (submitted) {
-    return (
-      <>
-      <div className='mt-20 mb-20 py-24 px-52 bg-slate-600'>
-        <h2 className='text-white text-center font-semibold text-3xl'>Thank you!</h2>
-        <h2 className='text-white text-center font-semibold text-xl mt-5'>We received your message. We'll be in touch soon.</h2>
-      </div>
-       
-      </>
-    );
-  }
-
+  if (submitted) 
+    {
+        return (
+        <>
+        <div className='mt-20 mb-20 py-24 px-52 bg-slate-600'>
+            <h2 className='text-white text-center font-semibold text-3xl'>Thank you!</h2>
+            <h2 className='text-white text-center font-semibold text-xl mt-5'>We received your order. 
+                We'll be in touch soon.</h2>
+        </div>
+        </>
+        );
+    }
     return (
         <div className="contact-screen-main">
             <Helmet>
@@ -62,17 +62,14 @@ const ContactScreen = () => {
               <div className='contact-screen-texts w-1/3 '>
                 <Slide direction='left' triggerOnce>
                   <h1 className='text-[64px] font-black leading-[70px]'>
-                    We are happy to hear <span className='text-[#1a2eeb]'>from you!</span>
+                    Place your <span className='text-[#1a2eeb]'>Order</span>
                   </h1>
                   <div className="home-svg mt-6">
                       <ContactSvg />
                   </div>
                   <div className='contact-screen-text mt-10'>
                     <p className='text-lg'>
-                      Through our help channels, which enable us to accept complaints and deliver prompt feedback, 
-                      we provide devoted customer service, assisting us in promptly answering enquiries and 
-                      resolving problems. Feel free to reach out to us in regards to any inquiry about fuel delivery
-                      anywhere in Lagos.
+                        For bulk fuel supply anywhere in Lagos, Nigeria. Call us, or send us a message. We are just a click away.
                     </p>
                     <div className='mt-6 flex contact-telephone gap-3'>
                       <BsTelephone className='mt-1'/>
@@ -106,19 +103,28 @@ const ContactScreen = () => {
                           id='email' type="email" name="email" required />
                       </div>
                       <div className='w-full mt-10' >
-                        <p className='text-white font-medium text-xl'>Your Phone number<span className='text-red-500'>*</span></p>
+                        <p className='text-white font-medium text-xl'>Your Contact Phone<span className='text-red-500'>*</span></p>
                           <input className='w-full bg-slate-800 py-4 rounded-xl pl-3 mt-4 text-white'
                           id='phone' type="tel" name="phone" placeholder='call or Whatsapp Number' required />
                       </div>
                       <div className='w-full mt-10' >
-                        <p className='text-white font-medium text-xl'>Subject<span className='text-red-500'>*</span></p>
-                          <input className='w-full bg-slate-800 py-4 rounded-xl pl-3 mt-4 text-white'
-                          id='address' type="text" placeholder= 'Subject of your inquiry' name="address" required />
+                        <p className='text-white font-medium text-xl'>Fuel type<span className='text-red-500'>*</span></p>
+                          <select className='w-full bg-slate-800 py-4 rounded-xl px-3 mt-4 text-white'>
+                            <option>Petrol 860/L</option>
+                            <option>Diesel 1250/L</option>
+                            <option>CNG 800/kg</option>
+                            <option>LPG 1300/kg</option>
+                          </select>
+                      </div>
+                      <div className='w-full mt-10' >
+                        <p className='text-white font-medium text-xl'>Litres/Quantity<span className='text-red-500'>*</span></p>
+                          <input className='w-full bg-slate-800 py-4 rounded-xl px-3 mt-4 text-white'
+                          id='phone' type="number" name="phone" placeholder='Litre of fuel/Quantity of Gas' required />
                       </div>
                       <div className='w-full mt-10'>
                           <textarea 
                             className='w-full bg-slate-800 py-4 rounded-xl pl-3 mt-4 text-white' 
-                            id='message' placeholder="Your message" name="message" required rows={10}/>
+                            id='message' placeholder="Delivery Address" name="message" required rows={10}/>
                       </div>
                       <div className='submit-btn mt-10 justify-center text-center'>
                           <button className='bg-blue-700 py-4 px-6 rounded text-white font-medium text-xl hover:bg-blue-500' id='submit' type="submit"> Submit </button>
@@ -131,4 +137,4 @@ const ContactScreen = () => {
     )
 }
 
-export default ContactScreen
+export default QuickOrder
