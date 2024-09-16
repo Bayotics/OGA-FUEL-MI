@@ -2578,6 +2578,49 @@ body {
      .intro-h{
       font-size: 3.5rem;
      }
+     .industry-cards{
+      display: block;
+     }
+     .industry-cards div{
+      width: 100%;
+      margin-bottom: 20px;
+     }
+     .fuel-me-app-card{
+      padding-bottom: 200px;
+     }
+     .fma-card-img{
+      margin-top: 100px;
+     }
+     .footer-contents{
+      padding-left: 20px;
+      padding-right: 20px;
+     }
+     .products-card{
+      padding-left: 20px;
+      padding-right: 20px;
+     }
+     .petrol-scr-grid-contents{
+      display: block;
+     }
+     .petrol-scr-left{
+      width: 100%;
+      margin-bottom: 100px;
+     }
+     .petrol-scr-right{
+      width: 100%;
+      margin-bottom: 100px;
+     }
+     .petrol-scr-icon{
+      width: 9%;
+     }
+     .fuelme-values-content{
+      display: block;
+     }
+     .fuelme-values-card{
+      width: 70%;
+      margin: auto;
+      margin-bottom: 100px;
+     }
     }
   
    @media screen and (min-width: 951px) and (max-width: 1049px) {
