@@ -9,6 +9,7 @@ import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
+import { Slide } from 'react-awesome-reveal';
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -87,108 +88,109 @@ export default function FAQs() {
         </p>
       </div>
       <div className='accordion-main mt-24'>
-        <div className='border-b border-gray-300 '>
-            <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-                <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                <Typography>
-                    <h1 className='text-3xl font-medium'>What is Fuel Me?</h1>
-                </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                <Typography>
-                    <p className='ml-16'>
-                        Fuel Me is an online platform that allows you to conveniently order fuel for delivery to your location.
-                        We specialize in providing fuel solutions for businesses and individuals, ensuring that you never run out
-                        of fuel when you need it the most.
-                    </p>
-                
-                </Typography>
-                </AccordionDetails>
-            </Accordion>
-        </div>
-        <div className='border-b border-gray-300 '>
-            <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
-                <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-                <Typography>
-                    <h1 className='text-3xl font-medium'>How do I place an order?</h1>
-                </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                <Typography>
-                    <p className=' ml-16'>
-                        To place an order, simply visit our website, select the type and quantity of fuel you need,
-                        and provide your delivery details. You can also schedule a delivery for a specific date and time.
-                    </p>
-                </Typography>
-                </AccordionDetails>
-            </Accordion>
-        </div>
-        <div className='border-b border-gray-300 '>
-            <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-                <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-                <Typography>
-                    <h1 className='text-3xl font-medium'>What types of fuel can I order?</h1>
-                </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                <Typography>
-                    <p className=' ml-16'>
-                    Fuel Me offers a variety of fuel types, including gasoline, diesel, and CNG. 
-                    Please check our store for the full list of available fuel options.
-                    </p>
-                
-                </Typography>
-                </AccordionDetails>
-            </Accordion>
-        </div>
-        <div className='border-b border-gray-300 '>
-            <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
-                <AccordionSummary aria-controls="panel4d-content" id="panel4d-header">
-                <Typography>
-                    <h1 className='text-3xl font-medium'>How long does delivery take?</h1>
-                </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                <Typography>
-                    <p className=' ml-16'>
-                        Delivery times vary depending on your location and the time of your order. 
-                        We strive to deliver within an hour for most locations, but you can schedule a specific 
-                        delivery time during the ordering process.
-                    </p>
-                </Typography>
-                </AccordionDetails>
-            </Accordion>
-        </div>
-        <div className='border-b border-gray-300  '>
-            <Accordion expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
-                <AccordionSummary aria-controls="panel5d-content" id="panel5d-header">
-                <Typography>
-                    <h1 className='text-3xl font-medium'>What payment methods do you accept?</h1>
-                </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                <Typography>
-                    <p className=' ml-16'>
-                        We accept various payment methods, including credit/debit cards, bank transfers, 
-                        and digital wallets. All payments are securely processed through our platform.
-                    </p>
-                </Typography>
-                </AccordionDetails>
-            </Accordion>
-        </div>
-        <div className=''>
-            <Link to= "/faqs">
-                <Accordion>
-                    <AccordionViewAll>
-                    <Typography>
-                        <h1 className='text-3xl font-medium text-[#1a2eeb]'>View All FAQs</h1>
-                    </Typography>
-                    </AccordionViewAll>
-                </Accordion>
-            </Link>
-            
-        </div>
-        
+        <Slide direction='up'>
+          <div className='border-b border-gray-300 '>
+              <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+                  <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+                  <Typography>
+                      <h1 className='text-3xl font-medium'>What is Fuel Me?</h1>
+                  </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                  <Typography>
+                      <p className='ml-16'>
+                          Fuel Me is an online platform that allows you to conveniently order fuel for delivery to your location.
+                          We specialize in providing fuel solutions for businesses and individuals, ensuring that you never run out
+                          of fuel when you need it the most.
+                      </p>
+                  
+                  </Typography>
+                  </AccordionDetails>
+              </Accordion>
+          </div>
+          <div className='border-b border-gray-300 '>
+              <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+                  <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
+                  <Typography>
+                      <h1 className='text-3xl font-medium'>How do I place an order?</h1>
+                  </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                  <Typography>
+                      <p className=' ml-16'>
+                          To place an order, simply visit our website, select the type and quantity of fuel you need,
+                          and provide your delivery details. You can also schedule a delivery for a specific date and time.
+                      </p>
+                  </Typography>
+                  </AccordionDetails>
+              </Accordion>
+          </div>
+          <div className='border-b border-gray-300 '>
+              <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+                  <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
+                  <Typography>
+                      <h1 className='text-3xl font-medium'>What types of fuel can I order?</h1>
+                  </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                  <Typography>
+                      <p className=' ml-16'>
+                      Fuel Me offers a variety of fuel types, including gasoline, diesel, and CNG. 
+                      Please check our store for the full list of available fuel options.
+                      </p>
+                  
+                  </Typography>
+                  </AccordionDetails>
+              </Accordion>
+          </div>
+          <div className='border-b border-gray-300 '>
+              <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+                  <AccordionSummary aria-controls="panel4d-content" id="panel4d-header">
+                  <Typography>
+                      <h1 className='text-3xl font-medium'>How long does delivery take?</h1>
+                  </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                  <Typography>
+                      <p className=' ml-16'>
+                          Delivery times vary depending on your location and the time of your order. 
+                          We strive to deliver within an hour for most locations, but you can schedule a specific 
+                          delivery time during the ordering process.
+                      </p>
+                  </Typography>
+                  </AccordionDetails>
+              </Accordion>
+          </div>
+          <div className='border-b border-gray-300  '>
+              <Accordion expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
+                  <AccordionSummary aria-controls="panel5d-content" id="panel5d-header">
+                  <Typography>
+                      <h1 className='text-3xl font-medium'>What payment methods do you accept?</h1>
+                  </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                  <Typography>
+                      <p className=' ml-16'>
+                          We accept various payment methods, including credit/debit cards, bank transfers, 
+                          and digital wallets. All payments are securely processed through our platform.
+                      </p>
+                  </Typography>
+                  </AccordionDetails>
+              </Accordion>
+          </div>
+          <div className=''>
+              <Link to= "/faqs">
+                  <Accordion>
+                      <AccordionViewAll>
+                      <Typography>
+                          <h1 className='text-3xl font-medium text-[#1a2eeb]'>View All FAQs</h1>
+                      </Typography>
+                      </AccordionViewAll>
+                  </Accordion>
+              </Link>
+              
+          </div>
+        </Slide>
         
       </div>
       

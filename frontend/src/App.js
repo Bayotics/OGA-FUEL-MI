@@ -1,14 +1,8 @@
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import { Icons, toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
-import Navbar from 'react-bootstrap/Navbar';
-import Badge from 'react-bootstrap/Badge';
-import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Dropdown from 'react-bootstrap/Dropdown';
-import Container from 'react-bootstrap/Container';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useContext, useEffect, useState, useRef, useCallback } from 'react';
 import { Store } from './Store';
@@ -24,7 +18,6 @@ import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import PaymentScreen from "./screens/PaymentScreen";
 import ProfileScreen from './screens/ProfileScreen';
 import ProfiledisplayScreen from './screens/ProfileDisplayScreen'
-import Button from 'react-bootstrap/Button';
 import { getError } from './utils';
 import axios from 'axios';
 import SearchBox from './components/SearchBox';
@@ -44,20 +37,19 @@ import Footer from './components/Footer';
 import VerifyEmail from './screens/VerifyEmail';
 import Logo from '../src/assets/Fuel-me/pngs/logo.png'
 import AnimatedNav from './components/AnimatedNav';
-import DropdownItem from 'react-bootstrap/esm/DropdownItem';
 import FAQScreen from './screens/FAQScreen';
 import ServicesScreen from './screens/ServicesScreen';
 import FuelScreen from './screens/FuelScreen';
 import PolicyScreen from './screens/PolicyScreen';
 import CareerScreen from './screens/CareerScreen';
 import DownloadApp from './screens/DownloadApp';
-import ScrollAnimation from 'react-animate-on-scroll';
 import DieselScreen from './screens/DieselScreen';
 import CNGScreen from './screens/CNGScreen';
 import LPGScreen from './screens/LPGScreen';
 import { Fade } from 'react-awesome-reveal';
 import { GiHamburgerMenu } from "react-icons/gi";
 import QuickOrder from './screens/QuickOrder';
+import { MdCancel } from "react-icons/md";
 
 
 function App() {
@@ -71,11 +63,11 @@ function App() {
     // localStorage.removeItem('cartItems');
     window.location.href = '/signin';
   };
-  const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const [categories, setCategories] = useState([]);
   const [userDropdown, setUserDropdown] = useState(false)
   const [adminDropdown, setAdminDropdown] = useState(false)
-  const [toggleNav, setToggleNav] = useState(false);
+  const [navCancel, setNavCancel] = useState('hidden');
+  const [hamburgerCancel, setHamburgerCancel] = useState('hidden');
   const [searchBarHidden, setSearchBarHidden] = useState('flex')
   const [searchbarVisibility, setSearchbarVisibility] = useState('hidden')
   const [showHamburger, setShowHamburger] = useState(false);
@@ -84,24 +76,65 @@ function App() {
   const [showSupport, setShowSupport] = useState(false);
   const [showProfile, setShowProfile] = useState (false);
 
-  const mobileMenuRef = useRef();
+  const mobileMenuRef = useRef(null);
 
   const closeOpenMenus = useCallback(
     (e) => {
       if (
         mobileMenuRef.current &&
-        toggleNav &&
+        userDropdown &&
         !mobileMenuRef.current.contains(e.target)
       ) {
-        setToggleNav(false);
+        setUserDropdown(false);
       }
     },
-    [toggleNav]
+    [userDropdown]
   );
-
   useEffect(() => {
     document.addEventListener("mousedown", closeOpenMenus);
   }, [closeOpenMenus]);
+
+  //  admin dropdownclose
+
+  const adminMenuRef = useRef(null);
+
+  const closeAdminOpenMenus = useCallback(
+    (e) => {
+      if (
+        adminMenuRef.current &&
+        adminDropdown &&
+        !adminMenuRef.current.contains(e.target)
+      ) {
+        setAdminDropdown(false);
+      }
+    },
+    [adminDropdown]
+  );
+  useEffect(() => {
+    document.addEventListener("mousedown", closeAdminOpenMenus);
+  }, [closeAdminOpenMenus]);
+
+  // End
+
+  // Mobile nav closeonClick
+  const phoneMenuRef = useRef(null);
+
+  const closeMobileOpenMenus = useCallback(
+    (e) => {
+      if (
+        phoneMenuRef.current &&
+        showHamburger &&
+        !phoneMenuRef.current.contains(e.target)
+      ) {
+        setShowHamburger(false);
+      }
+    },
+    [showHamburger]
+  );
+  useEffect(() => {
+    document.addEventListener("mousedown", closeMobileOpenMenus);
+  }, [closeMobileOpenMenus]);
+  // end
 
   const userDropdownfunc = () => {
     setUserDropdown(!userDropdown);
@@ -121,6 +154,9 @@ function App() {
   }
   const mobileHamburger = () => {
     setShowHamburger(!showHamburger);
+    setNavCancel('block')
+    setHamburgerCancel('hidden')
+
   }
   const mobileFuels = () => {
     setShowFuels(!showFuels);
@@ -147,6 +183,11 @@ function App() {
     setShowCompany(false);
     setShowSupport(false);
   }
+  const mobileNavCancel = () => {
+    setShowHamburger(false)
+  }
+
+
 
 
 
@@ -157,7 +198,6 @@ function App() {
       try {
         const { data } = await axios.get(`/api/products/categories`);
         setCategories(data);
-        console.log(data)
       } catch (err) {
         toast.error(getError(err));
       }
@@ -167,7 +207,7 @@ function App() {
   return (
     <BrowserRouter>
       <Fade triggerOnce duration={2000}>
-        <div className="">
+        <div className="" >
           <ToastContainer position="top-right" limit={2} />
           <header>
             <nav className=' py-8 flex justify-between pl-20 pr-12'>
@@ -177,9 +217,10 @@ function App() {
                     <img className='fuelme-logo-main' src= {Logo} alt='fuelme-logo'/>
                   </div>
                 </Link>
-                <div className='nav-hamburger hidden' onClick={mobileHamburger}>
+                <div className= {`nav-hamburger ${hamburgerCancel}`} onClick={mobileHamburger}>
                   <GiHamburgerMenu  className='text-2xl'/>
                 </div>
+                
               </div>
               <div className='nav-contents  flex justify-between pt-3 gap-20'>
                 <div className= {` nav-menu gap-6 px-4 mt-1 ${searchBarHidden}`}>
@@ -196,8 +237,13 @@ function App() {
 
                 {/* ************************* Mobile NAV ************************ */}
                   <div className= 
-                  {`navbar-for-mobile hidden w-[500px] pl-6 py-6 bg-white ${showHamburger ? 'hamburgerActive' : ''}`}>
-                  <div className='mt-6'>
+                  {`navbar-for-mobile hidden w-[500px] pl-6 py-6 bg-white ${showHamburger ? 'hamburgerActive' : ''}`} ref={phoneMenuRef}>
+                    {/* <div className= {`nav-cancel-mobile ${navCancel}`} onClick={mobileNavCancel}>
+                      <MdCancel  className='text-2xl'/>
+                    </div> */}
+                  <div>
+
+                  <div className='mt-6' >
                     <Link to = "/" className='text-black text-2xl font-semibold hover:text-[#1a2eeb] hover:font-bold w-full'> Home Page</Link>
                   </div>
                   <div className='mt-8'>
@@ -302,6 +348,7 @@ function App() {
                     </div>
                   </div>
                   </div>
+                  </div>
                 {/* ************************* MOBILE NAV ENDS *************** */}
 
 
@@ -330,10 +377,10 @@ function App() {
                         </div>
                       )}
                   </Link>
-                  <div className={`profile text-black ${searchBarHidden}`}>
+                  <div  className={`profile text-black ${searchBarHidden}`}>
                     {userInfo ?
                     (
-                      <div>
+                      <div ref={mobileMenuRef}>
                       <button className='nav-profile-btn'>
                         <span className="sr-only"></span>
                         <i onClick={userDropdownfunc} className="fas fa-user"></i>
@@ -382,9 +429,9 @@ function App() {
                       </Link>
                     )}
                   </div>
-                  <div className={`admin ${searchBarHidden}`}>
+                  <div className={`admin ${searchBarHidden}`} ref={adminMenuRef}>
                     {userInfo && userInfo.isAdmin && (
-                      <div>
+                      <div >
                           <button className='nav-admin-icon'>
                             <span className="sr-only"></span>
                             <i onClick={adminDropdownfunc} className="fas fa-cog admin-icon">
@@ -532,7 +579,6 @@ function App() {
                   ></Route>
                   <Route path = "/aboutus" element = {<AboutScreen />} ></Route> 
                   <Route path = "/contactus" element = {<ContactScreen />} ></Route> 
-                  <Route path="/products" element={<HomeScreen />} />
                   <Route path = '/' element = {<MainScreen />} />
                   <Route path = '/verify-email' element = {<VerifyEmail />} />
                   <Route path = '/faqs' element = {<FAQScreen />} />

@@ -5,6 +5,7 @@ import { CiTimer } from "react-icons/ci";
 import { PiThumbsUpLight } from "react-icons/pi";
 import { PiUsersThreeThin } from "react-icons/pi";
 import { TbCurrencyNaira } from "react-icons/tb";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -13,6 +14,9 @@ const FuelScreen = () => {
 
     return(
         <div className="fuel-screen-body ">
+            <Helmet>
+                <title>Petrol</title>
+            </Helmet>
             <div className="perol-screen-contents py-40 px-24">
                 <div className=" petrol-scr-header text-center justify-center flex gap-1">
                     <Slide direction="top" triggerOnce>
@@ -74,7 +78,7 @@ const FuelScreen = () => {
                         </div>
                         <div className="petrol-scr-right w-1/2 px-6 ">
                             <div className="">
-                                <Slide direction="right" triggerOnce>
+                                <Slide direction="left" triggerOnce>
                                     <div className="petrol-scr-icon p-3 bg-blue-600 w-[10%] m-auto rounded-lg">
                                         <TbCurrencyNaira className="text-3xl text-white font-thin"/>
                                     </div>
@@ -94,7 +98,7 @@ const FuelScreen = () => {
                                 </Slide>
                             </div>
                             <div className="mt-16">
-                                <Slide direction="right" triggerOnce>
+                                <Slide direction="left" triggerOnce>
                                     <div className="petrol-scr-icon p-3 bg-blue-600 w-[10%] m-auto rounded-lg">
                                         <PiUsersThreeThin className="text-3xl text-white font-thin"/>
                                     </div>
@@ -123,7 +127,7 @@ const FuelScreen = () => {
                             </Slide>
                         </div>
                         <div className="petrol-promo-txt w-1/2">
-                            <Slide direction="right" triggerOnce>
+                            <Slide direction="left" triggerOnce>
                                 <h1 className="text-black text-3xl mt-4 font-medium">
                                     Benefits of Petrol from FuelMe
                                 </h1>

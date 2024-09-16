@@ -159,7 +159,7 @@ body {
 
    /* ********************MOBILE *************************/
 /* Galaxy fold */
-@media screen and (min-width: 279.5px) and (max-width: 340px) {
+@media screen and (min-width: 279.5px) and (max-width: 380px) {
     #root{
       width: 640px;
       color: black;
@@ -460,6 +460,9 @@ body {
     .gas-txt div{
       justify-content: center;
     }
+    .fuel-station-img-cover{
+      height: 300px;
+    }
     .homepage-fuel-me-app{
       width: 640px;
     }
@@ -654,6 +657,10 @@ body {
       width: 100%;
       margin-bottom: 100px;
     }
+    .fuel-me-custom-truck{
+      height: 600px;
+      width: 100%;
+    }
     /* about screen done */
 
     /* Services Screen */
@@ -751,361 +758,601 @@ body {
   
 
    /* samsung s8 plus */
-   @media screen and (min-width: 340.9px) and (max-width: 380px) {
-    
-    }
+  
   
     /* iphone 12 pro and >*/
     @media screen and (min-width: 381.5px) and (max-width: 480px) {
-    .navbar-toggler-icon{
-      height: 20px;
-      width: 20px;
+      #root{
+        width: 640px;
+        color: black;
       }
-      #search-bar{
-        width: 250px;
-        margin-top: 20px;
-      }
-      .carousel-caption p{
-        font-size: 16px;
-      }
-      .carousel-caption h1{
-        font-size: 30px;
-        margin-top: 10px;
-      }
-      .about-landing-row{
-        display: flex;
-      }
-      .about-heading{
-        margin: auto;
-        height: 50px;
-      }
-      .about-paragraph{
-        margin-top: 20px;
-      }
-      .about-paragraph p{
-        font-size: 14px;
-        text-align: center;
-      }
-      .about-btn-main{
-        margin-top: 20px;
-        padding-bottom: 30px;
-        text-align: center;
-      }
-      .about-right-main{
+      .nav-menu{
         display: none;
       }
-      #landing-page-about{
-        margin-top: 70px;
+      .profile{
+        display: none;
       }
-      #categories-main{
-        margin-top: 60px;
-      }
-      .category-tiles{
-        margin-top: 20px;
-        padding-left: 30px;
-        padding-right: 20px;
-        row-gap: 20px;
-      }
-      .cat{
-        height: 300px;
-      }
-      .category-tiles-inner{
-        height: 170px;
-        width: 200px;
-        margin-top: 70px;
-      }
-      .category-tiles-inner h1{
-        font-size: 20px;
-      }
-      .category-tiles-btn{
-        width: 120px;
-      }
-      .subscribe-comp-main{
-        margin-top: 40px;
-        padding-bottom: 20px;
-      }
-      .subscribe-heading h1 {
-        font-size: 18px;
-      }
-      .subscribe-comp-inner-main {
-        display: block;
+      .nav-logo{
         
       }
-      .subscribe-comp-inner-btn {
-        margin-bottom: 50px;
-      }
-      .sbscrb{
-        margin-top: 40px;
-      }
-      .subscribe-comp-inner-p {
-        margin-top: 5px;
-      }
-      .black-friday{
-        margin-top: 70px;
-        height: 550px;
-      }
-      .bf-main{
+      .nav-hamburger{
+        position: absolute;
+        left: 40px;
+        top: 40px;
+        padding: 1px;
         display: block;
       }
-      .bf-inner-left{
-        width: 100%;
-        padding-left: 0;
+      .nav-hamburger svg{
+        font-size: 2.5rem;
+        line-height: 3rem;
+        color: rgb(66, 63, 63);
       }
-      .bf-inner-right{
-        width: 100%;
-        margin-top: 250px;
+      .fuelme-logo{
+        position: absolute;
+        left: 50px;
       }
-      .bf-fish-main{
-        margin: auto
+      .fuelme-logo-main{
+        height: 80px;
+        width: 150px;
+        position: relative;
+        bottom: 20px;
+        left: 180px;
       }
-      .bf-img{
-        height: 280px;
-        width: 290px;
-        padding-bottom: 0;
+      header {
+        width: 640px;
+        height: 200px;
       }
-      .bf-inner-left-caption{
-        margin-top: 100px;
-      }
-      .bf-inner-left h1 {
-        font-size: 34px;
-        font-weight: 600;
-        text-align: center;
-      }
-      .bf-left-mid {
-        border-radius: 0;
-        margin: auto;
-
-      }
-      .bf-left-mid h2{
-        font-size: 20px;
-        line-height: 2.5;
-      }
-      .bf-btn{
-        width: 65%;
-        margin: auto;
-        margin-top: 30px;
-      }
-      .bf-btn-down{
-        width: 70%;
-        margin-top: 80px;
-        margin: auto;
-      }
-      .carousel-inner{
-        height: 650px;
-      }
-      .carousel-indicators{
+      .search-bar{
         display: none;
       }
-      .slid-two-contents{
-        display: block;
+      .nav-profile-btn{
+        position: relative;
+        bottom: 4px;
       }
-      .slid-two-texts {
-        margin: auto;
-        width: 100%;
-        padding-top: 150px;
+      .nav-admin-icon{
+        display: none;
       }
-      .slid-two-texts h1{
+      .fa-user{
         font-size: 40px;
-        text-align: center;
-        font-weight: 600;
       }
-      .sixty-percent-off{
-        margin: auto;
-        margin-top: 30px;
-      }
-      .why-us{
-        display: block;
-        padding-left: 15px;
-        padding-right: 15px;
-      }
-      .why-us-captions {
-        width: 100%;
-      }
-      .why-us-captions h1 {
+      .fa-shopping-cart{
         font-size: 40px;
-        text-align: center;
       }
-      .why-us-captions h3 {
-        font-size: 18px;
-        font-weight: 600;
-        text-align: center;
+      .cart-ico-container{
+        position: relative;
+        bottom: 10px;
+        right: 0px;
       }
-      .why-us-captions p {
-        font-size: 16px;
-        text-align: center;
+      .sign-in-text{
+        font-size: 25px;
       }
-      .why-us-btn {
-        margin: auto;
-        width: 60%;
-      }
-      .testimonials{
-        width: 100%;
-      }
-      .testimonial-card {
-        padding-bottom: 10px;
-      }
-      .testimonial-card p {
-        font-size: 14px;
-      }
-      .testimonial-card h2{
-        text-align: center;
-      }
-      footer{
-        padding-right: 10px;
-        padding-left: 10px;
-        padding-bottom: 100px;
-      }
-      .footer-main{
+      .navbar-for-mobile{
         display: block;
-        font-size: 14px;
-      }
-      .footer-about {
-        width: 100%;
-      }
-      .footer-about h6 {
+        overflow: hidden;
+        height: 0px;
+        transition: height 0.5s ease;
         position: absolute;
-        margin-top: 730px;
+        left: 0;
+        top: 130px;
+        width: 630px;
+        z-index: 1;
       }
-      .footer-learn-more{
-        margin-top: 50px;
+      .hamburgerActive{
+        height: 100%;
+        overflow: auto;
       }
-      .footer-about-us{
-        margin-top: 50px;
+      .fuel-dropdown-contents{
+        overflow: hidden;
+        height: 0px;
+        transition: height 0.1s ease;
       }
-      .footer-socials{
+      .mobileFuelActive{
+        height: 100%;
+        overflow: auto;
+      }
+      .company-dropdown-contents{
+        overflow: hidden;
+        height: 0px;
+        transition: height 0.1s ease;
+      }
+      .companyActive{
+        height: 100%;
+        overflow: auto;
+      }
+      .support-dropdown-contents{
+        overflow: hidden;
+        height: 0px;
+        transition: height 0.1s ease;
+      }
+      .supportActive{
+        height: 100%;
+        overflow: auto;
+      }
+      .user-dropdown{
+        overflow: hidden;
+        height: 0px;
+        transition: height 0.1s ease;
+      }
+      .profileActive{
+        height: 100%;
+        overflow: auto;
+      }
+      .home-intro-main{
+        display: block;
+        width: 620px;
+        position: absolute;
+        width: 620px;
+        top: 100px;
+      }
+      .home-intro-pics{
+        position: absolute;
+        top: 0;
         width: 100%;
+        padding-left: 5px;
+        padding-right: 5px;
+        /* background-color: red;s */
       }
-      .socials-main{
+      .home-intro-pics img{
+        height: 800px;
+      }
+      .home-intro-texts{
+        width: 100%;
+        position: absolute;
+        top: 900px;
+        padding: 0;
+      }
+      .intro-h{
+        text-align: center;
+      }
+      .intro-page-p{
+        text-align: center;
+        padding-left: 80px;
+        padding-right: 80px;
+        font-size: 30px;
+        line-height: 1.5;
+        margin-top: 80px;
+      }
+      .home-svg{
+        margin: auto;
+        margin-top: 80px;
+        width: 20%;
+        margin-top: 100px;      
+      }
+      .home-intro-grid-text{
+        padding-left: 90px;
         padding-right: 90px;
       }
-      #search-row{
+      .higt-a{
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+      .home-intro-grid-text h1{
+        font-size: 40px;
+        text-align: center;
+        margin-top: 20px;
+      }
+      .hiop-mini{
+        font-size: 24px;
+        text-align: center;
+        margin-top: 60px;
+      }
+      .hiob{
+        margin-top: 89px;
+        text-align: center;
+        font-size: 22px;
+      }
+      .hiob-right{
+        text-align: center;
+        font-size: 22px;
+      }
+      .homepage-about{
+        width: 600px;
+      }
+      .homeabout-main{
+        margin-top: 1800px;
         display: block;
       }
-      .shop-menu{
+      .home-about-texts{
+        width: 100%;
+        margin-top: 400px;
+      }
+      .why-choose-us{
+        font-size: 24px;
+      }
+      .home-about-paragraph{
+        font-size: 20px;
+      }
+      .home-about-btn{
+        font-size: 26px;
+      }
+      .home-about-design{
+        margin-top: 100px;
         width: 100%;
       }
-      .shop-contents{
+      .home-about-item h1{
+        font-size: 30px;
+      }
+      .home-about-item p{
+        font-size: 22px;
+      }
+      .hp-about-icons{
+        margin-top: 10px;
+      }
+      .fuel-me-bike{
+        width: 100%;
+        height: 700px;
+        margin-left: 0;
+        margin-top: 100px;
+      }
+      .parallax-slider-m{
+        display: none;
+      }
+      .hiw-texts p{
+        font-size: 26px;
+      }
+      .hiw-design{
+        display: block;
+      }
+      .hiw-icons-left{
+        width: 100%;
+      }
+      .hiw-app{
+        width: 100%;
+      }
+      .homepage-how-it-works{
+        width: 638px;
+        margin: auto;
+      }
+      .hiw-three{
+        position: relative;
+        top: 850px;
+      }
+      .hiw-two{
+        position: absolute;
+        bottom: 950px;
+      }
+      .hiw-four{
+        position: relative;
+        margin-top: 300px;
+      }
+      .homepage-industries{
+        width: 620px;
+      }
+      .industry-heading{
+        display: block;
+      }
+      .industry-header-title{
+        padding-left: 0;
+      }
+      .industry-heading div{
+        width: 100%;
+        text-align: center;
+      }
+      .industry-p{
+        color: black;
+        font-size: 20px;
+        margin-top: 30px;
+      }
+      .industry-cards{
+        display: block;
+      }
+      .industry-cards div{
+        width: 100%;
+      }
+      .industry-card-base{
+        margin-top: 100px;
+      }
+      .ind-btn{
+        color: black;
+        font-weight: 700;
+      }
+      .homepage-gas-station{
+        width: 640px;
+        margin-top: 150px;
+      }
+      .gas-main{
+        display: block;
+      }
+      .gas-img-a{
+        width: 100%;
+      }
+      .gas-txt{
+        width: 100%;
+        padding-right: 96px;
+        text-align: center;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
+      .gas-txt div{
+        justify-content: center;
+      }
+      .homepage-fuel-me-app{
+        width: 640px;
+      }
+      .fuel-station-img-cover{
+        height: 300px;
+      }
+      .fuel-me-app-card{
+        display: block;
+      }
+      .fma-card-img{
+        position: relative;
+        bottom: 450px;
+        width: 100%;
+      }
+      .fma-card-img img{
+        margin: auto;
+      }
+      .fma-card-p{
+        position: relative;
+        top: 500px;
+        width: 100%;
+        padding-left: 60px;
+        padding-right: 60px;
+      }
+      .fma-card-p h1{
+        text-align: center;
+      }
+      .homepage-faq{
+        width: 640px;
+      }
+      .homepage-faq p{
+        font-size: 18px;
+      }
+      .footer-main{
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .footer-contents{
+        display: block;
+        text-align: center;
+      }
+      .footer-title{
+        text-align: center;
+      }
+      .fuel-me-logo-footer{
+        left: 110px;
+      }
+      .footer-title-social div{
+        justify-content: center;
+      }
+      .footer-phrase{
+        font-size: 20px;
+      }
+      .footer-heading{
+        font-size: 24px;
+      }
+      .footer-promo{
+        text-align: center;
+      }
+  
+      /* Shop screen */
+      .shop-heading{
+        margin-top: 150px;
+      }
+      .product-intro-paragraph{
+        font-size: 24px;
+      }
+      .products-card{
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      .product-card{
+        display: block;
+      }
+      .product-title{
+        width: 100%;
+        text-align: center;
+      }
+      .cart-function{
+        margin-top: 40px;
+        text-align: center;
+        justify-content: center;
+      }
+      .cart-price{
+        font-size: 24px;
+      }
+      .product-image{
         width: 100%;
         margin-top: 50px;
       }
-      .product-count{
+      .product-description{
+        width: 100%;
+        padding-left: 50px;
+        padding-right: 50px;
+        margin-top: 80px;
+      }
+      .prod-desc-header{
         text-align: center;
-        margin-bottom: 20px;
+        font-size: 26px;
       }
-      .product-card-outer{
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-      .about-intro-top{
-        display: block;
-      }
-      .intro-wp{
-        width: 100%;
-      }
-      .intro-caption{
-        width: 100%;
-        margin-top: 30px;
-      }
-      .about-intro{
-        margin-top: 300px;
-        padding-left: 15px;
-        padding-right: 15px;
-      }
-      .about-intro-btn-main{
-        width: 80%;
-      }
-      .about-screen-why-us{
-        display: block;
-        padding-left: 15px;
-        padding-right: 15px;
-        margin-top: 30px;
-        margin-bottom: 20px;
-      }
-      .why-us-icons{
-        width: 100%;
-      }
-      .why-shopit{
+      .prod-desc-longdesc{
+        font-size: 22px;
         text-align: center;
       }
-      .why-us-icons-top{
+      .learn-more-prod{
+        text-align: center;
+      }
+      .prob-btn-learn{
+        font-size: 20px;
+        margin-top: 50px;
+      }
+      .share-btns{
+        width: 30%;
+        margin: auto;
+        text-align: center;
+        margin-top: 50px;
+      }
+      /* Shop screen Ends */
+      
+      /* Fuels screen */
+      .perol-screen-contents{
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+      .petrol-scr-grid-contents{
         display: block;
       }
-      .why-us-top-left{
+      .petrol-scr-left{
         width: 100%;
       }
-      .why-us-top-icon img {
-        height: 30px;
-        width: 30px;
-        margin-top: 10px;
+      .petrol-scr-left p{
+        font-size: 20px;
       }
-      .why-us-top-icon-img {
-        height: 50px;
-        width: 50px;
+      .petrol-scr-right{
+        width: 100%;
+        margin-top: 80px;
       }
-      .why-us-top-right{
+      .petrol-scr-right p{
+        font-size: 20px;
+      }
+      .petrol-promo{
+        display: block;
+      }
+      .petrol-promo-img{
         width: 100%;
       }
-      .icons-bottom{
-        margin-top: 20px;
+      .petrol-promo-txt{
+        width: 100%;
+        font-size: 22px;
+        margin-top: 80px;
+        text-align: center;
       }
-      .why-us-bg{
+      .cng-paragraph-p{
         display: none;
       }
-      .team-main{
+      /* about screen */
+      .about-scr-intro-contents{
         display: block;
       }
-      .team-circle{
-        height: 200px;
-        width: 200px;
+      .about-scr-intro-img{
+        width: 100%;
+      }
+      .about-scr-intro-texts{
+        width: 100%;
+        text-align: center;
+      }
+      .about-scr-intro-texts p{
+        font-size: 24px;
+      }
+      .about-scr-intro-btn{
+        font-size: 24px;
+        width: 48%;
         margin: auto;
+        margin-top: 80px;
       }
-      .team-circle img{
-        height: 120px;
-        width: 120px;
-        margin-top: 20px;
+      .fuelme-values{
+        margin-top: 200px;
       }
-      .about-contact-section {
-        padding-left: 15px;
-        padding-right: 15px;
-      }
-      .about-contact-section-content{
+      .fuelme-values-content{
         display: block;
       }
-      .about-contact-section-caption {
+      .fuelme-values-card{
+        width: 100%;
+        margin-bottom: 100px;
+        padding-left: 100px;
+        padding-right: 100px;
+        padding-top: 100px;
+        padding-bottom: 100px;
+      }
+      .team-content{
+        display: block;
+      }
+      .team-card{
+        width: 100%;
+        margin-bottom: 100px;
+      }
+      .fuel-me-custom-truck{
+        height: 600px;
         width: 100%;
       }
-      .about-contact-section-icons {
+      /* about screen done */
+  
+      /* Services Screen */
+      .services-intro-head{
         display: block;
+      }
+      .services-intro-img{
         width: 100%;
+        position: relative;
+        bottom: 400px;
       }
-      .phone-captions{
-        display: flex;
-      }
-      .product-price{
-        display: flex;
-        column-gap: 15px;
-        font-weight: 600;
-      }
-      .place-order-main-order-id{
-        font-size: 18px;
-      }      
-      .contact-form{
-        display: block;
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-      .contact-info{
+      .services-intro-texts{
         width: 100%;
+        position: relative;
+        top: 500px;
       }
-      .contact-info-card{
+      .services-intro-texts p{
+        font-size: 24px;
+      }
+      .services-section{
+        margin-top: 200px;
+      }
+      .serv-tab{
+        font-size: 24px;
+      }
+      .services-tab-picker{
         display: block;
       }
-      .contact-info-card p{
-        line-break: anywhere;
+      .services-texts{
+        width: 100%;
+        position: relative;
+        top: 500px;
+        text-align: center;
+      }
+      .services-texts p{
+        font-size: 20px;
+      }
+      .services-img{
+        width: 100%;
+        position: relative;
+        bottom: 450px;
+      }
+      .services-bullet{
+        text-align: left;
+      }
+      /* Services screen end */
+  
+      /* Career screen */
+      .job-opening p{
+        font-size: 24px;
+      }
+      /* career screen ends */
+  
+  
+      /* Contact screen */
+      .contact-screen-contents{
+        display: block;
+      }
+      .contact-screen-texts{
+        width: 100%;
+        text-align: center;
+      }
+      .contact-screen-texts p{
+        font-size: 24px;
+        margin-bottom: 100px;
       }
       .contact-input{
         width: 100%;
-        margin-top: 50px;
+        margin-top: 150px;
+      }
+      .contact-telephone{
+        font-size: 24px;
+        justify-content: center;
+      }
+      /* Contact screen ends */
+  
+      .order-history-scr-main{
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      .cart-display{
+        display: block;
+      }
+      .cart-table{
+        width: 100%;
+        margin-bottom: 100px;
       }
     }
   

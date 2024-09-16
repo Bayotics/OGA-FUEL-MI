@@ -1,6 +1,7 @@
 
 import ScrollAnimation from 'react-animate-on-scroll';
 import { Slide } from 'react-awesome-reveal';
+import { Link } from 'react-router-dom';
 
 
 const Industries = () => {
@@ -16,7 +17,7 @@ const Industries = () => {
                                 </Slide>
                             </div>
                             <div className="w-1/2 pl-10 industry-header-title">
-                                <Slide direction='right'>
+                                <Slide direction='left'>
                                     <h1 className="font-semibold text-lg industry-p">At Fuel Me, we cater to a diverse range of industries that rely on efficient and reliable
                                         fuel delivery services. You can count on our seamless ordering experience, allowing you to focus on what matters most—keeping your business running 
                                         smoothly.
@@ -31,7 +32,9 @@ const Industries = () => {
                                 </div>
                                 <h1 className='text-center text-3xl font-normal mt-6'>Residential</h1>
                                 <div className='text-center'>
-                                    <button className='ind-btn mt-4 '>Learn More →</button>
+                                    <Link to = '/services'>
+                                        <button className='ind-btn mt-4 '>Learn More →</button>
+                                    </Link>
                                 </div>
                                 
                             </div>
@@ -40,7 +43,9 @@ const Industries = () => {
                                 </div>
                                 <h1 className='text-center text-3xl font-normal mt-6'>Manufacturing</h1>
                                 <div className='text-center'>
-                                    <button className='ind-btn mt-4 '>Learn More →</button>
+                                    <Link to = '/services'>
+                                        <button className='ind-btn mt-4 '>Learn More →</button>
+                                    </Link>
                                 </div>
                             </div>
                             <div className="w-1/3 industry-card-base">
@@ -48,7 +53,9 @@ const Industries = () => {
                                 </div>
                                 <h1 className='text-center text-3xl font-normal mt-6'>Commercial Fleets</h1>
                                 <div className='text-center'>
-                                    <button className='ind-btn mt-4 '>Learn More →</button>
+                                    <Link to = '/services'>
+                                        <button className='ind-btn mt-4 '>Learn More →</button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -61,7 +68,7 @@ const Industries = () => {
                                 </Slide>
                             </div>
                             <div className="w-1/2 pl-10 industry-header-title">
-                                <Slide direction='right'>
+                                <Slide direction='left'>
                                     <h1 className="font-semibold text-lg industry-p">We provide a wide range of high-quality 
                                         fuel solutions tailored to meet your needs. Whether you're looking for premium 
                                         gasoline, diesel, or CNG, our products are sourced from trusted suppliers to 
@@ -76,7 +83,9 @@ const Industries = () => {
                                 </div>
                                 <h1 className='text-center text-3xl font-normal mt-6'>Diesel</h1>
                                 <div className='text-center'>
-                                    <button className='ind-btn mt-4 '>Learn More →</button>
+                                    <Link to = '/services'>
+                                        <button className='ind-btn mt-4 '>Learn More →</button>
+                                    </Link>
                                 </div>
                                 
                             </div>
@@ -85,7 +94,9 @@ const Industries = () => {
                                 </div>
                                 <h1 className='text-center text-3xl font-normal mt-6'>Gasoline</h1>
                                 <div className='text-center'>
-                                    <button className='ind-btn mt-4 '>Learn More →</button>
+                                    <Link to = '/services'>
+                                        <button className='ind-btn mt-4 '>Learn More →</button>
+                                    </Link>
                                 </div>
                             </div>
                             <div className="w-1/3 industry-card-base">
@@ -93,7 +104,9 @@ const Industries = () => {
                                 </div>
                                 <h1 className='text-center text-3xl font-normal mt-6'>CNG & LPG</h1>
                                 <div className='text-center'>
-                                    <button className='ind-btn mt-4 '>Learn More →</button>
+                                    <Link to = '/services'>
+                                        <button className='ind-btn mt-4 '>Learn More →</button>
+                                    </Link>
                                 </div>
                             </div>
                     </div>

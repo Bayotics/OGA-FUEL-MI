@@ -73,7 +73,6 @@ export default function OrderScreen() {
 
     }
   }, [order, userInfo, orderId, navigate]);
-  console.log(order)
   const orderIsPaid = order.isPaid
 // paystack implementation
   const config = {
@@ -124,13 +123,11 @@ export default function OrderScreen() {
       toast.error(getError(err));
       dispatch({ type: 'UPDATE_FAIL' });
     }
-      console.log(order.isPaid)
       order.isPaid = true;
     };
     postFunc();
     order.isPaid = true;
     // navigate('/')
-    console.log(reference)    
   };
 
   const onClose = () => {

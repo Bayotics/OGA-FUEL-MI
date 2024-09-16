@@ -5,6 +5,7 @@ import { PiLightningLight } from "react-icons/pi";
 import { AiOutlineSafety } from "react-icons/ai";
 import { PiThumbsUpLight } from "react-icons/pi";
 import { GiGasStove } from 'react-icons/gi';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -14,6 +15,9 @@ const LPGScreen = () => {
 
     return(
         <div className="fuel-screen-body ">
+            <Helmet>
+                <title>LPG</title>
+            </Helmet>
             <div className="perol-screen-contents py-40 px-24">
                 <div className=" petrol-scr-header text-center justify-center flex gap-1">
                     <Slide direction="top" triggerOnce>
@@ -81,7 +85,7 @@ const LPGScreen = () => {
                         </div>
                         <div className="petrol-scr-right w-1/2 px-6 ">
                             <div className="">
-                                <Slide direction="right" triggerOnce>
+                                <Slide direction="left" triggerOnce>
                                     <div className="petrol-scr-icon p-3 bg-blue-600 w-[10%] m-auto rounded-lg">
                                         <AiOutlineSafety className="text-3xl text-white font-thin"/>
                                     </div>
@@ -99,7 +103,7 @@ const LPGScreen = () => {
                                 </Slide>
                             </div>
                             <div className="mt-28">
-                                <Slide direction="right" triggerOnce>
+                                <Slide direction="left" triggerOnce>
                                     <div className="petrol-scr-icon p-3 bg-blue-600 w-[10%] m-auto rounded-lg">
                                         <RiCustomerService2Line className="text-3xl text-white font-thin"/>
                                     </div>
@@ -130,7 +134,7 @@ const LPGScreen = () => {
                             </Slide>
                         </div>
                         <div className="petrol-promo-txt w-1/2">
-                            <Slide direction="right" triggerOnce>
+                            <Slide direction="left" triggerOnce>
                                 <h1 className="text-black text-3xl mt-8 font-medium">
                                     Benefits of LPG from FuelMe
                                 </h1>

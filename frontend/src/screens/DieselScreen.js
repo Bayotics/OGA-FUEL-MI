@@ -5,6 +5,7 @@ import { RiCustomerService2Line } from "react-icons/ri";
 import { MdTurnSharpRight } from "react-icons/md";
 import { AiOutlineSafety } from "react-icons/ai";
 import { BsFuelPumpDiesel } from "react-icons/bs";
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -13,6 +14,9 @@ const DieselScreen = () => {
 
     return(
         <div className="fuel-screen-body ">
+            <Helmet>
+                <title>Diesel</title>
+            </Helmet>
             <div className="perol-screen-contents py-40 px-24">
                 <div className=" petrol-scr-header text-center justify-center flex gap-1">
                     <Slide direction="top" triggerOnce>
@@ -77,7 +81,7 @@ const DieselScreen = () => {
                         </div>
                         <div className="petrol-scr-right w-1/2 px-6 ">
                             <div className="">
-                                <Slide direction="right" triggerOnce>
+                                <Slide direction="left" triggerOnce>
                                     <div className="petrol-scr-icon p-3 bg-blue-600 w-[10%] m-auto rounded-lg">
                                         <RiCustomerService2Line className="text-3xl text-white font-thin"/>
                                     </div>
@@ -97,7 +101,7 @@ const DieselScreen = () => {
                                 </Slide>
                             </div>
                             <div className="mt-16">
-                                <Slide direction="right" triggerOnce>
+                                <Slide direction="left" triggerOnce>
                                     <div className="petrol-scr-icon p-3 bg-blue-600 w-[10%] m-auto rounded-lg">
                                         <AiOutlineSafety className="text-3xl text-white font-thin"/>
                                     </div>
@@ -125,7 +129,7 @@ const DieselScreen = () => {
                             </Slide>
                         </div>
                         <div className="petrol-promo-txt w-1/2">
-                            <Slide direction="right" triggerOnce>
+                            <Slide direction="left" triggerOnce>
                                 <h1 className="text-black text-3xl mt-4 font-medium">
                                     Benefits of Diesel from FuelMe
                                 </h1>

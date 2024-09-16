@@ -51,6 +51,16 @@ export default function PaymentMethodScreen() {
           <div className="mb-3">
             <input disabled
               type="radio"
+              id="payOnDelivery"
+              value="payOnDelivery"
+              checked={paymentMethodName === 'payOnDelivery'}
+              onChange={(e) => setPaymentMethod(e.target.value)}
+            />
+            <label htmlFor = "payOnDelivery" className='ml-2'>Pay on Delivery</label>
+          </div>
+          <div className="mb-3">
+            <input disabled
+              type="radio"
               id="Flutterwave"
               value="Flutterwave"
               checked={paymentMethodName === 'Flutterwave'}

@@ -13,8 +13,6 @@ const VerifyEmail = () => {
     const navigate = useNavigate();
 
     const emailToken = searchParams.get("emailToken");
-    console.log(user);
-    console.log("emailToken", emailToken)
     useEffect(() => {
         (async () => {
             if(user?.isVerified){
@@ -29,7 +27,6 @@ const VerifyEmail = () => {
                         JSON.stringify({emailToken})
                     );
                     setIsLoading(false);
-                    console.log("res", response);
                     if(response.error){
                         return setError(response);
                     }

@@ -54,7 +54,7 @@ const Offshore = () => {
                 </Slide>
             </div>
             <div className='services-img w-3/5'>
-                <Slide direction='right' triggerOnce>
+                <Slide direction='left' triggerOnce>
                     <div className='services-pic'>
                         <img src = {offshore} className='h-[420px] w-[100%] rounded-2xl' alt = 'bulk' />
                     </div>

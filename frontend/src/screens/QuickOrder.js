@@ -89,7 +89,7 @@ const QuickOrder = () => {
                 </Slide>
               </div>
               <div className='contact-input w-2/3 '>
-                <Slide direction='right' triggerOnce>
+                <Slide direction='left' triggerOnce>
                   <form className='bg-black w-full px-10 py-12 rounded-[30px]' 
                     action={FORM_ENDPOINT} onSubmit={handleSubmit} method="POST">
                       <div className='w-full'>

@@ -3,6 +3,7 @@ import playstore from '../assets/Fuel-me/pngs/playstore.png'
 import app from '../assets/Fuel-me/pngs/fuel-me-app.png'
 import { Zoom } from 'react-awesome-reveal'
 import { Slide } from 'react-awesome-reveal'
+import { Link } from 'react-router-dom'
 
 const FuelmeApp = () => {
     return(
@@ -14,24 +15,28 @@ const FuelmeApp = () => {
                             Get the Fuelme App now and <br/>say goodbye to Filling station runs
                         </h1>
                         <div className="flex download-btns gap-4 mt-8">
-                            <div className="google-play-btn flex border rounded-md border-black px-6 py-1 gap-2 cursor-pointer">
-                                <div className='google-play-btn-img mt-2 '>
-                                    <img src={playstore} alt='playstore' />
+                            <Link to = '/download'>
+                                <div className="google-play-btn flex border rounded-md border-black px-6 py-1 gap-2 cursor-pointer">
+                                    <div className='google-play-btn-img mt-2 '>
+                                        <img src={playstore} alt='playstore' />
+                                    </div>
+                                    <div className='google-play-btn-text'>
+                                        <p className='text-xs text-black'>GET IT ON</p>
+                                        <h1 className='text-black font-medium'>Google Play</h1>
+                                    </div>
                                 </div>
-                                <div className='google-play-btn-text'>
-                                    <p className='text-xs text-black'>GET IT ON</p>
-                                    <h1 className='text-black font-medium'>Google Play</h1>
+                            </Link>
+                            <Link to = '/download'>
+                                <div className="google-play-btn flex border rounded-md border-black px-6 py-1 gap-2 cursor-pointer">
+                                    <div className='google-play-btn-img mt-2 '>
+                                        <img src={apple} alt='playstore' />
+                                    </div>
+                                    <div className='google-play-btn-text'>
+                                        <p className='text-xs text-black'>Download on the</p>
+                                        <h1 className='text-black font-medium'>App Store</h1>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="google-play-btn flex border rounded-md border-black px-6 py-1 gap-2 cursor-pointer">
-                                <div className='google-play-btn-img mt-2 '>
-                                    <img src={apple} alt='playstore' />
-                                </div>
-                                <div className='google-play-btn-text'>
-                                    <p className='text-xs text-black'>Download on the</p>
-                                    <h1 className='text-black font-medium'>App Store</h1>
-                                </div>
-                            </div>
+                            </Link>
                         </div>
                     </Slide>
                 </div>

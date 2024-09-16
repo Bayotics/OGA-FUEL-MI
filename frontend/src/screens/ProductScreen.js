@@ -55,7 +55,6 @@ function ProductScreen() {
   const navigate = useNavigate();
   const params = useParams();
   const productId = params.id
-  console.log(productId);
 
   const [{ loading, error, product, loadingCreateReview }, dispatch] =
     useReducer(reducer, {
@@ -113,7 +112,6 @@ function ProductScreen() {
       toast.success('Review submitted successfully');
       product.reviews.unshift(data.review);
       product.numReviews = data.numReviews;
-      console.log(product.numReviews)
       product.rating = data.rating;
       setComment('');
       setRating(0);

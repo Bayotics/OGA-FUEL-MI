@@ -5,6 +5,7 @@ import convenient from '../assets/Fuel-me/pngs/convenient.png'
 import aboutPoster from '../assets/Fuel-me/pngs/intro-pic-cover.png'
 
 import { Slide } from 'react-awesome-reveal'
+import { Link } from 'react-router-dom'
 
 
 
@@ -20,9 +21,11 @@ const HomePageAbout = () => {
                             things that really count. Find out how our solution regularly saves businesses 
                             and people money and time.</p>
                         <div className="home-about-btn mt-8">
-                            <button className=" bg-[#000000] px-7 py-3 rounded-md text-white hover:bg-[#4c4d4e]">
-                                Learn More →
-                            </button>
+                            <Link to = '/services'>
+                                <button className=" bg-[#000000] px-7 py-3 rounded-md text-white hover:bg-[#4c4d4e]">
+                                    Learn More →
+                                </button>
+                            </Link>
                         </div>
                         <div className='mt-8'>
                             <img src = {aboutPoster} alt = 'about-poster' className='m-auto rounded-2xl fuel-me-bike' />
@@ -30,7 +33,7 @@ const HomePageAbout = () => {
                     </Slide>
                 </div>
                 <div className="home-about-design w-1/2 pl-6">
-                    <Slide direction='right' triggerOnce>   
+                    <Slide direction='left' triggerOnce>   
                         <div className='home-about-item flex gap-8'>
                             <div className=''>
                                 <div className='rounded-full hp-about-icons  p-3 bg-black'>

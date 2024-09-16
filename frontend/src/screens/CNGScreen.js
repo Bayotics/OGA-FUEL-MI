@@ -6,6 +6,7 @@ import { PiSpeedometerLight } from "react-icons/pi";
 import { MdOutlinePropaneTank } from 'react-icons/md';
 import { IoLeafOutline } from "react-icons/io5";
 import cngPic from '../assets/Fuel-me/pngs/cng-pic.png'
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -15,6 +16,9 @@ const CNGScreen = () => {
 
     return(
         <div className="fuel-screen-body ">
+            <Helmet>
+                <title>CNG</title>
+            </Helmet>
             <div className="perol-screen-contents py-40 px-24">
                 <div className=" petrol-scr-header text-center justify-center flex gap-1">
                     <Slide direction="top" triggerOnce>
@@ -82,7 +86,7 @@ const CNGScreen = () => {
                         </div>
                         <div className="petrol-scr-right w-1/2 px-6 ">
                             <div className="">
-                                <Slide direction="right" triggerOnce>
+                                <Slide direction="left" triggerOnce>
                                     <div className="petrol-scr-icon p-3 bg-blue-600 w-[10%] m-auto rounded-lg">
                                         <PiSpeedometerLight className="text-3xl text-white font-thin"/>
                                     </div>
@@ -99,7 +103,7 @@ const CNGScreen = () => {
                                 </Slide>
                             </div>
                             <div className="mt-28">
-                                <Slide direction="right" triggerOnce>
+                                <Slide direction="left" triggerOnce>
                                     <div className="petrol-scr-icon p-3 bg-blue-600 w-[10%] m-auto rounded-lg">
                                         <RiCustomerService2Line className="text-3xl text-white font-thin"/>
                                     </div>
@@ -130,7 +134,7 @@ const CNGScreen = () => {
                             </Slide>
                         </div>
                         <div className="petrol-promo-txt w-1/2">
-                            <Slide direction="right" triggerOnce>
+                            <Slide direction="left" triggerOnce>
                                 <h1 className="text-black text-3xl mt-8 font-medium">
                                     Benefits of CNG from FuelMe
                                 </h1>

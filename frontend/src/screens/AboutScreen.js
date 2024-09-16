@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import Testimonials from "../components/Testimonials";
 import { Bounce, Slide } from "react-awesome-reveal";
 import { Zoom } from "react-awesome-reveal";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -18,6 +19,9 @@ const AboutScreen = () => {
 
   return (
     <div className="about-scr-main pb-40 ">
+      <Helmet>
+        <title>About Us</title>
+      </Helmet>
       <div className="about-scr-cover py-20 text-center">
         <div className="about-scr-head w-[20%] m-auto ">
           <Slide direction="down" triggerOnce>
@@ -30,7 +34,7 @@ const AboutScreen = () => {
         <div className="about-scr-intro-contents flex gap-24">
           <div className="about-scr-intro-img w-1/2 p-10">
             <Zoom triggerOnce>
-              <img src = {fuelMeTruck} alt="fuel truck" className="h-[50%] rounded-2xl"/>
+              <img src = {fuelMeTruck} alt="fuel truck" className="h-[50%] rounded-2xl fuel-me-custom-truck"/>
             </Zoom>
           </div>
           <div className="about-scr-intro-texts w-1/2">
@@ -106,7 +110,7 @@ const AboutScreen = () => {
           </div>
           <div className="fuelme-values-card w-1/3 border px-4 pt-8 pb-12 rounded-xl border-gray-300 shadow-xl
             bg-gradient-to-r from-white to-sky-50">
-              <Slide direction="right" triggerOnce>
+              <Slide direction="left" triggerOnce>
                 <div className="fuelme-values-card-icon m-auto w-[15%] py-2 border rounded-full bg-blue-200">
                   <IoDiamondOutline className="text-4xl m-auto"/>
                 </div>
