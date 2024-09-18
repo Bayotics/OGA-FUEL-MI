@@ -14,7 +14,7 @@ const Footer = () => {
                 <div className="footer-contents  -t pt-16 pb-8 px-32 flex justify-between">
                     <div className="footer-title  ">
                         <div className="footer-title-icon fuel-me-logo-footer">
-                            <img className="fuelme-logo-main" src = {logo} alt="fuel-me-logo" />
+                            <img className="fuelme-logo-main-footer" src = {logo} alt="fuel-me-logo" />
                         </div>
                         <h1 className="mt-4 font-medium footer-phrase">...Fuel up at your own <br/> convenience</h1>
                         <p className="mt-4 text-xs">&copy; 2024</p>

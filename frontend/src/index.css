@@ -24,6 +24,10 @@ body {
   height: 50px;
   width: 105px;
 }
+.fuelme-logo-main-footer{
+  height: 50px;
+  width: 105px;
+}
 .nav-menu{
   font-size: 16px;
 }
@@ -195,6 +199,11 @@ body {
       position: relative;
       bottom: 20px;
       left: 180px;
+    }
+    .fuelme-logo-main-footer{
+      height: 80px;
+      width: 150px;
+      margin: auto;
     }
     header {
       width: 640px;
@@ -748,6 +757,38 @@ body {
       width: 100%;
       margin-bottom: 100px;
     }
+    /* Product details Screen */
+    .product-contents{
+      display: block;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .product-img{
+      width: 100%;
+      box-shadow: none;
+    }
+    .product-details{
+      width: 100%;
+      margin-top: 100px;
+      text-align: center;
+    }
+    .product-details fieldset{
+      margin-top: 100px;
+    }
+    .product-infos-container{
+      padding-left: 5px;
+      padding-left: 5px;
+    }
+    .css-70gt0h-MuiButtonBase-root-MuiTab-root.Mui-selected{
+      
+    }
+    .css-70gt0h-MuiButtonBase-root-MuiTab-root{
+      width: 0%;
+    }
+    .css-heg063-MuiTabs-flexContainer{
+      width: 40%;
+    }
+    /* Product details screen end */
   }
   
   
@@ -802,6 +843,11 @@ body {
         position: relative;
         bottom: 20px;
         left: 180px;
+      }
+      .fuelme-logo-main-footer{
+        height: 80px;
+        width: 150px;
+        margin: auto;
       }
       header {
         width: 640px;
@@ -1359,6 +1405,38 @@ body {
         width: 100%;
         margin-bottom: 100px;
       }
+      /* Product details Screen */
+    .product-contents{
+      display: block;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .product-img{
+      width: 100%;
+      box-shadow: none;
+    }
+    .product-details{
+      width: 100%;
+      margin-top: 100px;
+      text-align: center;
+    }
+    .product-details fieldset{
+      margin-top: 100px;
+    }
+    .product-infos-container{
+      padding-left: 5px;
+      padding-left: 5px;
+    }
+    .css-70gt0h-MuiButtonBase-root-MuiTab-root.Mui-selected{
+      
+    }
+    .css-70gt0h-MuiButtonBase-root-MuiTab-root{
+      width: 0%;
+    }
+    .css-heg063-MuiTabs-flexContainer{
+      width: 40%;
+    }
+    /* Product details screen end */
     }
   
   /* surface duo */
@@ -1403,6 +1481,11 @@ body {
       position: relative;
       bottom: 20px;
       left: 180px;
+    }
+    .fuelme-logo-main-footer{
+      height: 80px;
+      width: 150px;
+      margin: auto;
     }
     header {
       width: 640px;
@@ -1960,6 +2043,38 @@ body {
       width: 100%;
       margin-bottom: 100px;
     }
+    /* Product details Screen */
+    .product-contents{
+      display: block;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .product-img{
+      width: 100%;
+      box-shadow: none;
+    }
+    .product-details{
+      width: 100%;
+      margin-top: 100px;
+      text-align: center;
+    }
+    .product-details fieldset{
+      margin-top: 100px;
+    }
+    .product-infos-container{
+      padding-left: 5px;
+      padding-left: 5px;
+    }
+    .css-70gt0h-MuiButtonBase-root-MuiTab-root.Mui-selected{
+      
+    }
+    .css-70gt0h-MuiButtonBase-root-MuiTab-root{
+      width: 0%;
+    }
+    .css-heg063-MuiTabs-flexContainer{
+      width: 40%;
+    }
+    /* Product details screen end */
   }
   
  
@@ -2005,6 +2120,11 @@ body {
       position: relative;
       bottom: 20px;
       left: 180px;
+    }
+    .fuelme-logo-main-footer{
+      height: 80px;
+      width: 150px;
+      margin: auto;
     }
     header {
       width: 640px;
@@ -2562,6 +2682,38 @@ body {
       width: 100%;
       margin-bottom: 100px;
     }
+     /* Product details Screen */
+     .product-contents{
+      display: block;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .product-img{
+      width: 100%;
+      box-shadow: none;
+    }
+    .product-details{
+      width: 100%;
+      margin-top: 100px;
+      text-align: center;
+    }
+    .product-details fieldset{
+      margin-top: 100px;
+    }
+    .product-infos-container{
+      padding-left: 5px;
+      padding-left: 5px;
+    }
+    .css-70gt0h-MuiButtonBase-root-MuiTab-root.Mui-selected{
+      
+    }
+    .css-70gt0h-MuiButtonBase-root-MuiTab-root{
+      width: 0%;
+    }
+    .css-heg063-MuiTabs-flexContainer{
+      width: 40%;
+    }
+    /* Product details screen end */
     }
 
     @media screen and (min-width: 767.5px) and (max-width: 950px) {
@@ -2621,6 +2773,38 @@ body {
       margin: auto;
       margin-bottom: 100px;
      }
+      /* Product details Screen */
+    .product-contents{
+      display: block;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .product-img{
+      width: 100%;
+      box-shadow: none;
+    }
+    .product-details{
+      width: 100%;
+      margin-top: 100px;
+      text-align: center;
+    }
+    .product-details fieldset{
+      margin-top: 100px;
+    }
+    .product-infos-container{
+      padding-left: 5px;
+      padding-left: 5px;
+    }
+    .css-70gt0h-MuiButtonBase-root-MuiTab-root.Mui-selected{
+      
+    }
+    .css-70gt0h-MuiButtonBase-root-MuiTab-root{
+      width: 0%;
+    }
+    .css-heg063-MuiTabs-flexContainer{
+      width: 40%;
+    }
+    /* Product details screen end */
     }
   
    @media screen and (min-width: 951px) and (max-width: 1049px) {

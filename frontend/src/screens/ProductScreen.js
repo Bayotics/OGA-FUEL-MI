@@ -192,7 +192,7 @@ function ProductScreen() {
           </div>
         </div>
       </div>
-      <div className='px-20'>
+      <div className='px-20 product-infos-container'>
         <div className='product-infos mt-16 pb-16 border-b'>
           <ProductDetails product = {product}/>
         </div>
