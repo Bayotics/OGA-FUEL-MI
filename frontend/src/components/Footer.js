@@ -66,7 +66,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <p className='text-xs text-gray-600 text-right mt-10 footer-promo'>Copyright © 2024. Fuel me. All Rights Reserved. Development & design by  
-                <Link to= 'https://twitter.com/unclebayotics'> unclebayotics</Link> </p>
+                <Link to= 'https://twitter.com/unclebayotics'>Abdullahi Sho unclebayotics</Link> </p>
             </div>
             
             
