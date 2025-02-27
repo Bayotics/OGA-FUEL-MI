@@ -319,7 +319,7 @@ function App() {
                           </div>
                           <ul className="py-2">
                             <li>
-                              <LinkContainer className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100  " to="/profiledisplay">
+                              <LinkContainer className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-400  " to="/profiledisplay">
                                 <NavDropdown.Item>Display Profile</NavDropdown.Item>
                               </LinkContainer>
                             </li>
