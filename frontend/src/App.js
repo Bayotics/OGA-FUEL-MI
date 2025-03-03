@@ -324,7 +324,7 @@ function App() {
                               </LinkContainer>
                             </li>
                             <li>
-                              <LinkContainer className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100  " to="/orderhistory">
+                              <LinkContainer className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-100  " to="/orderhistory">
                                 <NavDropdown.Item>Order History</NavDropdown.Item>
                               </LinkContainer>
                             </li>
@@ -444,22 +444,22 @@ function App() {
                               </div>
                               <ul className="py-2">
                                 <li>
-                                  <LinkContainer className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100  " to="/admin/dashboard">
+                                  <LinkContainer className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-100  " to="/admin/dashboard">
                                     <NavDropdown.Item>Dashboard</NavDropdown.Item>
                                   </LinkContainer>  
                                 </li>
                                 <li>
-                                  <LinkContainer className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100  " to="/admin/products">
+                                  <LinkContainer className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-100  " to="/admin/products">
                                     <NavDropdown.Item>Products</NavDropdown.Item>
                                   </LinkContainer>
                                 </li>
                                 <li>
-                                  <LinkContainer className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100  " to="/admin/orders">
+                                  <LinkContainer className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-100  " to="/admin/orders">
                                     <NavDropdown.Item>Orders</NavDropdown.Item>
                                   </LinkContainer>
                                 </li>
                                 <li>
-                                <LinkContainer className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100  " to="/admin/users">
+                                <LinkContainer className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-100  " to="/admin/users">
                                     <NavDropdown.Item>Users</NavDropdown.Item>
                                   </LinkContainer>
                                 </li>
