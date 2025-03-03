@@ -10,6 +10,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #425b76;
 }
+.dropdown-item{
+  color: gray
+}
 @keyframes fadeInAnimation {
   0% {
       opacity: 0;
